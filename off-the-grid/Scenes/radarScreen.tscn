@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://brswe2rgiop22"]
+
+[sub_resource type="Environment" id="Environment_h5td0"]
+
+[node name="SubViewport" type="SubViewport"]
+
+[node name="WallCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26452446, -0.18610466, -0.63211304)
+cull_mask = 1048562
+environment = SubResource("Environment_h5td0")
+current = true
+
+[node name="FunitureCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26452446, -0.18610466, -0.63211304)
+cull_mask = 1048564
+environment = SubResource("Environment_h5td0")
+
+[node name="OtherCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.26452446, -0.18610466, -0.63211304)
+cull_mask = 1048568
+environment = SubResource("Environment_h5td0")
