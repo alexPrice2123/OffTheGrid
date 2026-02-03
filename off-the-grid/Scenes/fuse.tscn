@@ -30,7 +30,7 @@ scale_curve = SubResource("CurveTexture_mg4mk")
 transform = Transform3D(0.33834213, 0, 0, 0, 0.33834213, 0, 0, 0, 0.33834213, 0, 0, 0)
 mesh = SubResource("TorusMesh_trj8p")
 
-[node name="Warn" type="GPUParticles3D" parent="."]
+[node name="Warn2" type="GPUParticles3D" parent="."]
 layers = 8
 material_override = SubResource("StandardMaterial3D_trj8p")
 amount = 25

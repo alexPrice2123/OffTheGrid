@@ -3,6 +3,7 @@ using System;
 
 public partial class Player : CharacterBody3D
 {
+	public static Player Instance { get; private set; }
 	private const float WalkSpeed = 5.0f;
 	private const float CrouchSpeed = 2.5f;
 	private float _currentSpeed;
@@ -26,24 +27,25 @@ public partial class Player : CharacterBody3D
 	private Color _screenColor = new Color(0, 1, 0, 1);
 	public override void _Ready()
     {
-       _head = GetNode<Node3D>("Head");
-	   _cam = GetNode<Camera3D>("Head/Camera3D");
-	   _walkPos = GetNode<Node3D>("WalkingHead");
-	   _crouchPos = GetNode<Node3D>("CrouchHead");
-	   _walkCollision = GetNode<CollisionShape3D>("WalkShape");
-	   _crouchCollision = GetNode<CollisionShape3D>("CrouchShape");
-	   _currentHeadPos = _walkPos;
-	   _currentSpeed = WalkSpeed;
-	   _wallCam = GetNode<Camera3D>("Head/Screen/SubViewport/WallCamera");
-	   _furnCam = GetNode<Camera3D>("Head/Screen/SubViewport/FunitureCamera");
+		_head = GetNode<Node3D>("Head");
+		_cam = GetNode<Camera3D>("Head/Camera3D");
+		_walkPos = GetNode<Node3D>("WalkingHead");
+		_crouchPos = GetNode<Node3D>("CrouchHead");
+		_walkCollision = GetNode<CollisionShape3D>("WalkShape");
+		_crouchCollision = GetNode<CollisionShape3D>("CrouchShape");
+		_currentHeadPos = _walkPos;
+		_currentSpeed = WalkSpeed;
+		_wallCam = GetNode<Camera3D>("Head/Screen/SubViewport/WallCamera");
+		_furnCam = GetNode<Camera3D>("Head/Screen/SubViewport/FunitureCamera");
 		_otherCam = GetNode<Camera3D>("Head/Screen/SubViewport/OtherCamera");
 		_screen = GetNode<MeshInstance3D>("Head/Screen");
 		_defScreenPos = GetNode<Node3D>("Head/DefScreen");
-	   _lookScreenPos = GetNode<Node3D>("Head/LookScreen");
+		_lookScreenPos = GetNode<Node3D>("Head/LookScreen");
 		_currentCam = _wallCam;
 		_currentScreenPos = _defScreenPos;
 		_screenMat = _screen.MaterialOverride as ShaderMaterial;
-	   Input.MouseMode = Input.MouseModeEnum.Captured;
+		Instance = this;
+		Input.MouseMode = Input.MouseModeEnum.Captured;
     }
 	public override void _Input(InputEvent @event)
 	{
