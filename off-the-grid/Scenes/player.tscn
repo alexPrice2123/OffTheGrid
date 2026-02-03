@@ -73,7 +73,8 @@ cull_mask = 524280
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Screen"]
 transform = Transform3D(9.182161, -3.0522132, 2.5242608, -3.0522108, -1.3910086, 9.420673, -2.524264, -9.420673, -2.2088463, 0.25807846, 0.96316195, 0)
 layers = 32
-spot_range = 10.0
+light_energy = 3.0
+spot_range = 15.0
 
 [node name="Power" type="Label3D" parent="Head/Screen"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.003075838, 0.011479855, -0.85266185)
