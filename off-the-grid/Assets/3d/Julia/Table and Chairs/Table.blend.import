@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://de2gj6gotevm1"
-path="res://.godot/imported/LowDresser.blend-2bec3a85d42ebd5a12d8ecacd20857ee.scn"
+uid="uid://dje42vtma6xd2"
+path="res://.godot/imported/Table.blend-e892a750fe7b83ff7513e5ab9dabe801.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Julia/LowDresser/LowDresser.blend"
-dest_files=["res://.godot/imported/LowDresser.blend-2bec3a85d42ebd5a12d8ecacd20857ee.scn"]
+source_file="res://Assets/3d/Julia/Table and Chairs/Table.blend"
+dest_files=["res://.godot/imported/Table.blend-e892a750fe7b83ff7513e5ab9dabe801.scn"]
 
 [params]
 
