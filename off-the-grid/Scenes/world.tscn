@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b1cvol6c273pn"]
+[gd_scene load_steps=4 format=3 uid="uid://b1cvol6c273pn"]
 
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_a02cp"]
+[ext_resource type="PackedScene" uid="uid://jcd2agr1jvei" path="res://Scenes/fuse.tscn" id="2_go701"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a02cp"]
 albedo_color = Color(0.20152658, 0.20152658, 0.20152658, 1)
@@ -29,3 +30,6 @@ size = Vector3(1.8180542, 2.522873, 1.3818359)
 
 [node name="Player" parent="." instance=ExtResource("1_a02cp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1942004, 0)
+
+[node name="Fuse" parent="." instance=ExtResource("2_go701")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7798712, 0.66012, -0.6298032)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://o7twalwr44xx"]
+[gd_scene load_steps=11 format=3 uid="uid://o7twalwr44xx"]
 
 [ext_resource type="Script" uid="uid://k7e81pvm0lqd" path="res://Scripts/Player.cs" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://brswe2rgiop22" path="res://Scenes/radarScreen.tscn" id="2_cvnsp"]
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Other/Digital.ttf" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -47,7 +48,7 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5731113, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
-cull_mask = 1048543
+cull_mask = 1048535
 
 [node name="Screen" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(0.09659258, -0.025881905, 1.131334e-09, 0, -4.371139e-09, -0.1, 0.025881905, 0.09659258, -4.222196e-09, 0.4593637, -0.3363062, -0.63211304)
@@ -92,5 +93,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067711666, 0.0018967986, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 
 [node name="CrouchHead" type="Node3D" parent="."]
+
+[node name="UI" parent="." instance=ExtResource("5_fkybt")]
 
 [editable path="Head/Screen/SubViewport"]

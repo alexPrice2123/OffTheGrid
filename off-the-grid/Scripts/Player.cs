@@ -92,12 +92,12 @@ public partial class Player : CharacterBody3D
             if (_currentCam == _wallCam)
             {
 				_currentCam = _furnCam;
-				_screenColor = new Color(0, 0, 1, 1);
+				_screenColor = new Color(180f/255f, 188f/255f, 237f/255f, 1);
             }
 			else if (_currentCam == _furnCam)
             {
 				_currentCam = _otherCam;
-				_screenColor = new Color(1, 0, 0, 1);
+				_screenColor = new Color(250f/255f, 192f/255f, 192f/255f, 1);
             }
             else
             {
