@@ -11,7 +11,7 @@ emission_energy_multiplier = 16.0
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_mg4mk"]
+[sub_resource type="CurveTexture" id="CurveTexture_trj8p"]
 curve = SubResource("Curve_trj8p")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_trj8p"]
@@ -20,11 +20,11 @@ radial_velocity_max = 0.99997765
 gravity = Vector3(0, 0, 0)
 scale_min = 0.099999994
 scale_max = 0.099999994
-scale_curve = SubResource("CurveTexture_mg4mk")
+scale_curve = SubResource("CurveTexture_trj8p")
 
 [sub_resource type="SphereMesh" id="SphereMesh_mg4mk"]
 
-[node name="Fuse" type="Node3D"]
+[node name="Fuse" type="Node3D" groups=["Fuse"]]
 
 [node name="Fuse" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.33834213, 0, 0, 0, 0.33834213, 0, 0, 0, 0.33834213, 0, 0, 0)

@@ -24,6 +24,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="OffTheGrid"
 
+[global_group]
+
+Fuse=""
+
 [input]
 
 Up={

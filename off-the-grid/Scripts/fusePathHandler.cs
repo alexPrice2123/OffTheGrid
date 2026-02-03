@@ -1,23 +1,47 @@
 using Godot;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class fusePathHandler : Node3D
 {
     [Export]
     public PackedScene PathMeshScene { get; set; }
 
+	[Export]
+    public PackedScene FuseScene { get; set; }
+
     [Export]
     public float MeshSpacing { get; set; } = 1.0f;
+
+	[Export]
+    public int MaxFuses { get; set; } = 5;
 
 	private int _count = 0;
 	private float _closestDist = 10000;
 	private Node3D _closestFuse;
     private Rid _navigationMap;
+	private RandomNumberGenerator _rng = new RandomNumberGenerator();
     private List<Node3D> _spawnedMeshes = new List<Node3D>();
+	private List<Node3D> _spawnedFuses = new List<Node3D>();
+
 
     public override void _Ready()
     {
+		_rng.Randomize();
+		_spawnedFuses = GetNode<Node3D>("FuseSpawns").GetChildren().OfType<Node3D>().ToList();
         _navigationMap = GetWorld3D().NavigationMap;
+		while (MaxFuses > 0 && _spawnedFuses.Count > 0)
+		{
+			int chosen = _rng.RandiRange(0, _spawnedFuses.Count - 1);
+			Node3D spawn = _spawnedFuses[chosen];
+
+			Node3D meshInstance = (Node3D)FuseScene.Instantiate();
+			GetNode<Node3D>("FuseHolder").AddChild(meshInstance);
+			meshInstance.GlobalPosition = spawn.GlobalPosition;
+
+			_spawnedFuses.RemoveAt(chosen);
+			MaxFuses--;
+		}
     }
 
 	public override void _PhysicsProcess(double delta)
