@@ -11,6 +11,10 @@ public partial class fusePathHandler : Node3D
     [Export]
     public float MeshSpacing { get; set; } = 1.0f;
 
+	private int _count = 0;
+	private float _closestDist = 100f;
+	private Node3D _closestFuse;
+
     // Reference to the NavigationServer3D map
     private Rid _navigationMap;
     // List to keep track of spawned meshes for easy cleanup
@@ -22,12 +26,39 @@ public partial class fusePathHandler : Node3D
         _navigationMap = GetWorld3D().NavigationMap;
     }
 
+	public override void _PhysicsProcess(double delta)
+    {
+		_count += 1;
+        if (_count == 100)
+        {
+			foreach (Node3D fuse in GetNode<Node3D>("FuseHolder").GetChildren())
+			{
+				if ((GetNode<Player>("Player").GlobalPosition - fuse.GlobalPosition).Length() < _closestDist)
+				{
+					_closestDist = (GetNode<Player>("Player").GlobalPosition - fuse.GlobalPosition).Length();
+					_closestFuse = fuse;
+				}
+			}
+           	GenerateAndPlaceMeshes(GetNode<Player>("Player").GlobalPosition, _closestFuse.GlobalPosition); 
+        }
+		if (_count == 150)
+        {
+            foreach (GpuParticles3D warn in _spawnedMeshes)
+            {
+                warn.Emitting = false;
+            }
+			_count = 0;
+        }
+		if (_count == 200)
+        {
+            ClearMeshes();
+			_count = 0;
+        }
+    }
+
     // Call this method to generate the path and place the meshes
     public void GenerateAndPlaceMeshes(Vector3 startPosition, Vector3 targetPosition)
     {
-        // 1. Clear previous meshes
-        ClearMeshes();
-
         // 2. Get the path points from the Navigation Server
         Vector3[] pathPoints = NavigationServer3D.MapGetPath(
             _navigationMap,
@@ -41,7 +72,6 @@ public partial class fusePathHandler : Node3D
             GD.Print("Pathfinding failed or path has no points.");
             return;
         }
-
         // 3. Place meshes along the path
         PlaceMeshesAlongPath(pathPoints);
     }
@@ -65,8 +95,8 @@ public partial class fusePathHandler : Node3D
 
                 // Instantiate and place the mesh
                 Node3D meshInstance = (Node3D)PathMeshScene.Instantiate();
-                meshInstance.GlobalPosition = spawnPosition;
                 AddChild(meshInstance); // Add as child of the PathManager or another suitable parent node
+				meshInstance.GlobalPosition = spawnPosition;
                 _spawnedMeshes.Add(meshInstance);
 
                 // Move to the next spawn point

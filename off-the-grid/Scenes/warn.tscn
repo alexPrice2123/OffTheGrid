@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://c0qbxb6p5emts"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jk1hu"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="Curve" id="Curve_bjnv8"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2485294, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mg4mk"]
+curve = SubResource("Curve_bjnv8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jk1hu"]
+flatness = 1.0
+radial_velocity_min = 0.019977648
+radial_velocity_max = 0.049977645
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_mg4mk")
+
+[sub_resource type="SphereMesh" id="SphereMesh_d38r8"]
+
+[node name="Warn" type="GPUParticles3D"]
+layers = 8
+material_override = SubResource("StandardMaterial3D_jk1hu")
+amount = 5
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_jk1hu")
+draw_pass_1 = SubResource("SphereMesh_d38r8")

@@ -80,7 +80,7 @@ public partial class Player : CharacterBody3D
 		_currentCam.GlobalPosition = GetNode<MeshInstance3D>("Head/Screen").GlobalPosition;
 		_currentCam.GlobalRotation = _cam.GlobalRotation;
 		if (Input.IsActionPressed("Crank")) { _power += (float)delta * 0.2f; }
-		else { _power -= (float)delta * 0.1f; }
+		else { _power -= (float)delta * 0.05f; }
 		if (_power >= 2f) { _power = 2f; }
 		if (_power <= 0f) { _power = 0f; }
 		_screenMat.SetShaderParameter("intensity", _power);

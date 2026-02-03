@@ -69,6 +69,7 @@ far = 10.0
 
 [node name="OtherCamera" parent="Head/Screen/SubViewport" index="2"]
 cull_mask = 524280
+far = 5.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Screen"]
 transform = Transform3D(9.182161, -3.0522132, 2.5242608, -3.0522108, -1.3910086, 9.420673, -2.524264, -9.420673, -2.2088463, 0.25807846, 0.96316195, 0)
