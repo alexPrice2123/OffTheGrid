@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://o7twalwr44xx"]
+[gd_scene load_steps=10 format=3 uid="uid://o7twalwr44xx"]
 
 [ext_resource type="Script" uid="uid://k7e81pvm0lqd" path="res://Scripts/Player.cs" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://brswe2rgiop22" path="res://Scenes/radarScreen.tscn" id="2_cvnsp"]
+[ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Other/Digital.ttf" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -23,7 +24,7 @@ shader_parameter/run = true
 shader_parameter/uv_mult = 30.0
 shader_parameter/lines_speed = 1.99999995902132
 shader_parameter/line_alpha = 0.5
-shader_parameter/distortion = 0.9999999552959999
+shader_parameter/distortion = 0.999999955296
 shader_parameter/intensity = 1.999999955296
 shader_parameter/line_definition = 0.499999988824
 shader_parameter/min_thickness = 0.03
@@ -46,9 +47,10 @@ disabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5731113, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+cull_mask = 1048543
 
 [node name="Screen" type="MeshInstance3D" parent="Head"]
-transform = Transform3D(0.09659258, -0.025881905, 1.131334e-09, 0, -4.371139e-09, -0.1, 0.025881905, 0.09659258, -4.222196e-09, 0.26452446, -0.18610466, -0.63211304)
+transform = Transform3D(0.09659258, -0.025881905, 1.131334e-09, 0, -4.371139e-09, -0.1, 0.025881905, 0.09659258, -4.222196e-09, 0.4593637, -0.3363062, -0.63211304)
 layers = 524288
 material_override = SubResource("ShaderMaterial_vgqql")
 mesh = SubResource("PlaneMesh_vgqql")
@@ -62,6 +64,7 @@ cull_mask = 524274
 
 [node name="FunitureCamera" parent="Head/Screen/SubViewport" index="1"]
 cull_mask = 524276
+far = 10.0
 
 [node name="OtherCamera" parent="Head/Screen/SubViewport" index="2"]
 cull_mask = 524280
@@ -70,6 +73,20 @@ cull_mask = 524280
 transform = Transform3D(9.182161, -3.0522132, 2.5242608, -3.0522108, -1.3910086, 9.420673, -2.524264, -9.420673, -2.2088463, 0.25807846, 0.96316195, 0)
 layers = 32
 spot_range = 10.0
+
+[node name="Power" type="Label3D" parent="Head/Screen"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.003075838, 0.011479855, -0.85266185)
+texture_filter = 0
+modulate = Color(0, 1, 0, 1)
+text = "Power:"
+font = ExtResource("4_vgqql")
+outline_size = 25
+
+[node name="DefScreen" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4593637, -0.3363062, -0.63211304)
+
+[node name="LookScreen" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067711666, 0.0018967986, -0.18681243)
 
 [node name="WalkingHead" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)

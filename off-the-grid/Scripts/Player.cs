@@ -17,6 +17,13 @@ public partial class Player : CharacterBody3D
 	private Camera3D _furnCam;
 	private Camera3D _otherCam;
 	private Camera3D _currentCam;
+	private MeshInstance3D _screen;
+	private Node3D _defScreenPos;
+	private Node3D _lookScreenPos;
+	private Node3D _currentScreenPos;
+	private float _power = 0f;
+	private ShaderMaterial _screenMat;
+	private Color _screenColor = new Color(0, 1, 0, 1);
 	public override void _Ready()
     {
        _head = GetNode<Node3D>("Head");
@@ -29,8 +36,13 @@ public partial class Player : CharacterBody3D
 	   _currentSpeed = WalkSpeed;
 	   _wallCam = GetNode<Camera3D>("Head/Screen/SubViewport/WallCamera");
 	   _furnCam = GetNode<Camera3D>("Head/Screen/SubViewport/FunitureCamera");
-	   _otherCam = GetNode<Camera3D>("Head/Screen/SubViewport/OtherCamera");
-	   _currentCam = _wallCam;
+		_otherCam = GetNode<Camera3D>("Head/Screen/SubViewport/OtherCamera");
+		_screen = GetNode<MeshInstance3D>("Head/Screen");
+		_defScreenPos = GetNode<Node3D>("Head/DefScreen");
+	   _lookScreenPos = GetNode<Node3D>("Head/LookScreen");
+		_currentCam = _wallCam;
+		_currentScreenPos = _defScreenPos;
+		_screenMat = _screen.MaterialOverride as ShaderMaterial;
 	   Input.MouseMode = Input.MouseModeEnum.Captured;
     }
 	public override void _Input(InputEvent @event)
@@ -65,20 +77,32 @@ public partial class Player : CharacterBody3D
 
 		_currentCam.GlobalPosition = GetNode<MeshInstance3D>("Head/Screen").GlobalPosition;
 		_currentCam.GlobalRotation = _cam.GlobalRotation;
+		if (Input.IsActionPressed("Crank")) { _power += (float)delta * 0.2f; }
+		else { _power -= (float)delta * 0.1f; }
+		if (_power >= 2f) { _power = 2f; }
+		if (_power <= 0f) { _power = 0f; }
+		_screenMat.SetShaderParameter("intensity", _power);
+		_screenMat.SetShaderParameter("hue", _screenColor);
+		_screen.GetNode<Label3D>("Power").Modulate = _screenColor / 1.5f;
+		if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
+		if (Input.IsActionJustReleased("LookCamera")) { _currentScreenPos = _defScreenPos; }
 		if (Input.IsActionJustPressed("ToggleCamera"))
         {
 			_currentCam.Current = false;
             if (_currentCam == _wallCam)
             {
-                _currentCam = _furnCam;
+				_currentCam = _furnCam;
+				_screenColor = new Color(0, 0, 1, 1);
             }
 			else if (_currentCam == _furnCam)
             {
-                _currentCam = _otherCam;
+				_currentCam = _otherCam;
+				_screenColor = new Color(1, 0, 0, 1);
             }
             else
             {
-                _currentCam = _wallCam;
+				_currentCam = _wallCam;
+				_screenColor = new Color(0, 1, 0, 1);
             }
 			_currentCam.Current = true;
         }
@@ -117,7 +141,9 @@ public partial class Player : CharacterBody3D
 		}
 
 		_head.Position = _head.Position.Lerp(_currentHeadPos.Position, (float)delta*5);
-
+		_screen.Position = _screen.Position.Lerp(_currentScreenPos.Position, (float)delta * 5);
+		_screen.GetNode<Label3D>("Power").Text = "Power: " + Mathf.Floor(100*_power/2) + "%";
+		
 		Velocity = velocity;
 		MoveAndSlide();
 	}
