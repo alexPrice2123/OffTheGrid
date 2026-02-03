@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://de0qqdglm8ul0"]
+
+[ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_7yn8b"]
+[ext_resource type="PackedScene" uid="uid://b7fn32tpguw3o" path="res://Assets/3d/House/Floor.blend" id="1_s486e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7yn8b"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_etk83"]
+sky_material = SubResource("ProceduralSkyMaterial_7yn8b")
+
+[sub_resource type="Environment" id="Environment_qumfl"]
+background_mode = 2
+sky = SubResource("Sky_etk83")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qumfl")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("1_7yn8b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.1942004, 2)
+
+[node name="Floor2" parent="." instance=ExtResource("1_s486e")]
+
+[node name="Floor11" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Floor9" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Floor3" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Floor8" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 10)
+
+[node name="Floor4" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20)
+
+[node name="Floor5" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 20)
+
+[node name="Floor6" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 30)
+
+[node name="Floor7" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 30)
+
+[node name="Floor10" parent="." instance=ExtResource("1_s486e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -10)
