@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://de2gj6gotevm1"
-path="res://.godot/imported/LowDresser.blend-2bec3a85d42ebd5a12d8ecacd20857ee.scn"
+uid="uid://3282cgitltgx"
+path="res://.godot/imported/Mirror.blend-05122778383041aef02d42a0fc068e61.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Julia/LowDresser/LowDresser.blend"
-dest_files=["res://.godot/imported/LowDresser.blend-2bec3a85d42ebd5a12d8ecacd20857ee.scn"]
+source_file="res://Assets/3d/Julia/Mirror/Mirror.blend"
+dest_files=["res://.godot/imported/Mirror.blend-05122778383041aef02d42a0fc068e61.scn"]
 
 [params]
 
