@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://olnho2mc8852"
-path="res://.godot/imported/HouseTemplate.blend-f06d4b51ffc4b10b79c95415177c37c2.scn"
+uid="uid://dv3gb33b68rgl"
+path="res://.godot/imported/Oval-portrait.blend-a5786762409380c49059fef171292e2c.scn"
 
 [deps]
 
-source_file="res://Assets/3D/HouseTemplate.blend"
-dest_files=["res://.godot/imported/HouseTemplate.blend-f06d4b51ffc4b10b79c95415177c37c2.scn"]
+source_file="res://Assets/3d/Maddy/Oval-portrait/Oval-portrait.blend"
+dest_files=["res://.godot/imported/Oval-portrait.blend-a5786762409380c49059fef171292e2c.scn"]
 
 [params]
 
