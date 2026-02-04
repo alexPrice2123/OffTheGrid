@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://o7twalwr44xx"]
+[gd_scene load_steps=13 format=3 uid="uid://o7twalwr44xx"]
 
 [ext_resource type="Script" uid="uid://k7e81pvm0lqd" path="res://Scripts/Player.cs" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://brswe2rgiop22" path="res://Scenes/radarScreen.tscn" id="2_cvnsp"]
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Other/Digital.ttf" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
+[ext_resource type="PackedScene" uid="uid://cos3y81b4pwcg" path="res://Assets/3D/Maddy/Radar/Radar.blend" id="5_x3wgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -31,16 +32,18 @@ shader_parameter/line_definition = 0.499999988824
 shader_parameter/min_thickness = 0.03
 shader_parameter/vignette = 0.999999977648
 shader_parameter/roll_speed = 0.749999938532
-shader_parameter/roll_height = 0.049999998882400004
+shader_parameter/roll_height = 0.0499999988824
 shader_parameter/roll_offset = 0.0999999977648
 shader_parameter/roll_warp = 0.010000000475
 shader_parameter/screen_warp = 0.499999988824
-shader_parameter/screen_warp_power = 1.5000000074506001
-shader_parameter/edge_fade = 0.05
+shader_parameter/screen_warp_power = 1.5000000074506
+shader_parameter/edge_fade = 0.1999999955296
 shader_parameter/roll_interval = 8.000000111759
 shader_parameter/roll_duration = 1.2500000186265
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vgqql"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3smsa"]
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_v0iea")
@@ -63,7 +66,7 @@ cull_mask = 1048535
 target_position = Vector3(0, 0, -2.5)
 
 [node name="Screen" type="MeshInstance3D" parent="Head"]
-transform = Transform3D(0.09659258, -0.025881905, 1.131334e-09, 0, -4.371139e-09, -0.1, 0.025881905, 0.09659258, -4.222196e-09, 0.4593637, -0.3363062, -0.63211304)
+transform = Transform3D(0.09659258, -0.025881905, 8.233266e-10, 0, -1.8626451e-09, -0.099999994, 0.025881901, 0.09659258, -3.7252903e-09, 0.10227364, -0.24068415, -0.7048442)
 layers = 524288
 material_override = SubResource("ShaderMaterial_vgqql")
 mesh = SubResource("PlaneMesh_vgqql")
@@ -84,10 +87,10 @@ cull_mask = 524280
 far = 5.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Screen"]
-transform = Transform3D(9.182161, -3.0522132, 2.5242608, -3.0522108, -1.3910086, 9.420673, -2.524264, -9.420673, -2.2088463, 0.25807846, 0.96316195, 0)
+transform = Transform3D(10, 0, 0, 0, -4.371139e-07, 10, 0, -10, -4.371139e-07, 0.25807858, -1.1166463, 0)
 layers = 32
 light_energy = 3.0
-spot_range = 15.0
+spot_range = 1000.0
 
 [node name="Power" type="Label3D" parent="Head/Screen"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.003075838, 0.011479855, -0.85266185)
@@ -97,8 +100,14 @@ text = "Power:"
 font = ExtResource("4_vgqql")
 outline_size = 25
 
+[node name="Radar" parent="Head/Screen" instance=ExtResource("5_x3wgy")]
+transform = Transform3D(-3.182834e-07, 0, 7.281476, -7.281476, -3.182834e-07, -3.182834e-07, 3.182834e-07, -7.281476, 1.391261e-14, -2.520091, -0.36502123, -5.0535755)
+
+[node name="Body" parent="Head/Screen/Radar" index="0"]
+material_override = SubResource("StandardMaterial3D_3smsa")
+
 [node name="DefScreen" type="Node3D" parent="Head"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4593637, -0.3363062, -0.63211304)
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.23830497, -0.25983462, -0.6333736)
 
 [node name="LookScreen" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067711666, 0.0018967986, -0.18681243)
@@ -111,3 +120,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 [node name="UI" parent="." instance=ExtResource("5_fkybt")]
 
 [editable path="Head/Screen/SubViewport"]
+[editable path="Head/Screen/Radar"]

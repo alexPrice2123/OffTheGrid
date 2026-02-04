@@ -1,9 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp688cg0r0lpk"]
+[gd_scene load_steps=3 format=3 uid="uid://cp688cg0r0lpk"]
 
 [ext_resource type="Script" uid="uid://cy8fnognme0j2" path="res://Scripts/Menu.cs" id="1_1rerr"]
+[ext_resource type="Texture2D" uid="uid://c6k00rggdvqs8" path="res://Assets/2D/Controls.png" id="2_xhh6f"]
 
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_1rerr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_as_relative = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -14.0
+offset_right = 52.055176
+offset_bottom = 30.792603
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.5882353)
 
 [node name="Camera3D" type="Camera3D" parent="."]
 
@@ -69,5 +84,36 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "Controls"
 
+[node name="ControlSprite" type="Sprite2D" parent="."]
+visible = false
+z_index = 1
+position = Vector2(576.6667, 328.5)
+scale = Vector2(0.6027778, 0.6027778)
+texture = ExtResource("2_xhh6f")
+
+[node name="Back" type="Button" parent="ControlSprite"]
+process_mode = 3
+modulate = Color(1, 0.648568, 0.5942587, 1)
+z_index = 1
+anchors_preset = -1
+anchor_left = 12.425
+anchor_top = 10.250001
+anchor_right = 16.275002
+anchor_bottom = 12.150001
+offset_left = -24777.844
+offset_top = -11581.798
+offset_right = -32000.63
+offset_bottom = -13545.872
+pivot_offset = Vector2(77, 38)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 40
+text = "Back
+"
+autowrap_mode = 2
+
 [connection signal="button_up" from="MenuUI/Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="MenuUI/Quit" to="." method="_on_quit_button_up"]
+[connection signal="button_up" from="MenuUI/Controls" to="." method="_on_controls_button_up"]
+[connection signal="button_up" from="ControlSprite/Back" to="." method="_on_back_button_up"]

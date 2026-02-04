@@ -22,4 +22,16 @@ public partial class Menu : Node3D
     {
         GetTree().Quit();
     }
+
+	private void _on_controls_button_up()
+    {
+        GetNode<Sprite2D>("ControlSprite").Visible = true;
+		GetNode<Control>("MenuUI").Visible = false;
+    }
+
+	private void _on_back_button_up()
+    {
+        GetNode<Sprite2D>("ControlSprite").Visible = false;
+		GetNode<Control>("MenuUI").Visible = true;
+    }
 }

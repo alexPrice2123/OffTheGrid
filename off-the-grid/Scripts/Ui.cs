@@ -26,4 +26,16 @@ public partial class Ui : Control
 		GetTree().Paused = false;
         GetTree().ChangeSceneToFile("res://Scenes/menu.tscn");
     }
+
+	private void _on_controls_button_up()
+    {
+		GetNode<Sprite2D>("ControlSprite").Visible = true;
+		GetNode<Control>("Pause").Visible = false;
+    }
+
+	private void _on_back_button_up()
+    {
+        GetNode<Sprite2D>("ControlSprite").Visible = false;
+		GetNode<Control>("Pause").Visible = true;
+    }
 }
