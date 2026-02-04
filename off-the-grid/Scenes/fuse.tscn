@@ -1,4 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://jcd2agr1jvei"]
+[gd_scene load_steps=10 format=3 uid="uid://jcd2agr1jvei"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mg4mk"]
+render_priority = 1
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0)
+grow = true
+grow_amount = 0.05
+stencil_mode = 3
+stencil_flags = 1
+stencil_compare = 5
+metadata/_stencil_owned = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_73onb"]
+next_pass = SubResource("StandardMaterial3D_mg4mk")
+stencil_mode = 1
+stencil_flags = 2
+stencil_color = Color(1, 1, 1, 0)
+stencil_outline_thickness = 0.05
 
 [sub_resource type="TorusMesh" id="TorusMesh_trj8p"]
 
@@ -24,10 +43,14 @@ scale_curve = SubResource("CurveTexture_trj8p")
 
 [sub_resource type="SphereMesh" id="SphereMesh_mg4mk"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_trj8p"]
+size = Vector3(0.6279297, 0.3166504, 0.68725586)
+
 [node name="Fuse" type="Node3D" groups=["Fuse"]]
 
 [node name="Fuse" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.33834213, 0, 0, 0, 0.33834213, 0, 0, 0, 0.33834213, 0, 0, 0)
+material_overlay = SubResource("StandardMaterial3D_73onb")
 mesh = SubResource("TorusMesh_trj8p")
 
 [node name="Warn" type="GPUParticles3D" parent="."]
@@ -37,3 +60,8 @@ amount = 25
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_trj8p")
 draw_pass_1 = SubResource("SphereMesh_mg4mk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Fuse"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_trj8p")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1cvol6c273pn"]
+[gd_scene load_steps=11 format=3 uid="uid://b1cvol6c273pn"]
 
 [ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://c0qbxb6p5emts" path="res://Scenes/warn.tscn" id="2_8j60k"]
 [ext_resource type="PackedScene" uid="uid://jcd2agr1jvei" path="res://Scenes/fuse.tscn" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://ce31togqmeed2" path="res://Scenes/enviorment.tscn" id="5_fo5ed"]
+[ext_resource type="PackedScene" uid="uid://cnwh5wg8gvb7f" path="res://Scenes/fuse_box.tscn" id="6_5ukr8"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_go701"]
 vertices = PackedVector3Array(-10.600098, 0.10495186, -23.029617, -10.600098, 0.10495186, -22.279617, -9.350098, 0.10495186, -22.279617, 9.399902, 0.10495186, -22.279617, 10.649902, 0.10495186, -22.279617, 10.649902, 0.10495186, -23.029617, -9.350098, 0.10495186, -20.529617, 9.399902, 0.10495186, -20.529617, -10.600098, 6.104952, -23.029617, -10.600098, 6.104952, -22.279617, -9.350098, 6.104952, -22.279617, 9.399902, 6.104952, -22.279617, 10.649902, 6.104952, -22.279617, 10.649902, 6.104952, -23.029617, -9.350098, 6.104952, -20.529617, 9.399902, 6.104952, -20.529617, -10.350098, 6.604952, -20.279617, -10.100098, 6.604952, -6.0296173, -9.600098, 6.604952, -19.779617, -9.850098, 6.604952, -22.029617, 9.649902, 6.604952, -20.279617, 9.899902, 6.604952, -6.0296173, 10.399902, 6.604952, -19.779617, 10.149902, 6.604952, -22.029617, -1.3500977, 0.10495186, -5.2796173, -0.85009766, 0.10495186, -5.2796173, -0.60009766, 0.10495186, -6.0296173, -1.6000977, 0.10495186, -6.0296173, 9.399902, 0.10495186, -6.0296173, 9.399902, 0.10495186, -19.529617, -9.350098, 0.10495186, -19.529617, -9.350098, 0.10495186, -6.0296173, -9.350098, 6.104952, -19.529617, -9.350098, 6.104952, -6.0296173, 9.399902, 6.104952, -6.0296173, 9.399902, 6.104952, -19.529617, -0.60009766, 0.10495186, -4.7796173, -1.6000977, 0.10495186, -4.7796173, 9.399902, 0.10495186, 18.470383, 7.6499023, 0.10495186, -1.2796173, 5.6499023, 0.10495186, -1.2796173, 9.399902, 0.10495186, -2.2796173, 7.8999023, 0.10495186, -2.2796173, 5.3999023, 0.10495186, -3.0296173, 6.6499023, 0.10495186, -3.2796173, 6.6499023, 0.10495186, -4.7796173, -9.350098, 0.10495186, -4.7796173, -9.350098, 0.10495186, 18.470383, -10.350098, 6.604952, 18.720383, -10.100098, 6.604952, 19.470383, -9.600098, 6.604952, 19.220383, -9.850098, 6.604952, -4.7796173, -9.350098, 6.104952, -4.7796173, -9.350098, 6.104952, 18.470383, 9.399902, 6.104952, 18.470383, 9.399902, 6.104952, -4.7796173, 7.6499023, 0.10495186, -3.2796173, 9.399902, 0.10495186, -4.7796173, 9.649902, 6.604952, 18.720383, 9.899902, 6.604952, 19.470383, 10.399902, 6.604952, 19.220383, 10.149902, 6.604952, -4.7796173, 5.8999023, 2.6049519, -2.7796173, 5.8999023, 2.6049519, -1.7796173, 7.3999023, 2.6049519, -1.7796173, 7.3999023, 2.6049519, -2.7796173, 6.1499023, 0.10495186, -2.5296173, 6.1499023, 0.10495186, -2.0296173, 7.1499023, 0.10495186, -2.0296173, 7.1499023, 0.10495186, -2.5296173)
@@ -20,7 +22,7 @@ emission = Color(1, 1, 1, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_8j60k"]
 
-[node name="World" type="Node3D" groups=["FuseSpawned"]]
+[node name="World" type="Node3D"]
 script = ExtResource("1_5a7ea")
 PathMeshScene = ExtResource("2_8j60k")
 FuseScene = ExtResource("2_go701")
@@ -107,11 +109,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1942004, 2)
 
 [node name="FuseSpawns" type="Node3D" parent="."]
 
-[node name="Spawn1" type="MeshInstance3D" parent="FuseSpawns"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 1, -11)
-material_override = SubResource("StandardMaterial3D_5a7ea")
-mesh = SubResource("BoxMesh_8j60k")
-
 [node name="Spawn2" type="MeshInstance3D" parent="FuseSpawns"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 4, 1, 9)
 material_override = SubResource("StandardMaterial3D_5a7ea")
@@ -121,3 +118,8 @@ mesh = SubResource("BoxMesh_8j60k")
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 2, 1, -1)
 material_override = SubResource("StandardMaterial3D_5a7ea")
 mesh = SubResource("BoxMesh_8j60k")
+
+[node name="Enviorment" parent="." instance=ExtResource("5_fo5ed")]
+
+[node name="FuseBox" parent="." instance=ExtResource("6_5ukr8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3757045, 2.07383, -3.22979)

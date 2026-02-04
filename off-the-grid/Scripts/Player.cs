@@ -25,6 +25,10 @@ public partial class Player : CharacterBody3D
 	private float _power = 0f;
 	private ShaderMaterial _screenMat;
 	private Color _screenColor = new Color(0, 1, 0, 1);
+	private RayCast3D _rayCast;
+	public bool _hasFuse = false;
+	private Node3D _currentObj;
+	public int _collectedFuses;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -44,6 +48,7 @@ public partial class Player : CharacterBody3D
 		_currentCam = _wallCam;
 		_currentScreenPos = _defScreenPos;
 		_screenMat = _screen.MaterialOverride as ShaderMaterial;
+		_rayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast");
 		Instance = this;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
     }
@@ -88,45 +93,54 @@ public partial class Player : CharacterBody3D
 		_screen.GetNode<Label3D>("Power").Modulate = _screenColor / 1.5f;
 		if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
 		if (Input.IsActionJustReleased("LookCamera")) { _currentScreenPos = _defScreenPos; }
-		if (Input.IsActionJustPressed("ToggleCamera"))
-        {
+		if (Input.IsActionJustPressed("WallCam"))
+		{
 			_currentCam.Current = false;
-            if (_currentCam == _wallCam)
-            {
-				_currentCam = _furnCam;
-				_screenColor = new Color(180f/255f, 188f/255f, 237f/255f, 1);
-            }
-			else if (_currentCam == _furnCam)
-            {
-				_currentCam = _otherCam;
-				_screenColor = new Color(250f/255f, 192f/255f, 192f/255f, 1);
-            }
-            else
-            {
-				_currentCam = _wallCam;
-				_screenColor = new Color(0, 1, 0, 1);
-            }
+			_currentCam = _wallCam;
+			_screenColor = new Color(0, 1, 0, 1);
 			_currentCam.Current = true;
-        }
+		}
+		if (Input.IsActionJustPressed("FurnCam"))
+		{
+			_currentCam.Current = false;
+			_currentCam = _furnCam;
+			_screenColor = new Color(180f / 255f, 188f / 255f, 237f / 255f, 1);
+			_currentCam.Current = true;
+		}
+		if (Input.IsActionJustPressed("OtherCam"))
+		{
+			_currentCam.Current = false;
+			_currentCam = _otherCam;
+			_screenColor = new Color(250f / 255f, 192f / 255f, 192f / 255f, 1);
+			_currentCam.Current = true;
+		}
 
-		if (Input.IsActionJustPressed("Crouch") && IsOnFloor())
-        {
-            if (_currentHeadPos == _walkPos)
-			{
-				_currentHeadPos = _crouchPos;
-			 	_currentSpeed = CrouchSpeed;
-				_walkCollision.Disabled = true;
-				_crouchCollision.Disabled = false;
-			}
-			else
-			{
-				_currentHeadPos = _walkPos;
-			 	_currentSpeed = WalkSpeed;
-				_walkCollision.Disabled = false;
-				_crouchCollision.Disabled = true;
-			}
-        }
+		if (Input.IsActionJustPressed("CrouchToggle") && IsOnFloor()) { Crouch(_currentHeadPos == _walkPos); }
 
+		if (Input.IsActionJustPressed("CrouchHold") && IsOnFloor()) { Crouch(true); }
+		if (Input.IsActionJustReleased("CrouchHold") && IsOnFloor()) { Crouch(false); }
+
+		CheckRaycast("Fuse");
+		CheckRaycast("FuseBox");
+		
+		if (Input.IsActionJustPressed("Interact"))
+		{
+			if (_currentObj != null && !_hasFuse && _currentObj.IsInGroup("Fuse"))
+			{
+				Highlight(false, _currentObj.GetNode<MeshInstance3D>("Fuse"));
+				_currentObj.QueueFree();
+				_currentObj = null;
+				_hasFuse = true;
+			}
+			if (_currentObj != null && _hasFuse && _currentObj.IsInGroup("FuseBox"))
+            {
+                Highlight(false, _currentObj.GetNode<MeshInstance3D>("FuseBox"));
+				_currentObj = null;
+				_hasFuse = false;
+				_collectedFuses++;
+            }
+		}
+		
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
@@ -142,11 +156,71 @@ public partial class Player : CharacterBody3D
 			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, _currentSpeed);
 		}
 
-		_head.Position = _head.Position.Lerp(_currentHeadPos.Position, (float)delta*5);
+		_head.Position = _head.Position.Lerp(_currentHeadPos.Position, (float)delta * 5);
 		_screen.Position = _screen.Position.Lerp(_currentScreenPos.Position, (float)delta * 5);
-		_screen.GetNode<Label3D>("Power").Text = "Power: " + Mathf.Floor(100*_power/2) + "%";
-		
+		_screen.GetNode<Label3D>("Power").Text = "Power: " + Mathf.Floor(100 * _power / 2) + "%";
+
 		Velocity = velocity;
 		MoveAndSlide();
 	}
+
+	private void Crouch(bool toggle)
+	{
+		if (toggle)
+		{
+			_currentHeadPos = _crouchPos;
+			_currentSpeed = CrouchSpeed;
+			_walkCollision.Disabled = true;
+			_crouchCollision.Disabled = false;
+		}
+		else
+		{
+			_currentHeadPos = _walkPos;
+			_currentSpeed = WalkSpeed;
+			_walkCollision.Disabled = false;
+			_crouchCollision.Disabled = true;
+		}
+	}
+
+	private Node3D CheckInteraction(string group)
+	{
+		if (_rayCast.IsColliding())
+		{
+			Node collider = (Node)_rayCast.GetCollider();
+
+			if (collider != null)
+			{
+				if (collider.GetParent().IsInGroup(group))
+				{
+					return collider.GetParent() as Node3D;
+
+				}
+			}
+		}
+		return null;
+	}
+
+	private void Highlight(bool toggle, MeshInstance3D obj)
+	{
+		if (obj.MaterialOverlay is StandardMaterial3D material)
+		{
+			material.StencilColor = new Color(1, 1, 1, Convert.ToInt32(toggle));
+		}
+	}
+	
+	private void CheckRaycast(string objName)
+	{
+		if (objName == "Fuse" && _hasFuse) { return; }
+		if (objName == "FuseBox" && !_hasFuse){ return; }
+        if (CheckInteraction(objName) != null)
+		{
+			_currentObj = CheckInteraction(objName);
+			Highlight(true, _currentObj.GetNode<MeshInstance3D>(objName));
+		}
+		else if (_currentObj != null)
+		{
+			Highlight(false, _currentObj.GetNode<MeshInstance3D>(objName));
+			_currentObj = null;
+		}
+    }
 }

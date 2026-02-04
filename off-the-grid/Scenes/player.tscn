@@ -50,8 +50,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5731113, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 cull_mask = 1048535
 
-[node name="RayCast" type="RayCast3D" parent="Head/Camera3D" groups=["Fuse"]]
-target_position = Vector3(0, 0, -5)
+[node name="RayCast" type="RayCast3D" parent="Head/Camera3D"]
+target_position = Vector3(0, 0, -2.5)
 
 [node name="Screen" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(0.09659258, -0.025881905, 1.131334e-09, 0, -4.371139e-09, -0.1, 0.025881905, 0.09659258, -4.222196e-09, 0.4593637, -0.3363062, -0.63211304)

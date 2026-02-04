@@ -22,11 +22,11 @@ public partial class fusePathHandler : Node3D
     private Rid _navigationMap;
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
     private List<Node3D> _spawnedMeshes = new List<Node3D>();
-	private List<Node3D> _spawnedFuses = new List<Node3D>();
-
-
+    private List<Node3D> _spawnedFuses = new List<Node3D>();
+    private Player _player;
     public override void _Ready()
     {
+        _player = GetNode<Player>("Player");
 		_rng.Randomize();
 		_spawnedFuses = GetNode<Node3D>("FuseSpawns").GetChildren().OfType<Node3D>().ToList();
         _navigationMap = GetWorld3D().NavigationMap;
@@ -49,16 +49,23 @@ public partial class fusePathHandler : Node3D
 		_count += 1;
         if (_count == 100)
         {
-			_closestDist = 10000;
-			foreach (Node3D fuse in GetNode<Node3D>("FuseHolder").GetChildren())
-			{
-				if ((GetNode<Player>("Player").GlobalPosition - fuse.GlobalPosition).Length() < _closestDist)
-				{
-					_closestDist = (GetNode<Player>("Player").GlobalPosition - fuse.GlobalPosition).Length();
-					_closestFuse = fuse;
-				}
-			}
-           	GenerateAndPlaceMeshes(GetNode<Player>("Player").GlobalPosition, _closestFuse.GlobalPosition); 
+            _closestDist = 10000;
+            if (!_player._hasFuse)
+            {
+                foreach (Node3D fuse in GetNode<Node3D>("FuseHolder").GetChildren())
+                {
+                    if ((_player.GlobalPosition - fuse.GlobalPosition).Length() < _closestDist)
+                    {
+                        _closestDist = (_player.GlobalPosition - fuse.GlobalPosition).Length();
+                        _closestFuse = fuse;
+                    }
+                }
+            }
+            else
+            {
+                _closestFuse = GetNode<Node3D>("FuseBox");
+            }
+           	GenerateAndPlaceMeshes(_player.GlobalPosition, _closestFuse.GlobalPosition); 
         }
 		if (_count == 150)
         {
@@ -86,7 +93,7 @@ public partial class fusePathHandler : Node3D
 
         if (pathPoints.Length == 0)
         {
-            GD.Print("Pathfinding failed or path has no points.");
+            GD.Print("Fail");
             return;
         }
         PlaceMeshesAlongPath(pathPoints);
