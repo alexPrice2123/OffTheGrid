@@ -30,6 +30,15 @@ shader_parameter/intensity = 1.999999955296
 shader_parameter/line_definition = 0.499999988824
 shader_parameter/min_thickness = 0.03
 shader_parameter/vignette = 0.999999977648
+shader_parameter/roll_speed = 0.749999938532
+shader_parameter/roll_height = 0.049999998882400004
+shader_parameter/roll_offset = 0.0999999977648
+shader_parameter/roll_warp = 0.010000000475
+shader_parameter/screen_warp = 0.499999988824
+shader_parameter/screen_warp_power = 1.5000000074506001
+shader_parameter/edge_fade = 0.05
+shader_parameter/roll_interval = 8.000000111759
+shader_parameter/roll_duration = 1.2500000186265
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vgqql"]
 

@@ -16,8 +16,8 @@ public partial class Player : CharacterBody3D
 	private CollisionShape3D _crouchCollision;
 	private Camera3D _wallCam;
 	private Camera3D _furnCam;
-	private Camera3D _otherCam;
-	private Camera3D _currentCam;
+	public Camera3D _otherCam;
+	public Camera3D _currentCam;
 	private MeshInstance3D _screen;
 	private Node3D _defScreenPos;
 	private Node3D _lookScreenPos;
@@ -122,6 +122,11 @@ public partial class Player : CharacterBody3D
 
 		CheckRaycast("Fuse");
 		CheckRaycast("FuseBox");
+
+		if (Input.IsActionJustPressed("Pause"))
+        {
+            Input.MouseMode = Input.MouseModeEnum.Visible;
+        }
 		
 		if (Input.IsActionJustPressed("Interact"))
 		{

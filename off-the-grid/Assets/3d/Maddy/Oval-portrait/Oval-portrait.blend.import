@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dv3gb33b68rgl"
-path="res://.godot/imported/Oval-portrait.blend-a5786762409380c49059fef171292e2c.scn"
+path="res://.godot/imported/Oval-portrait.blend-2a5e9fcfa02d620467aec2ab1dd058cc.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Maddy/Oval-portrait/Oval-portrait.blend"
-dest_files=["res://.godot/imported/Oval-portrait.blend-a5786762409380c49059fef171292e2c.scn"]
+source_file="res://Assets/3D/Maddy/Oval-portrait/Oval-portrait.blend"
+dest_files=["res://.godot/imported/Oval-portrait.blend-2a5e9fcfa02d620467aec2ab1dd058cc.scn"]
 
 [params]
 
