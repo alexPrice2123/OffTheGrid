@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://cp688cg0r0lpk"]
+
+[ext_resource type="Script" uid="uid://cy8fnognme0j2" path="res://Scripts/Menu.cs" id="1_1rerr"]
+
+[node name="Menu" type="Node3D"]
+script = ExtResource("1_1rerr")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MenuUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Play" type="Button" parent="MenuUI"]
+process_mode = 3
+modulate = Color(1, 1, 0.78431374, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.425
+anchor_top = 3.7000003
+anchor_right = 16.275002
+anchor_bottom = 5.6000004
+offset_top = 54.999985
+offset_right = -6.1035156e-05
+offset_bottom = 54.999985
+pivot_offset = Vector2(77, 38)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "Play"
+autowrap_mode = 2
+
+[node name="Quit" type="Button" parent="MenuUI"]
+process_mode = 3
+modulate = Color(1, 0.648568, 0.5942587, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.425
+anchor_top = 10.250001
+anchor_right = 16.275002
+anchor_bottom = 12.150001
+offset_top = -45.00003
+offset_right = -6.1035156e-05
+offset_bottom = -45.00003
+pivot_offset = Vector2(77, 38)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+autowrap_mode = 2
+
+[node name="Controls" type="Button" parent="MenuUI"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.975
+anchor_top = 5.9750004
+anchor_right = 15.725
+anchor_bottom = 7.2250004
+offset_top = 56.999985
+offset_bottom = 57.0
+pivot_offset = Vector2(55, 25)
+mouse_default_cursor_shape = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "Controls"
+
+[connection signal="button_up" from="MenuUI/Play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="MenuUI/Quit" to="." method="_on_quit_button_up"]

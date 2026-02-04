@@ -29,6 +29,9 @@ public partial class Player : CharacterBody3D
 	public bool _hasFuse = false;
 	private Node3D _currentObj;
 	public int _collectedFuses = 0;
+	public Control _pauseMenu;
+	public Control _crosshair;
+	public float _mouseSense = 0.002f;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -49,6 +52,8 @@ public partial class Player : CharacterBody3D
 		_currentScreenPos = _defScreenPos;
 		_screenMat = _screen.MaterialOverride as ShaderMaterial;
 		_rayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast");
+		_pauseMenu = GetNode<Control>("UI/Pause");
+		_crosshair = GetNode<Control>("UI/Crosshair");
 		Instance = this;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
     }
@@ -58,12 +63,12 @@ public partial class Player : CharacterBody3D
 		if (@event is InputEventMouseMotion motion && Input.MouseMode == Input.MouseModeEnum.Captured)
 		{
 			 // Rotate the character body on the Y-axis for horizontal look (yaw)
-            RotateY(-motion.Relative.X * 0.002f);
+            RotateY(-motion.Relative.X * _mouseSense);
 
             // Rotate the head/camera on the X-axis for vertical look (pitch)
             // Need to use a temp variable to modify the struct value
             Vector3 headRotation = _head.Rotation;
-            headRotation.X += -motion.Relative.Y * 0.002f;
+            headRotation.X += -motion.Relative.Y * _mouseSense;
             
             // Clamp the vertical rotation
             headRotation.X = Mathf.Clamp(headRotation.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
@@ -84,6 +89,7 @@ public partial class Player : CharacterBody3D
 
 		_currentCam.GlobalPosition = GetNode<MeshInstance3D>("Head/Screen").GlobalPosition;
 		_currentCam.GlobalRotation = _cam.GlobalRotation;
+		_mouseSense = (float)_pauseMenu.GetNode<HSlider>("Mouse").Value/1000f;
 		if (Input.IsActionPressed("Crank")) { _power += (float)delta * 0.2f; }
 		else { _power -= (float)delta * 0.05f; }
 		if (_power >= 2f) { _power = 2f; }
@@ -126,6 +132,9 @@ public partial class Player : CharacterBody3D
 		if (Input.IsActionJustPressed("Pause"))
         {
             Input.MouseMode = Input.MouseModeEnum.Visible;
+			_pauseMenu.Visible = true;
+			_crosshair.Visible = false;
+			GetTree().Paused = true;
         }
 		
 		if (Input.IsActionJustPressed("Interact"))

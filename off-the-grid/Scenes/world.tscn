@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b1cvol6c273pn"]
+[gd_scene load_steps=12 format=3 uid="uid://b1cvol6c273pn"]
 
 [ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_5a7ea"]
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="PackedScene" uid="uid://c0qbxb6p5emts" path="res://Scenes/warn.tscn" id="2_8j60k"]
 [ext_resource type="PackedScene" uid="uid://jcd2agr1jvei" path="res://Scenes/fuse.tscn" id="2_go701"]
+[ext_resource type="PackedScene" uid="uid://ce31togqmeed2" path="res://Scenes/dark.tscn" id="4_o06y3"]
+[ext_resource type="PackedScene" uid="uid://cowrd8arlrju5" path="res://Scenes/light.tscn" id="5_k7acu"]
 [ext_resource type="PackedScene" uid="uid://cnwh5wg8gvb7f" path="res://Scenes/fuse_box.tscn" id="6_5ukr8"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_go701"]
@@ -25,6 +27,8 @@ emission = Color(1, 1, 1, 1)
 script = ExtResource("1_5a7ea")
 PathMeshScene = ExtResource("2_8j60k")
 FuseScene = ExtResource("2_go701")
+DarkScene = ExtResource("4_o06y3")
+LightScene = ExtResource("5_k7acu")
 MeshSpacing = 3.0
 MaxFuses = 2
 

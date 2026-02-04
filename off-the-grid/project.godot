@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="OffTheGrid"
-run/main_scene="uid://b1cvol6c273pn"
+run/main_scene="uid://cp688cg0r0lpk"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
