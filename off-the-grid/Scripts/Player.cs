@@ -28,7 +28,7 @@ public partial class Player : CharacterBody3D
 	private RayCast3D _rayCast;
 	public bool _hasFuse = false;
 	private Node3D _currentObj;
-	public int _collectedFuses;
+	public int _collectedFuses = 0;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");

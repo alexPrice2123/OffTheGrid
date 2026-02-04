@@ -16,7 +16,7 @@ fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 1.0
 
-[node name="Enviorment" type="Node3D"]
+[node name="Dark" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ked6b")
