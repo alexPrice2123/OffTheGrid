@@ -32,6 +32,15 @@ public partial class Player : CharacterBody3D
 	public Control _pauseMenu;
 	public Control _crosshair;
 	public float _mouseSense = 0.002f;
+	private MeshInstance3D _mode1;
+	private MeshInstance3D _mode2;
+	private MeshInstance3D _mode3;
+	private MeshInstance3D _fuseLight;
+	private MeshInstance3D _power1;
+	private MeshInstance3D _power2;
+	private MeshInstance3D _power3;
+	private MeshInstance3D _power4;
+	private MeshInstance3D _crank;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -54,6 +63,15 @@ public partial class Player : CharacterBody3D
 		_rayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast");
 		_pauseMenu = GetNode<Control>("UI/Pause");
 		_crosshair = GetNode<Control>("UI/Crosshair");
+		_mode1 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode2");
+		_mode2 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode1");
+		_mode3 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode3");
+		_fuseLight = GetNode<MeshInstance3D>("Head/Screen/Radar/Fuse Light");
+		_power1 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light");
+		_power2 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 2");
+		_power3 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 3");
+		_power4 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 4");
+		_crank = GetNode<MeshInstance3D>("Head/Screen/Radar/crank");
 		Instance = this;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
     }
@@ -89,25 +107,63 @@ public partial class Player : CharacterBody3D
 
 		_currentCam.GlobalPosition = GetNode<MeshInstance3D>("Head/Screen").GlobalPosition;
 		_currentCam.GlobalRotation = _cam.GlobalRotation;
-		_mouseSense = (float)_pauseMenu.GetNode<HSlider>("Mouse").Value/1000f;
-		if (Input.IsActionPressed("Crank")) { _power += (float)delta * 0.2f; }
+		_mouseSense = (float)_pauseMenu.GetNode<HSlider>("Mouse").Value / 1000f;
+		float increaseAmount;
+		if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
+		else{ increaseAmount = 0.2f; }
+		if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(0.1f); }
 		else { _power -= (float)delta * 0.05f; }
 		if (_power >= 2f) { _power = 2f; }
 		if (_power <= 0f) { _power = 0f; }
+		if (_power >= 2)
+		{
+			LightHandler(true, _power4);
+		}
+		else if (_power >= 1.5f)
+		{
+			LightHandler(false, _power4);
+			LightHandler(true, _power3);
+		}
+		else if (_power >= 1)
+		{
+			LightHandler(false, _power4);
+			LightHandler(false, _power3);
+			LightHandler(true, _power2);
+		}
+		else if (_power >= 0.01f)
+		{
+			LightHandler(false, _power4);
+			LightHandler(false, _power3);
+			LightHandler(false, _power2);
+			LightHandler(true, _power1);
+		}
+		else
+		{
+			LightHandler(false, _power4);
+			LightHandler(false, _power3);
+			LightHandler(false, _power2);
+			LightHandler(false, _power1);
+		}
+		LightHandler(_hasFuse, _fuseLight);
 		_screenMat.SetShaderParameter("intensity", _power);
 		_screenMat.SetShaderParameter("hue", _screenColor);
-		_screen.GetNode<Label3D>("Power").Modulate = _screenColor / 1.5f;
 		if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
 		if (Input.IsActionJustReleased("LookCamera")) { _currentScreenPos = _defScreenPos; }
 		if (Input.IsActionJustPressed("WallCam"))
 		{
+			LightHandler(true, _mode1);
+			LightHandler(false, _mode2);
+			LightHandler(false, _mode3);
 			_currentCam.Current = false;
 			_currentCam = _wallCam;
-			_screenColor = new Color(0, 1, 0, 1);
+			_screenColor = new Color(0, 1.25f, 0, 1);
 			_currentCam.Current = true;
 		}
 		if (Input.IsActionJustPressed("FurnCam"))
 		{
+			LightHandler(false, _mode1);
+			LightHandler(true, _mode2);
+			LightHandler(false, _mode3);
 			_currentCam.Current = false;
 			_currentCam = _furnCam;
 			_screenColor = new Color(180f / 255f, 188f / 255f, 237f / 255f, 1);
@@ -115,6 +171,9 @@ public partial class Player : CharacterBody3D
 		}
 		if (Input.IsActionJustPressed("OtherCam"))
 		{
+			LightHandler(false, _mode1);
+			LightHandler(false, _mode2);
+			LightHandler(true, _mode3);
 			_currentCam.Current = false;
 			_currentCam = _otherCam;
 			_screenColor = new Color(250f / 255f, 192f / 255f, 192f / 255f, 1);
@@ -172,7 +231,6 @@ public partial class Player : CharacterBody3D
 
 		_head.Position = _head.Position.Lerp(_currentHeadPos.Position, (float)delta * 5);
 		_screen.Position = _screen.Position.Lerp(_currentScreenPos.Position, (float)delta * 5);
-		_screen.GetNode<Label3D>("Power").Text = "Power: " + Mathf.Floor(100 * _power / 2) + "%";
 
 		Velocity = velocity;
 		MoveAndSlide();
@@ -221,12 +279,12 @@ public partial class Player : CharacterBody3D
 			material.StencilColor = new Color(1, 1, 1, Convert.ToInt32(toggle));
 		}
 	}
-	
+
 	private void CheckRaycast(string objName)
 	{
 		if (objName == "Fuse" && _hasFuse) { return; }
-		if (objName == "FuseBox" && !_hasFuse){ return; }
-        if (CheckInteraction(objName) != null)
+		if (objName == "FuseBox" && !_hasFuse) { return; }
+		if (CheckInteraction(objName) != null)
 		{
 			_currentObj = CheckInteraction(objName);
 			Highlight(true, _currentObj.GetNode<MeshInstance3D>(objName));
@@ -236,5 +294,13 @@ public partial class Player : CharacterBody3D
 			Highlight(false, _currentObj.GetNode<MeshInstance3D>(objName));
 			_currentObj = null;
 		}
+	}
+	
+	private void LightHandler(bool toggle, MeshInstance3D lightRef)
+    {
+        if (lightRef.MaterialOverride is StandardMaterial3D material)
+        {
+			material.EmissionEnergyMultiplier = Convert.ToInt32(toggle) * 5;
+        }
     }
 }

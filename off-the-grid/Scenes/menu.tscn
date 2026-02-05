@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp688cg0r0lpk"]
+[gd_scene load_steps=5 format=3 uid="uid://cp688cg0r0lpk"]
 
 [ext_resource type="Script" uid="uid://cy8fnognme0j2" path="res://Scripts/Menu.cs" id="1_1rerr"]
+[ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="2_wwsa2"]
 [ext_resource type="Texture2D" uid="uid://c6k00rggdvqs8" path="res://Assets/2D/Controls.png" id="2_xhh6f"]
+[ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="3_158mb"]
 
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_1rerr")
@@ -42,9 +44,7 @@ offset_right = -6.1035156e-05
 offset_bottom = 54.999985
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("2_wwsa2")
 text = "Play"
 autowrap_mode = 2
 
@@ -62,9 +62,7 @@ offset_right = -6.1035156e-05
 offset_bottom = -45.00003
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("2_wwsa2")
 text = "Quit"
 autowrap_mode = 2
 
@@ -80,8 +78,7 @@ offset_top = 56.999985
 offset_bottom = 57.0
 pivot_offset = Vector2(55, 25)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme = ExtResource("3_158mb")
 text = "Controls"
 
 [node name="ControlSprite" type="Sprite2D" parent="."]
@@ -106,9 +103,7 @@ offset_right = -32000.63
 offset_bottom = -13545.872
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 40
+theme = ExtResource("2_wwsa2")
 text = "Back
 "
 autowrap_mode = 2

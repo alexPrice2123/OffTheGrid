@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://chlmb4qhfdsq3"]
+[gd_scene load_steps=7 format=3 uid="uid://chlmb4qhfdsq3"]
 
 [ext_resource type="Script" uid="uid://dwax8nqrfr4s6" path="res://Scripts/Ui.cs" id="1_jxero"]
+[ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="2_q7pk6"]
 [ext_resource type="Texture2D" uid="uid://c6k00rggdvqs8" path="res://Assets/2D/Controls.png" id="2_qdvrb"]
+[ext_resource type="FontFile" uid="uid://crbckn44hfevr" path="res://Assets/Fonts/Normal.ttf" id="3_m78vo"]
+[ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_smcll"]
+[ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="6_m78vo"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -33,9 +37,7 @@ offset_right = -6.1035156e-05
 offset_bottom = 65.999985
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 20
+theme = ExtResource("2_q7pk6")
 text = "Return To Game"
 autowrap_mode = 2
 
@@ -53,10 +55,8 @@ offset_right = -6.1035156e-05
 offset_bottom = 65.99997
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 20
-text = "Quit"
+theme = ExtResource("2_q7pk6")
+text = "Return To Menu"
 autowrap_mode = 2
 
 [node name="Controls" type="Button" parent="Pause"]
@@ -70,37 +70,40 @@ anchor_bottom = 8.875
 offset_top = -3.0517578e-05
 pivot_offset = Vector2(55, 25)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme = ExtResource("2_q7pk6")
 text = "Controls"
 
 [node name="Volume" type="HSlider" parent="Pause"]
 process_mode = 3
 layout_mode = 0
 offset_left = 453.0
-offset_top = 446.0
+offset_top = 451.0
 offset_right = 699.0
-offset_bottom = 462.0
+offset_bottom = 467.0
 mouse_default_cursor_shape = 2
 value = 50.0
 
 [node name="Label" type="Label" parent="Pause"]
 layout_mode = 0
 offset_left = 547.0
-offset_top = 421.0
-offset_right = 606.0
-offset_bottom = 444.0
+offset_top = 418.0
+offset_right = 607.0
+offset_bottom = 451.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_m78vo")
+theme_override_font_sizes/font_size = 25
 text = "Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Mouse" type="HSlider" parent="Pause"]
 process_mode = 3
 layout_mode = 0
 offset_left = 453.0
-offset_top = 393.0
+offset_top = 398.0
 offset_right = 699.0
-offset_bottom = 409.0
+offset_bottom = 414.0
 mouse_default_cursor_shape = 2
 min_value = 0.5
 max_value = 6.0
@@ -109,13 +112,17 @@ value = 3.0
 
 [node name="Label2" type="Label" parent="Pause"]
 layout_mode = 0
-offset_left = 509.0
-offset_top = 368.0
-offset_right = 644.0
-offset_bottom = 391.0
+offset_left = 490.0
+offset_top = 365.0
+offset_right = 660.0
+offset_bottom = 398.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_m78vo")
+theme_override_font_sizes/font_size = 25
 text = "Mouse Sensitivity"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="Pause"]
 z_index = -1
@@ -133,11 +140,12 @@ color = Color(0, 0, 0, 0.5882353)
 
 [node name="Label3" type="Label" parent="Pause"]
 layout_mode = 0
-offset_left = 413.0
+offset_left = 376.0
 offset_top = 102.0
-offset_right = 744.0
+offset_right = 816.0
 offset_bottom = 171.0
 theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("4_smcll")
 theme_override_font_sizes/font_size = 50
 text = "Game Paused"
 
@@ -198,9 +206,7 @@ offset_right = -32000.63
 offset_bottom = -13545.872
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_font_sizes/font_size = 40
+theme = ExtResource("6_m78vo")
 text = "Back
 "
 autowrap_mode = 2

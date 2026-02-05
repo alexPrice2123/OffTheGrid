@@ -1,0 +1,79 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cyltsiox88bye"]
+
+[ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="1_i44gj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63h2y"]
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 2
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 5
+shadow_offset = Vector2(1, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80yfu"]
+bg_color = Color(0.6862745, 0.6862745, 0.6862745, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 2
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 5
+shadow_offset = Vector2(1, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwsa2"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 2
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 5
+shadow_offset = Vector2(1, 4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u75nc"]
+bg_color = Color(0.39215687, 0.39215687, 0.39215687, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 2
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 5
+shadow_offset = Vector2(1, 4)
+
+[resource]
+Button/constants/outline_size = 20
+Button/font_sizes/font_size = 40
+Button/fonts/font = ExtResource("1_i44gj")
+Button/styles/focus = SubResource("StyleBoxFlat_63h2y")
+Button/styles/hover = SubResource("StyleBoxFlat_80yfu")
+Button/styles/normal = SubResource("StyleBoxFlat_wwsa2")
+Button/styles/pressed = SubResource("StyleBoxFlat_u75nc")

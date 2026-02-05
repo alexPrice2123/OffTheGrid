@@ -55,7 +55,7 @@ public partial class fusePathHandler : Node3D
 
 	public override void _PhysicsProcess(double delta)
     {
-        _count += 1;
+        _count += 2;
         Node3D holder = GetNode<Node3D>("EnviormentHolder");
         if (_player._collectedFuses >= _maxFuseOG && !_isLight)
         {
