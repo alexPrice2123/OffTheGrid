@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3bh3hivw3xtd"
-path="res://.godot/imported/Sofa.blend-e255ff68ffeae93751a94472224ccbdd.scn"
+uid="uid://bmr8yuloqunqr"
+path="res://.godot/imported/Door.blend-8273aa2cc98e123b3cc7a35f9d8d7856.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Julia/Sofa/Sofa.blend"
-dest_files=["res://.godot/imported/Sofa.blend-e255ff68ffeae93751a94472224ccbdd.scn"]
+source_file="res://Assets/3D/House/Door.blend"
+dest_files=["res://.godot/imported/Door.blend-8273aa2cc98e123b3cc7a35f9d8d7856.scn"]
 
 [params]
 
