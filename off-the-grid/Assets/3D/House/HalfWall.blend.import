@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dl0b7mwxj0skp"
-path="res://.godot/imported/Stairs.blend-459de3f0c7b0d45b01c1dfc7f8150aff.scn"
+uid="uid://8ehqc8ktikn4"
+path="res://.godot/imported/HalfWall.blend-7cac389cfc00c88eca8d3b019d8383e4.scn"
 
 [deps]
 
-source_file="res://Assets/3d/House/Stairs.blend"
-dest_files=["res://.godot/imported/Stairs.blend-459de3f0c7b0d45b01c1dfc7f8150aff.scn"]
+source_file="res://Assets/3d/House/HalfWall.blend"
+dest_files=["res://.godot/imported/HalfWall.blend-7cac389cfc00c88eca8d3b019d8383e4.scn"]
 
 [params]
 
