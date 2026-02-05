@@ -21,6 +21,7 @@ public partial class Player : CharacterBody3D
 	private MeshInstance3D _screen;
 	private Node3D _defScreenPos;
 	private Node3D _lookScreenPos;
+	private Node3D _startScreenPos;
 	private Node3D _currentScreenPos;
 	private float _power = 0f;
 	private ShaderMaterial _screenMat;
@@ -41,6 +42,7 @@ public partial class Player : CharacterBody3D
 	private MeshInstance3D _power3;
 	private MeshInstance3D _power4;
 	private MeshInstance3D _crank;
+	private bool _inTutorial = true;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -57,8 +59,9 @@ public partial class Player : CharacterBody3D
 		_screen = GetNode<MeshInstance3D>("Head/Screen");
 		_defScreenPos = GetNode<Node3D>("Head/DefScreen");
 		_lookScreenPos = GetNode<Node3D>("Head/LookScreen");
+		_startScreenPos = GetNode<Node3D>("Head/StartScreen");
 		_currentCam = _wallCam;
-		_currentScreenPos = _defScreenPos;
+		_currentScreenPos = _startScreenPos;
 		_screenMat = _screen.MaterialOverride as ShaderMaterial;
 		_rayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast");
 		_pauseMenu = GetNode<Control>("UI/Pause");

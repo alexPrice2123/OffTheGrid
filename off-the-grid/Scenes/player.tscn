@@ -118,7 +118,7 @@ cull_mask = 1048535
 target_position = Vector3(0, 0, -2.5)
 
 [node name="Screen" type="MeshInstance3D" parent="Head"]
-transform = Transform3D(0.09659256, -0.025881896, 8.2332613e-10, -3.094299e-17, -1.8626447e-09, -0.09999998, 0.025881896, 0.09659256, -3.7252899e-09, 0.10227364, -0.24068415, -0.7048442)
+transform = Transform3D(0.09659256, -0.025881896, 8.2332613e-10, -3.094299e-17, -1.8626447e-09, -0.09999998, 0.025881896, 0.09659256, -3.7252899e-09, 0.63354117, -0.73997283, -0.6333736)
 layers = 524288
 material_override = SubResource("ShaderMaterial_vgqql")
 mesh = SubResource("PlaneMesh_vgqql")
@@ -215,6 +215,9 @@ material_override = SubResource("StandardMaterial3D_h4iuc")
 
 [node name="DefScreen" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.23830497, -0.25983462, -0.6333736)
+
+[node name="StartScreen" type="Node3D" parent="Head"]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0.63354117, -0.73997283, -0.6333736)
 
 [node name="LookScreen" type="Node3D" parent="Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067711666, 0.0018967986, -0.18681243)

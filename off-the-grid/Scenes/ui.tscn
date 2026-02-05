@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://chlmb4qhfdsq3"]
+[gd_scene load_steps=9 format=3 uid="uid://chlmb4qhfdsq3"]
 
 [ext_resource type="Script" uid="uid://dwax8nqrfr4s6" path="res://Scripts/Ui.cs" id="1_jxero"]
 [ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="2_q7pk6"]
@@ -7,14 +7,41 @@
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_smcll"]
 [ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="6_m78vo"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m78vo"]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 2
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_size = 5
+shadow_offset = Vector2(1, 4)
+
+[sub_resource type="Theme" id="Theme_smcll"]
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("3_m78vo")
+Label/styles/normal = SubResource("StyleBoxFlat_m78vo")
+
 [node name="UI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jxero")
+_lineTable = PackedStringArray("Man, I\'m going to have to get use to driving up that hill to reach the cabin. At least it\'s not as bad as that other hill a few miles back.", "Moving in sure has been tough, especially on my own. But the doesn\'t matter. I\'m far away from the city and on my own, it\'s almost like a dream.", "I should put some boxes away before it gets too crowded.")
 
 [node name="Pause" type="Control" parent="."]
 visible = false
@@ -209,6 +236,35 @@ mouse_default_cursor_shape = 2
 theme = ExtResource("6_m78vo")
 text = "Back
 "
+autowrap_mode = 2
+
+[node name="Dialouge" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Text" type="Label" parent="Dialouge"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 466.0
+offset_right = 880.0
+offset_bottom = 611.0
+theme = SubResource("Theme_smcll")
+text = "Text"
+autowrap_mode = 2
+
+[node name="Warn" type="Label" parent="Dialouge"]
+visible = false
+layout_mode = 0
+offset_left = 271.0
+offset_top = 417.0
+offset_right = 880.0
+offset_bottom = 562.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_m78vo")
+theme_override_font_sizes/font_size = 25
+text = "Press [Space] To Continue"
+horizontal_alignment = 1
 autowrap_mode = 2
 
 [connection signal="button_up" from="Pause/Return" to="." method="_on_return_button_up"]
