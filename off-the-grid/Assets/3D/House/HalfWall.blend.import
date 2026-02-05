@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://8ehqc8ktikn4"
-path="res://.godot/imported/HalfWall.blend-7cac389cfc00c88eca8d3b019d8383e4.scn"
+path="res://.godot/imported/HalfWall.blend-086f47b667f224e04ec618cd356b6972.scn"
 
 [deps]
 
-source_file="res://Assets/3d/House/HalfWall.blend"
-dest_files=["res://.godot/imported/HalfWall.blend-7cac389cfc00c88eca8d3b019d8383e4.scn"]
+source_file="res://Assets/3D/House/HalfWall.blend"
+dest_files=["res://.godot/imported/HalfWall.blend-086f47b667f224e04ec618cd356b6972.scn"]
 
 [params]
 

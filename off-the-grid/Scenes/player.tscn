@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://o7twalwr44xx"]
+[gd_scene load_steps=24 format=3 uid="uid://o7twalwr44xx"]
 
 [ext_resource type="Script" uid="uid://k7e81pvm0lqd" path="res://Scripts/Player.cs" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_6t5aa"]
@@ -11,6 +11,12 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
 height = 1.3986816
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd4e3"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x3wgy"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_6t5aa"]
 viewport_path = NodePath("Head/Screen/SubViewport")
@@ -116,6 +122,12 @@ cull_mask = 1048535
 
 [node name="RayCast" type="RayCast3D" parent="Head/Camera3D"]
 target_position = Vector3(0, 0, -2.5)
+
+[node name="Dark" type="MeshInstance3D" parent="Head/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -0.16322911)
+visible = false
+material_override = SubResource("StandardMaterial3D_fd4e3")
+mesh = SubResource("PlaneMesh_x3wgy")
 
 [node name="Screen" type="MeshInstance3D" parent="Head"]
 transform = Transform3D(0.09659256, -0.025881896, 8.2332613e-10, -3.094299e-17, -1.8626447e-09, -0.09999998, 0.025881896, 0.09659256, -3.7252899e-09, 0.63354117, -0.73997283, -0.6333736)

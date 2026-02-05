@@ -31,7 +31,8 @@ public partial class fusePathHandler : Node3D
     private List<Node3D> _spawnedFuses = new List<Node3D>();
     private Player _player;
     private int _maxFuseOG;
-    private bool _isLight = true;
+    public bool _isLight = true;
+    public bool _lightsOff = false;
     public override void _Ready()
     {
         _player = GetNode<Player>("Player");
@@ -48,6 +49,9 @@ public partial class fusePathHandler : Node3D
             GetNode<Node3D>("FuseHolder").AddChild(meshInstance);
             meshInstance.GlobalPosition = spawn.GlobalPosition;
 
+            Lighting(LightScene, "Light");
+            _isLight = true;
+
             _spawnedFuses.RemoveAt(chosen);
             MaxFuses--;
         }
@@ -56,25 +60,18 @@ public partial class fusePathHandler : Node3D
 	public override void _PhysicsProcess(double delta)
     {
         _count += 2;
-        Node3D holder = GetNode<Node3D>("EnviormentHolder");
         if (_player._collectedFuses >= _maxFuseOG && !_isLight)
         {
-            foreach (Node3D env in GetNode<Node3D>("EnviormentHolder").GetChildren()){ env.QueueFree(); }
-
-            Node3D instance = (Node3D)LightScene.Instantiate();
-            instance.Name = "Light";
-            holder.AddChild(instance);
-
+            Lighting(LightScene, "Light");
             _isLight = true;
+            _player.GetNode<Ui>("UI")._currentLine = 9;
+            _player.GetNode<Ui>("UI").Type();
+            _player.GetNode<Ui>("UI")._text.Text = _player.GetNode<Ui>("UI")._lineTable[_player.GetNode<Ui>("UI")._currentLine];
+            _player.GetNode<Control>("UI/Dialouge").Visible = true;
         }
-        else if (_player._collectedFuses < _maxFuseOG && _isLight)
+        else if (_player._collectedFuses < _maxFuseOG && _isLight && _lightsOff)
         {
-            foreach (Node3D env in GetNode<Node3D>("EnviormentHolder").GetChildren()){ env.QueueFree(); }
-
-            Node3D instance = (Node3D)DarkScene.Instantiate();
-            instance.Name = "Dark";
-            holder.AddChild(instance);
-
+             Lighting(DarkScene, "Dark");
             _isLight = false;
         }
 
@@ -163,5 +160,15 @@ public partial class fusePathHandler : Node3D
             mesh.QueueFree();
         }
         _spawnedMeshes.Clear();
+    }
+
+    private void Lighting(PackedScene lightingScene, string sceneName)
+    {
+        Node3D holder = GetNode<Node3D>("EnviormentHolder");
+        foreach (Node3D env in GetNode<Node3D>("EnviormentHolder").GetChildren()){ env.QueueFree(); }
+
+        Node3D instance = (Node3D)lightingScene.Instantiate();
+        instance.Name = sceneName;
+        holder.AddChild(instance);
     }
 }

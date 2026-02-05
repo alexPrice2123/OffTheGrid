@@ -19,10 +19,10 @@ public partial class Player : CharacterBody3D
 	public Camera3D _otherCam;
 	public Camera3D _currentCam;
 	private MeshInstance3D _screen;
-	private Node3D _defScreenPos;
+	public Node3D _defScreenPos;
 	private Node3D _lookScreenPos;
 	private Node3D _startScreenPos;
-	private Node3D _currentScreenPos;
+	public Node3D _currentScreenPos;
 	private float _power = 0f;
 	private ShaderMaterial _screenMat;
 	private Color _screenColor = new Color(0, 1, 0, 1);
@@ -42,7 +42,7 @@ public partial class Player : CharacterBody3D
 	private MeshInstance3D _power3;
 	private MeshInstance3D _power4;
 	private MeshInstance3D _crank;
-	private bool _inTutorial = true;
+	public bool _inTutorial = true;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -81,7 +81,7 @@ public partial class Player : CharacterBody3D
 	public override void _Input(InputEvent @event)
 	{
 		// --- Camera look ---
-		if (@event is InputEventMouseMotion motion && Input.MouseMode == Input.MouseModeEnum.Captured)
+		if (@event is InputEventMouseMotion motion && Input.MouseMode == Input.MouseModeEnum.Captured && !_inTutorial)
 		{
 			 // Rotate the character body on the Y-axis for horizontal look (yaw)
             RotateY(-motion.Relative.X * _mouseSense);
@@ -111,11 +111,6 @@ public partial class Player : CharacterBody3D
 		_currentCam.GlobalPosition = GetNode<MeshInstance3D>("Head/Screen").GlobalPosition;
 		_currentCam.GlobalRotation = _cam.GlobalRotation;
 		_mouseSense = (float)_pauseMenu.GetNode<HSlider>("Mouse").Value / 1000f;
-		float increaseAmount;
-		if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
-		else{ increaseAmount = 0.2f; }
-		if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
-		else { _power -= (float)delta * 0.05f; }
 		if (_power >= 2f) { _power = 2f; }
 		if (_power <= 0f) { _power = 0f; }
 		if (_power >= 2)
@@ -150,87 +145,94 @@ public partial class Player : CharacterBody3D
 		LightHandler(_hasFuse, _fuseLight);
 		_screenMat.SetShaderParameter("intensity", _power);
 		_screenMat.SetShaderParameter("hue", _screenColor);
-		if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
-		if (Input.IsActionJustReleased("LookCamera")) { _currentScreenPos = _defScreenPos; }
-		if (Input.IsActionJustPressed("WallCam"))
-		{
-			LightHandler(true, _mode1);
-			LightHandler(false, _mode2);
-			LightHandler(false, _mode3);
-			_currentCam.Current = false;
-			_currentCam = _wallCam;
-			_screenColor = new Color(0, 1.25f, 0, 1);
-			_currentCam.Current = true;
-		}
-		if (Input.IsActionJustPressed("FurnCam"))
-		{
-			LightHandler(false, _mode1);
-			LightHandler(true, _mode2);
-			LightHandler(false, _mode3);
-			_currentCam.Current = false;
-			_currentCam = _furnCam;
-			_screenColor = new Color(180f / 255f, 188f / 255f, 237f / 255f, 1);
-			_currentCam.Current = true;
-		}
-		if (Input.IsActionJustPressed("OtherCam"))
-		{
-			LightHandler(false, _mode1);
-			LightHandler(false, _mode2);
-			LightHandler(true, _mode3);
-			_currentCam.Current = false;
-			_currentCam = _otherCam;
-			_screenColor = new Color(250f / 255f, 192f / 255f, 192f / 255f, 1);
-			_currentCam.Current = true;
-		}
-
-		if (Input.IsActionJustPressed("CrouchToggle") && IsOnFloor()) { Crouch(_currentHeadPos == _walkPos); }
-
-		if (Input.IsActionJustPressed("CrouchHold") && IsOnFloor()) { Crouch(true); }
-		if (Input.IsActionJustReleased("CrouchHold") && IsOnFloor()) { Crouch(false); }
-
 		CheckRaycast("Fuse");
 		CheckRaycast("FuseBox");
-
-		if (Input.IsActionJustPressed("Pause"))
+		if (!_inTutorial)
         {
-            Input.MouseMode = Input.MouseModeEnum.Visible;
-			_pauseMenu.Visible = true;
-			_crosshair.Visible = false;
-			GetTree().Paused = true;
-        }
-		
-		if (Input.IsActionJustPressed("Interact"))
-		{
-			if (_currentObj != null && !_hasFuse && _currentObj.IsInGroup("Fuse"))
+            float increaseAmount;
+			if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
+			else{ increaseAmount = 0.2f; }
+			if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
+			else { _power -= (float)delta * 0.05f; }
+			if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
+			if (Input.IsActionJustReleased("LookCamera")) { _currentScreenPos = _defScreenPos; }
+			if (Input.IsActionJustPressed("WallCam"))
 			{
-				Highlight(false, _currentObj.GetNode<MeshInstance3D>("Fuse"));
-				_currentObj.QueueFree();
-				_currentObj = null;
-				_hasFuse = true;
+				LightHandler(true, _mode1);
+				LightHandler(false, _mode2);
+				LightHandler(false, _mode3);
+				_currentCam.Current = false;
+				_currentCam = _wallCam;
+				_screenColor = new Color(0, 1.25f, 0, 1);
+				_currentCam.Current = true;
 			}
-			if (_currentObj != null && _hasFuse && _currentObj.IsInGroup("FuseBox"))
-            {
-                Highlight(false, _currentObj.GetNode<MeshInstance3D>("FuseBox"));
-				_currentObj = null;
-				_hasFuse = false;
-				_collectedFuses++;
-            }
-		}
-		
-		// Get the input direction and handle the movement/deceleration.
-		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
-		Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
-		if (direction != Vector3.Zero)
-		{
-			velocity.X = direction.X * _currentSpeed;
-			velocity.Z = direction.Z * _currentSpeed;
-		}
-		else
-		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, _currentSpeed);
-			velocity.Z = Mathf.MoveToward(Velocity.Z, 0, _currentSpeed);
-		}
+			if (Input.IsActionJustPressed("FurnCam"))
+			{
+				LightHandler(false, _mode1);
+				LightHandler(true, _mode2);
+				LightHandler(false, _mode3);
+				_currentCam.Current = false;
+				_currentCam = _furnCam;
+				_screenColor = new Color(180f / 255f, 188f / 255f, 237f / 255f, 1);
+				_currentCam.Current = true;
+			}
+			if (Input.IsActionJustPressed("OtherCam"))
+			{
+				LightHandler(false, _mode1);
+				LightHandler(false, _mode2);
+				LightHandler(true, _mode3);
+				_currentCam.Current = false;
+				_currentCam = _otherCam;
+				_screenColor = new Color(250f / 255f, 192f / 255f, 192f / 255f, 1);
+				_currentCam.Current = true;
+			}
+
+			if (Input.IsActionJustPressed("CrouchToggle") && IsOnFloor()) { Crouch(_currentHeadPos == _walkPos); }
+
+			if (Input.IsActionJustPressed("CrouchHold") && IsOnFloor()) { Crouch(true); }
+			if (Input.IsActionJustReleased("CrouchHold") && IsOnFloor()) { Crouch(false); }
+			
+			if (Input.IsActionJustPressed("Pause"))
+			{
+				Input.MouseMode = Input.MouseModeEnum.Visible;
+				_pauseMenu.Visible = true;
+				_crosshair.Visible = false;
+				GetTree().Paused = true;
+			}
+			
+			if (Input.IsActionJustPressed("Interact"))
+			{
+				if (_currentObj != null && !_hasFuse && _currentObj.IsInGroup("Fuse"))
+				{
+					Highlight(false, _currentObj.GetNode<MeshInstance3D>("Fuse"));
+					_currentObj.QueueFree();
+					_currentObj = null;
+					_hasFuse = true;
+				}
+				if (_currentObj != null && _hasFuse && _currentObj.IsInGroup("FuseBox"))
+				{
+					Highlight(false, _currentObj.GetNode<MeshInstance3D>("FuseBox"));
+					_currentObj = null;
+					_hasFuse = false;
+					_collectedFuses++;
+				}
+			}
+
+			// Get the input direction and handle the movement/deceleration.
+			// As good practice, you should replace UI actions with custom gameplay actions.
+			Vector2 inputDir = Input.GetVector("Left", "Right", "Up", "Down");
+			Vector3 direction = (Transform.Basis * new Vector3(inputDir.X, 0, inputDir.Y)).Normalized();
+			if (direction != Vector3.Zero)
+			{
+				velocity.X = direction.X * _currentSpeed;
+				velocity.Z = direction.Z * _currentSpeed;
+			}
+			else
+			{
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, _currentSpeed);
+				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, _currentSpeed);
+			}
+        }
 
 		_head.Position = _head.Position.Lerp(_currentHeadPos.Position, (float)delta * 5);
 		_screen.Position = _screen.Position.Lerp(_currentScreenPos.Position, (float)delta * 5);
