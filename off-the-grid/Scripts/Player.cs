@@ -114,7 +114,7 @@ public partial class Player : CharacterBody3D
 		float increaseAmount;
 		if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
 		else{ increaseAmount = 0.2f; }
-		if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(0.1f); }
+		if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
 		else { _power -= (float)delta * 0.05f; }
 		if (_power >= 2f) { _power = 2f; }
 		if (_power <= 0f) { _power = 0f; }

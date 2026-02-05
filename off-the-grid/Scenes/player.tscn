@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brswe2rgiop22" path="res://Scenes/radarScreen.tscn" id="2_cvnsp"]
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
-[ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3d/Maddy/Radar/Radar.blend" id="6_x3wgy"]
+[ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3D/Maddy/Radar/Radar.blend" id="6_x3wgy"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -228,6 +228,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 [node name="CrouchHead" type="Node3D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("5_fkybt")]
+_lineTable = PackedStringArray("One", "Two", "Three")
 
 [editable path="Head/Screen/SubViewport"]
 [editable path="Head/Screen/Radar"]
