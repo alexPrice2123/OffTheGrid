@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://3gshr0ttb3l2"]
+[gd_scene load_steps=5 format=3 uid="uid://3gshr0ttb3l2"]
 
 [ext_resource type="Script" uid="uid://bl5pvyuct4o04" path="res://Scripts/Monster.cs" id="1_xhoai"]
 
@@ -9,9 +9,6 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_xhoai"]
 radius = 4.5
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_i44lo"]
-radius = 11.0
-
 [node name="Monster" type="CharacterBody3D"]
 script = ExtResource("1_xhoai")
 
@@ -19,7 +16,7 @@ script = ExtResource("1_xhoai")
 shape = SubResource("CapsuleShape3D_rpp4a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
-layers = 4
+layers = 8
 mesh = SubResource("CapsuleMesh_xhoai")
 skeleton = NodePath("../..")
 
@@ -28,12 +25,7 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="IDetection"]
 shape = SubResource("SphereShape3D_xhoai")
 
-[node name="SeenRange" type="Area3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SeenRange"]
-shape = SubResource("SphereShape3D_i44lo")
-
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [connection signal="body_entered" from="IDetection" to="." method="_on_detection_body_entered"]
-[connection signal="body_exited" from="SeenRange" to="." method="_on_seen_range_body_exited"]
+[connection signal="body_exited" from="IDetection" to="." method="_on_detection_body_exited"]

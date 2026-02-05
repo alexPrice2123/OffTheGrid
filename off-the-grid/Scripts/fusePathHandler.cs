@@ -22,6 +22,7 @@ public partial class fusePathHandler : Node3D
 	[Export]
     public int MaxFuses { get; set; } = 5;
 
+    public static fusePathHandler Instance { get; private set; }
 	private int _count = 0;
 	private float _closestDist = 10000;
 	private Node3D _closestFuse;
@@ -35,6 +36,7 @@ public partial class fusePathHandler : Node3D
     public bool _lightsOff = false;
     public override void _Ready()
     {
+        Instance = this;
         _player = GetNode<Player>("Player");
         _maxFuseOG = MaxFuses;
         _rng.Randomize();
@@ -170,5 +172,30 @@ public partial class fusePathHandler : Node3D
         Node3D instance = (Node3D)lightingScene.Instantiate();
         instance.Name = sceneName;
         holder.AddChild(instance);
+    }
+
+    public Aabb GetAllAabb(Node3D parent)
+    {
+        Aabb _combinedAabb = new Aabb();
+        bool first = true;
+
+        foreach (Node child in GetChildren())
+        {
+            if (child is VisualInstance3D visualChild)
+            {
+                Aabb _childAabb = visualChild.GetAabb();
+                Aabb transformedAabb = parent.GlobalTransform.Inverse() * visualChild.GlobalTransform * _childAabb;
+                if (first)
+                {
+                    _combinedAabb = transformedAabb;
+                    first = false;
+                }
+                else
+                {
+                    _combinedAabb = _combinedAabb.Merge(transformedAabb);
+                }
+            }
+        }
+        return _combinedAabb;
     }
 }
