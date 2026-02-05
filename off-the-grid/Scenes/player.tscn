@@ -228,7 +228,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 [node name="CrouchHead" type="Node3D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("5_fkybt")]
-_lineTable = PackedStringArray("One", "Two", "Three")
 
 [editable path="Head/Screen/SubViewport"]
 [editable path="Head/Screen/Radar"]

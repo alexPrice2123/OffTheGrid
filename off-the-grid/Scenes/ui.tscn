@@ -41,6 +41,7 @@ offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jxero")
+_lineTable = PackedStringArray("Man, I\'m going to have to get use to driving up that hill to reach the cabin. At least it\'s not as bad as that other hill a few miles back.", "Moving in sure has been tough, especially on my own. But that doesn\'t matter. I\'m far away from the city and on my own, it\'s almost like a dream.", "I should put some boxes away before it gets too crowded.", "Cutscene", "Um, I suppose that\'s not supposed to happen. I think the previous owner said something about frequent power outages. Maybe a few fuses are missing?", "They gave me this device, said it would help me find some fuses around the house. I\'ll give it a shot.", "Cutscene", "What the hell was that?!?", "I should turn the power back on, fast!")
 
 [node name="Pause" type="Control" parent="."]
 visible = false
@@ -238,7 +239,6 @@ text = "Back
 autowrap_mode = 2
 
 [node name="Dialouge" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
