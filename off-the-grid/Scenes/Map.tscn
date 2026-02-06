@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://de0qqdglm8ul0"]
+[gd_scene load_steps=13 format=3 uid="uid://de0qqdglm8ul0"]
 
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_7yn8b"]
-[ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/FusePathHandler.cs" id="1_ngcqm"]
+[ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_ngcqm"]
 [ext_resource type="PackedScene" uid="uid://b7fn32tpguw3o" path="res://Assets/3D/House/Floor.blend" id="1_s486e"]
 [ext_resource type="PackedScene" uid="uid://ktfcqqoa2dkw" path="res://Assets/3D/House/Wall.blend" id="3_etk83"]
 [ext_resource type="PackedScene" uid="uid://ccjqptpjj4lnc" path="res://Assets/3D/House/HalfFloor.blend" id="4_00287"]
 [ext_resource type="PackedScene" uid="uid://8ehqc8ktikn4" path="res://Assets/3D/House/HalfWall.blend" id="5_5t7yc"]
 [ext_resource type="PackedScene" uid="uid://dl0b7mwxj0skp" path="res://Assets/3D/House/Stairs.blend" id="6_ngcqm"]
 [ext_resource type="PackedScene" uid="uid://bmr8yuloqunqr" path="res://Assets/3D/House/Door.blend" id="7_5t7yc"]
+[ext_resource type="PackedScene" uid="uid://dg14dgv8qg0u8" path="res://Assets/3D/Maddy/Standing-Lamp/standing-lamp.blend" id="9_ws1hi"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7yn8b"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -27,6 +28,7 @@ script = ExtResource("1_ngcqm")
 
 [node name="Ceiling2" parent="." instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 10, -65)
+visible = false
 
 [node name="Floor189" parent="Ceiling2" instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 115)
@@ -516,6 +518,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, 0, -20)
 
 [node name="2edFloor" parent="." instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90, 5, -65)
+visible = false
 
 [node name="Floor184" parent="2edFloor" instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 115)
@@ -2572,6 +2575,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 40)
 
 [node name="Ceiling" parent="." instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 10)
+visible = false
 
 [node name="Floor40" parent="Ceiling" instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, -40)
@@ -2722,5 +2726,8 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 60, 
 
 [node name="HalfFloor7" parent="Ceiling" instance=ExtResource("4_00287")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 70, 0, 45)
+
+[node name="standing-lamp" parent="." instance=ExtResource("9_ws1hi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3284984, -0.04672098, 4.1309686)
 
 [editable path="1stFloor/Floor79"]
