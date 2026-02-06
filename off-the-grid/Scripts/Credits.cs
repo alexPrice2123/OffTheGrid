@@ -6,7 +6,10 @@ public partial class Credits : Control
     private bool _rolling = true;
     public async override void _Ready()
 	{
-        await ToSignal(GetTree().CreateTimer(33.67), SceneTreeTimer.SignalName.Timeout);
+        while (GetNode<Label>("Text").Position.Y > -362.0)
+        {
+           await ToSignal(GetTree().CreateTimer(0.01f), SceneTreeTimer.SignalName.Timeout); 
+        }
         _rolling = false;
         await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
         for (int i = 0; i < 20; i++)

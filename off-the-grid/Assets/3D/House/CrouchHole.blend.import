@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dje42vtma6xd2"
-path="res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"
+uid="uid://cuoen7m1mes25"
+path="res://.godot/imported/CrouchHole.blend-b4eea912b8c55bcce1bd6ac00afccdff.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Julia/Table and Chairs/Table.blend"
-dest_files=["res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"]
+source_file="res://Assets/3D/House/CrouchHole.blend"
+dest_files=["res://.godot/imported/CrouchHole.blend-b4eea912b8c55bcce1bd6ac00afccdff.scn"]
 
 [params]
 
@@ -37,13 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Table": {
-"mesh_instance/layers": 5
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

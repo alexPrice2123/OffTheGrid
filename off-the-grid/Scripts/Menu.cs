@@ -27,7 +27,7 @@ public partial class Menu : Node3D
 	{
 		_trans = 1;
 		await ToSignal(GetTree().CreateTimer(1.5), SceneTreeTimer.SignalName.Timeout);
-        GetTree().ChangeSceneToFile("res://Scenes/world.tscn");
+        GetTree().ChangeSceneToFile("res://Scenes/Map.tscn");
     }
 
 	private void _on_quit_button_up()

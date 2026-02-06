@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c6k00rggdvqs8" path="res://Assets/2D/Controls.png" id="2_xhh6f"]
 [ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="3_158mb"]
 [ext_resource type="Shader" uid="uid://oefrcju166tv" path="res://Shaders/transition.gdshader" id="5_wwsa2"]
-[ext_resource type="PackedScene" uid="uid://d3bh3hivw3xtd" path="res://Assets/3d/Julia/Sofa/Sofa.blend" id="6_jsrd8"]
+[ext_resource type="PackedScene" uid="uid://d3bh3hivw3xtd" path="res://Assets/3D/Julia/Sofa/Sofa.blend" id="6_jsrd8"]
 [ext_resource type="AudioStream" uid="uid://bf8x74vy3gdpo" path="res://Assets/Sound/mainmenu.mp3" id="7_wbdvm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsrd8"]

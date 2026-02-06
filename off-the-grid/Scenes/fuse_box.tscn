@@ -1,4 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cnwh5wg8gvb7f"]
+[gd_scene load_steps=12 format=3 uid="uid://cnwh5wg8gvb7f"]
+
+[ext_resource type="PackedScene" uid="uid://ckiyhfk41vjjg" path="res://Assets/3D/Maddy/Fuse-box/Fuse-box.blend" id="1_uwvrc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uwvrc"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mg4mk"]
 render_priority = 1
@@ -14,6 +20,8 @@ metadata/_stencil_owned = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcbgt"]
 next_pass = SubResource("StandardMaterial3D_mg4mk")
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
 stencil_mode = 1
 stencil_flags = 2
 stencil_color = Color(1, 1, 1, 0)
@@ -44,13 +52,14 @@ scale_curve = SubResource("CurveTexture_trj8p")
 [sub_resource type="SphereMesh" id="SphereMesh_rq28i"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u25f5"]
-size = Vector3(1.0218506, 1.0368042, 0.86950684)
+size = Vector3(0.8536072, 0.72935486, 0.86950684)
 
 [node name="FuseBox" type="Node3D" groups=["FuseBox"]]
 
 [node name="FuseBox" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.5845649, 0, 0, 0, 1, 0, 0, 0, 0.19569343, 0, 0, 0)
+transform = Transform3D(0.470372, 0, 0, 0, 0.66360873, 0, 0, 0, 0.19569343, 0, 0.069532506, 0)
 layers = 3
+material_override = SubResource("StandardMaterial3D_uwvrc")
 material_overlay = SubResource("StandardMaterial3D_fcbgt")
 mesh = SubResource("BoxMesh_uwvrc")
 
@@ -67,5 +76,19 @@ draw_pass_1 = SubResource("SphereMesh_rq28i")
 transform = Transform3D(0.5845649, 0, 0, 0, 1, 0, 0, 0, 0.19569346, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000018, -0.0056757927, -0.006011963, 0.09112549)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.0000017, -0.016463753, 0.061805725, 0.09112549)
 shape = SubResource("BoxShape3D_u25f5")
+
+[node name="Fuse-box" parent="." instance=ExtResource("1_uwvrc")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.1927883, 0, -0.023445444)
+
+[node name="Main Box" parent="Fuse-box" index="0"]
+layers = 3
+
+[node name="door" parent="Fuse-box" index="1"]
+layers = 3
+
+[node name="fuse holder" parent="Fuse-box" index="2"]
+layers = 3
+
+[editable path="Fuse-box"]
