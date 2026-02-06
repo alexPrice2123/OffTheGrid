@@ -1,12 +1,44 @@
-[gd_scene load_steps=5 format=3 uid="uid://cp688cg0r0lpk"]
+[gd_scene load_steps=12 format=3 uid="uid://cp688cg0r0lpk"]
 
 [ext_resource type="Script" uid="uid://cy8fnognme0j2" path="res://Scripts/Menu.cs" id="1_1rerr"]
 [ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="2_wwsa2"]
 [ext_resource type="Texture2D" uid="uid://c6k00rggdvqs8" path="res://Assets/2D/Controls.png" id="2_xhh6f"]
 [ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="3_158mb"]
+[ext_resource type="Shader" uid="uid://oefrcju166tv" path="res://Shaders/transition.gdshader" id="5_wwsa2"]
+[ext_resource type="PackedScene" uid="uid://d3bh3hivw3xtd" path="res://Assets/3d/Julia/Sofa/Sofa.blend" id="6_jsrd8"]
+[ext_resource type="AudioStream" uid="uid://bf8x74vy3gdpo" path="res://Assets/Sound/mainmenu.mp3" id="7_wbdvm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsrd8"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_wbdvm"]
+sky_material = SubResource("ProceduralSkyMaterial_jsrd8")
+
+[sub_resource type="Environment" id="Environment_q3rjx"]
+background_mode = 2
+sky = SubResource("Sky_wbdvm")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsrd8"]
+shader = ExtResource("5_wwsa2")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 1.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_1rerr")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_q3rjx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_as_relative = false
@@ -21,8 +53,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.5882353)
-
-[node name="Camera3D" type="Camera3D" parent="."]
 
 [node name="MenuUI" type="Control" parent="."]
 layout_mode = 3
@@ -107,6 +137,26 @@ theme = ExtResource("2_wwsa2")
 text = "Back
 "
 autowrap_mode = 2
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 100
+material = SubResource("ShaderMaterial_jsrd8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Sofa" parent="." instance=ExtResource("6_jsrd8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1, -2)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_wbdvm")
+autoplay = true
+parameters/looping = true
 
 [connection signal="button_up" from="MenuUI/Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="MenuUI/Quit" to="." method="_on_quit_button_up"]

@@ -34,10 +34,12 @@ public partial class fusePathHandler : Node3D
     private int _maxFuseOG;
     public bool _isLight = true;
     public bool _lightsOff = false;
+    private AudioStreamPlayer _sound;
     public override void _Ready()
     {
         Instance = this;
         _player = GetNode<Player>("Player");
+        _sound = GetNode<AudioStreamPlayer>("Music");
         _maxFuseOG = MaxFuses;
         _rng.Randomize();
         _spawnedFuses = GetNode<Node3D>("FuseSpawns").GetChildren().OfType<Node3D>().ToList();
@@ -65,6 +67,7 @@ public partial class fusePathHandler : Node3D
         if (_player._collectedFuses >= _maxFuseOG && !_isLight)
         {
             Lighting(LightScene, "Light");
+            _sound.Stop();
             _isLight = true;
             _player.GetNode<Ui>("UI")._currentLine = 9;
             _player.GetNode<Ui>("UI").Type();
@@ -73,7 +76,8 @@ public partial class fusePathHandler : Node3D
         }
         else if (_player._collectedFuses < _maxFuseOG && _isLight && _lightsOff)
         {
-             Lighting(DarkScene, "Dark");
+            Lighting(DarkScene, "Dark");
+            _sound.Play();
             _isLight = false;
         }
 

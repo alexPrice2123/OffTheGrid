@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://chlmb4qhfdsq3"]
+[gd_scene load_steps=14 format=3 uid="uid://chlmb4qhfdsq3"]
 
 [ext_resource type="Script" uid="uid://dwax8nqrfr4s6" path="res://Scripts/Ui.cs" id="1_jxero"]
 [ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="2_q7pk6"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://crbckn44hfevr" path="res://Assets/Fonts/Normal.ttf" id="3_m78vo"]
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_smcll"]
 [ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="6_m78vo"]
+[ext_resource type="Shader" uid="uid://oefrcju166tv" path="res://Shaders/transition.gdshader" id="7_smcll"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m78vo"]
 border_width_left = 5
@@ -40,6 +41,15 @@ bg_color = Color(1, 1, 1, 1)
 [sub_resource type="Theme" id="Theme_ryf15"]
 ProgressBar/styles/background = SubResource("StyleBoxFlat_smcll")
 ProgressBar/styles/fill = SubResource("StyleBoxFlat_ryf15")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ryf15"]
+shader = ExtResource("7_smcll")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_block_size = 30.5
+shader_parameter/fade = 1.0
+shader_parameter/direction_r = Vector2(1, 0)
+shader_parameter/direction_g = Vector2(0.4, 1)
+shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -416,6 +426,17 @@ offset_right = 691.0
 offset_bottom = 533.0
 theme = SubResource("Theme_ryf15")
 show_percentage = false
+
+[node name="Transition" type="ColorRect" parent="."]
+z_index = 100
+material = SubResource("ShaderMaterial_ryf15")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [connection signal="button_up" from="Pause/Return" to="." method="_on_return_button_up"]
 [connection signal="button_up" from="Pause/Quit" to="." method="_on_quit_button_up"]

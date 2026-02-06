@@ -12,21 +12,33 @@ public partial class Ui : Control
 	private bool _inCutscene = false;
 	private float _skipCount = 0;
 	private int _tutPage = 1;
+	private ShaderMaterial _transitionMat;
+	private float _transitionGoal = -0.1f;
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 
 	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	public async override void _Ready()
 	{
         _text = GetNode<Label>("Dialouge/Text");
         _text.Text = _lineTable[_currentLine];
 		_text.VisibleCharacters = 0;
-
+		_transitionMat = GetNode<ColorRect>("Transition").Material as ShaderMaterial;
+		await ToSignal(GetTree().CreateTimer(1.5), SceneTreeTimer.SignalName.Timeout);
         Type();
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
-    {
+	{
+		_transitionMat.SetShaderParameter("fade", Mathf.Lerp((float)_transitionMat.GetShaderParameter("fade"), _transitionGoal, delta * 2));
+		if ((float)_transitionMat.GetShaderParameter("fade") >= 1)
+        {
+            GetTree().ChangeSceneToFile("res://Scenes/credits.tscn");
+        }
+		if ((float)_transitionMat.GetShaderParameter("fade") <= 0)
+        {
+			_transitionGoal = 0;
+        }
 		if (_lineTable[_currentLine] == "Cutscene1" && !_inCutscene)
         {
             _inCutscene = true;
@@ -47,7 +59,7 @@ public partial class Ui : Control
                 {
                     if (11 <= _currentLine && (_currentCount >= _lineTable[_currentLine].Length))
 					{
-						
+						_transitionGoal = 1.1f;
 					}
 					else
 					{
@@ -102,7 +114,7 @@ public partial class Ui : Control
             }
 		}
 		GetNode<Label>("Dialouge/Warn").Visible = _currentCount >= _lineTable[_currentLine].Length;
-		if (Input.IsActionPressed("Skip") && !_inCutscene)
+		if (Input.IsActionPressed("Skip") && !_inCutscene && !(GetParent().GetParent<fusePathHandler>()._isLight && !GetParent<Player>()._inTutorial))
         {
             _skipCount++;
 			if (GetNode<Control>("Dialouge").Visible == true)

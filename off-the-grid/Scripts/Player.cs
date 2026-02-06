@@ -6,6 +6,8 @@ public partial class Player : CharacterBody3D
 	public static Player Instance { get; private set; }
 	private const float WalkSpeed = 5.0f;
 	private const float CrouchSpeed = 2.5f;
+	private const float BOB_FREQ = 4.0f;
+    private const float BOB_AMP = 0.02f;
 	private float _currentSpeed;
 	private Node3D _head;
 	private Camera3D _cam;
@@ -43,10 +45,13 @@ public partial class Player : CharacterBody3D
 	private MeshInstance3D _power4;
 	private MeshInstance3D _crank;
 	public bool _inTutorial = true;
+	private float _bob = 0.0f;
+	private Vector3 _initialCameraPosition;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
 		_cam = GetNode<Camera3D>("Head/Camera3D");
+		_initialCameraPosition = _cam.Position;
 		_walkPos = GetNode<Node3D>("WalkingHead");
 		_crouchPos = GetNode<Node3D>("CrouchHead");
 		_walkCollision = GetNode<CollisionShape3D>("WalkShape");
@@ -232,6 +237,17 @@ public partial class Player : CharacterBody3D
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, _currentSpeed);
 				velocity.Z = Mathf.MoveToward(Velocity.Z, 0, _currentSpeed);
 			}
+
+			if (velocity.Length() > 0.1f && IsOnFloor())
+			{
+				_bob += (float)delta * velocity.Length() * 0.5f;
+			}
+			else
+			{
+				_bob = 0;
+			}
+			Vector3 bobOffset = CalculateHeadBob(_bob);
+			_cam.Position = _cam.Position.Lerp(_initialCameraPosition + bobOffset, (float)delta*3);
         }
 
 		_head.Position = _head.Position.Lerp(_currentHeadPos.Position, (float)delta * 5);
@@ -300,12 +316,20 @@ public partial class Player : CharacterBody3D
 			_currentObj = null;
 		}
 	}
-	
+
 	private void LightHandler(bool toggle, MeshInstance3D lightRef)
-    {
-        if (lightRef.MaterialOverride is StandardMaterial3D material)
-        {
+	{
+		if (lightRef.MaterialOverride is StandardMaterial3D material)
+		{
 			material.EmissionEnergyMultiplier = Convert.ToInt32(toggle) * 5;
-        }
+		}
+	}
+	
+	private Vector3 CalculateHeadBob(float time)
+    {
+        Vector3 pos = Vector3.Zero;
+        pos.Y = Mathf.Sin(time * BOB_FREQ) * BOB_AMP;
+        pos.X = Mathf.Cos(time * BOB_FREQ / 2.0f) * BOB_AMP;
+        return pos;
     }
 }

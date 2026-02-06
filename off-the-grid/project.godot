@@ -13,6 +13,7 @@ config_version=5
 config/name="OffTheGrid"
 run/main_scene="uid://cp688cg0r0lpk"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
 
 [display]
@@ -105,3 +106,4 @@ Skip={
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

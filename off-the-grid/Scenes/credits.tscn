@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccwt8ier0romi"]
+
+[ext_resource type="Script" uid="uid://lrde42o4y47t" path="res://Scripts/Credits.cs" id="1_gryuy"]
+[ext_resource type="FontFile" uid="uid://crbckn44hfevr" path="res://Assets/Fonts/Normal.ttf" id="1_r18jl"]
+[ext_resource type="AudioStream" uid="uid://bf8x74vy3gdpo" path="res://Assets/Sound/mainmenu.mp3" id="3_ccovl"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gryuy")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 646.0
+offset_right = 880.0
+offset_bottom = 1358.0
+theme_override_fonts/font = ExtResource("1_r18jl")
+theme_override_font_sizes/font_size = 40
+text = "Programmers:
+Alex
+Mace
+Artists:
+Maddy
+Julia
+Leo
+
+From The Mind Of:
+Lukas
+
+
+Display In The Dark..."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Block" type="ColorRect" parent="."]
+layout_mode = 0
+offset_top = -118.0
+offset_right = 40.0
+offset_bottom = -78.0
+scale = Vector2(28.922142, 9.512631)
+color = Color(0, 0, 0, 0)
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ccovl")
+autoplay = true
