@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://5a5d04h72pkh"]
+[gd_scene load_steps=15 format=3 uid="uid://5a5d04h72pkh"]
+
+[ext_resource type="Script" uid="uid://dwssnsxcjexlm" path="res://Scripts/Minion.cs" id="1_fb4sf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0oln"]
 shading_mode = 0
@@ -12,18 +14,91 @@ point_count = 5
 curve = SubResource("Curve_j0oln")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j0oln"]
-radial_velocity_min = 0.99997765
-radial_velocity_max = 0.99997765
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, 1, 0)
+scale_min = 0.14999999
+scale_max = 0.14999999
 scale_curve = SubResource("CurveTexture_fb4sf")
 
 [sub_resource type="BoxMesh" id="BoxMesh_fb4sf"]
 
-[node name="Minion" type="Node3D"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fb4sf"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+[sub_resource type="Curve" id="Curve_fb4sf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_s0atx"]
+curve = SubResource("Curve_fb4sf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f5x54"]
+radial_velocity_min = 0.09997764
+radial_velocity_max = 0.09997764
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_s0atx")
+
+[sub_resource type="SphereMesh" id="SphereMesh_f5x54"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0atx"]
+transparency = 1
+albedo_color = Color(1, 0, 0, 0.39215687)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_f5x54"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fb4sf"]
+data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Minion" type="Node3D"]
+script = ExtResource("1_fb4sf")
+
+[node name="Body" type="GPUParticles3D" parent="."]
+layers = 5
 material_override = SubResource("StandardMaterial3D_j0oln")
+amount = 25
 process_material = SubResource("ParticleProcessMaterial_j0oln")
 draw_pass_1 = SubResource("BoxMesh_fb4sf")
+
+[node name="EyeOpen" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
+visible = false
+layers = 4
+material_override = SubResource("StandardMaterial3D_fb4sf")
+process_material = SubResource("ParticleProcessMaterial_f5x54")
+draw_pass_1 = SubResource("SphereMesh_f5x54")
+
+[node name="Sight" type="Node3D" parent="EyeOpen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2485927, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="EyeOpen/Sight"]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 0.173, 0, -5, -7.56207e-09, 0, 1.0932516e-07, 2.501068)
+layers = 4
+material_override = SubResource("StandardMaterial3D_s0atx")
+mesh = SubResource("PrismMesh_f5x54")
+skeleton = NodePath("../../..")
+
+[node name="Vision" type="Area3D" parent="EyeOpen/Sight"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EyeOpen/Sight/Vision"]
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 0.173, 0, -5, -7.56207e-09, 0, 1.0932516e-07, 2.501068)
+shape = SubResource("ConcavePolygonShape3D_fb4sf")
+
+[node name="EyeClosed" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
+layers = 4
+material_override = SubResource("StandardMaterial3D_j0oln")
+process_material = SubResource("ParticleProcessMaterial_f5x54")
+draw_pass_1 = SubResource("SphereMesh_f5x54")
+
+[node name="EyeOff" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
+material_override = SubResource("StandardMaterial3D_j0oln")
+process_material = SubResource("ParticleProcessMaterial_f5x54")
+draw_pass_1 = SubResource("SphereMesh_f5x54")

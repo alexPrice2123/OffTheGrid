@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://de0qqdglm8ul0"]
+[gd_scene load_steps=18 format=3 uid="uid://de0qqdglm8ul0"]
 
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_7yn8b"]
 [ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_ngcqm"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cnwh5wg8gvb7f" path="res://Scenes/fuse_box.tscn" id="5_ws1hi"]
 [ext_resource type="AudioStream" uid="uid://c454sekcc6m43" path="res://Assets/Sound/Ambience3.mp3" id="6_xicox"]
 [ext_resource type="PackedScene" uid="uid://bmr8yuloqunqr" path="res://Assets/3D/House/Door.blend" id="7_5t7yc"]
+[ext_resource type="PackedScene" uid="uid://5a5d04h72pkh" path="res://Scenes/minion.tscn" id="14_6bwvt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjq7f"]
 emission_enabled = true
@@ -1743,6 +1744,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 55)
 
 [node name="Door28" parent="NavigationRegion3D/1stFloor" instance=ExtResource("7_5t7yc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 40)
+
+[node name="Minion" parent="." instance=ExtResource("14_6bwvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.471646, -0.15345892, -10.792968)
 
 [editable path="Ceiling/Floor238"]
 [editable path="NavigationRegion3D/1stFloor/Floor79"]
