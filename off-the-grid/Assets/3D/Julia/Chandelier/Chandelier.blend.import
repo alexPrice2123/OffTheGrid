@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cgvjxtgqyqln0"
-path="res://.godot/imported/Radar.blend-2cbea55c7bdb80381c94d15a617133eb.scn"
+uid="uid://d3mrliy8xwfw4"
+path="res://.godot/imported/Chandelier.blend-b0554a13ecef2ae7b47672c0dfe1a7b3.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Maddy/Radar/Radar.blend"
-dest_files=["res://.godot/imported/Radar.blend-2cbea55c7bdb80381c94d15a617133eb.scn"]
+source_file="res://Assets/3D/Julia/Chandelier/Chandelier.blend"
+dest_files=["res://.godot/imported/Chandelier.blend-b0554a13ecef2ae7b47672c0dfe1a7b3.scn"]
 
 [params]
 
