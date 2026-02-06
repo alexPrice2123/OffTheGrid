@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0y7f6majyoe8"]
+
+[ext_resource type="PackedScene" uid="uid://d2ih4isot0oj8" path="res://Assets/3D/Maddy/Rectangle-portrait/vert-rectangle-portrait.blend" id="1_4gmky"]
+
+[node name="vert-rectangle-portrait" instance=ExtResource("1_4gmky")]
+
+[node name="Cube" parent="." index="0"]
+layers = 5
