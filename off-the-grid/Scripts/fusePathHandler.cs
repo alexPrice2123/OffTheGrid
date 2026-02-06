@@ -63,6 +63,8 @@ public partial class fusePathHandler : Node3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+        _sound.VolumeDb = (float)GetNode<HSlider>("Player/UI/Pause/Music").Value;
+        _player.GetNode<AudioStreamPlayer>("Heartbeat").VolumeDb = (float)GetNode<HSlider>("Player/UI/Pause/SFX").Value;
 		_count += 2;
 		if (_player._collectedFuses >= _maxFuseOG && !_isLight)
 		{

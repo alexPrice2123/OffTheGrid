@@ -21,16 +21,16 @@ offset_right = 880.0
 offset_bottom = 1358.0
 theme_override_fonts/font = ExtResource("1_r18jl")
 theme_override_font_sizes/font_size = 40
-text = "Programmers:
-Alex
-Mace
-Artists:
-Maddy
-Julia
-Leo
+text = "Alex Price - Head Programmer
+Mace - Programmer
+Maddy Killcoyne - 3D Artist
+Julia Stauffer - 3D Artist
+Leo Sheng - Level Design & Art
+Mariann Jaime Martinez - Sound & Music
+
 
 From The Mind Of:
-Lukas
+Lukas Wilkens Mota
 
 
 Display In The Dark..."
@@ -48,3 +48,11 @@ color = Color(0, 0, 0, 0)
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ccovl")
 autoplay = true
+
+[node name="Center" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 578.0
+offset_bottom = 326.0

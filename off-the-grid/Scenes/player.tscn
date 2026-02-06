@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://o7twalwr44xx"]
+[gd_scene load_steps=25 format=3 uid="uid://o7twalwr44xx"]
 
 [ext_resource type="Script" uid="uid://k7e81pvm0lqd" path="res://Scripts/Player.cs" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_6t5aa"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
 [ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3D/Maddy/Radar/Radar.blend" id="6_x3wgy"]
+[ext_resource type="AudioStream" uid="uid://cfnmrdhinujs3" path="res://Assets/Sound/Heartbeat.mp3" id="7_3smsa"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -172,7 +173,7 @@ far = 10.0
 
 [node name="OtherCamera" parent="Head/Screen/SubViewport" index="2"]
 cull_mask = 524280
-far = 5.0
+far = 25.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Screen"]
 transform = Transform3D(10.000004, -1.6890397e-08, 2.3841858e-07, -2.3841858e-07, -4.3711395e-07, 10.000004, 3.5527137e-15, -10.000003, -2.4223374e-07, -0.11242616, -1.0148993, 0.040862083)
@@ -240,6 +241,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 [node name="CrouchHead" type="Node3D" parent="."]
 
 [node name="UI" parent="." instance=ExtResource("5_fkybt")]
+
+[node name="Heartbeat" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_3smsa")
+bus = &"SFX"
+parameters/looping = true
 
 [editable path="Head/Screen/SubViewport"]
 [editable path="Head/Screen/Radar"]

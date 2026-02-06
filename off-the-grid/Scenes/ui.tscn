@@ -67,8 +67,9 @@ _lineTable = PackedStringArray("Man, I\'m going to have to get use to driving up
 visible = false
 layout_mode = 1
 anchors_preset = 0
+offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 41.0
 
 [node name="Return" type="Button" parent="Pause"]
 process_mode = 3
@@ -79,9 +80,9 @@ anchor_left = 12.425
 anchor_top = 3.7000003
 anchor_right = 16.275002
 anchor_bottom = 5.6000004
-offset_top = 65.999985
+offset_top = 24.999985
 offset_right = -6.1035156e-05
-offset_bottom = 65.999985
+offset_bottom = 24.999985
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_q7pk6")
@@ -97,9 +98,9 @@ anchor_left = 12.425
 anchor_top = 10.250001
 anchor_right = 16.275002
 anchor_bottom = 12.150001
-offset_top = 65.99997
+offset_top = 96.99997
 offset_right = -6.1035156e-05
-offset_bottom = 65.99997
+offset_bottom = 96.99997
 pivot_offset = Vector2(77, 38)
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_q7pk6")
@@ -114,33 +115,60 @@ anchor_left = 12.975
 anchor_top = 7.6250005
 anchor_right = 15.725
 anchor_bottom = 8.875
-offset_top = -3.0517578e-05
+offset_top = -41.00003
+offset_bottom = -41.0
 pivot_offset = Vector2(55, 25)
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_q7pk6")
 text = "Controls"
 
-[node name="Volume" type="HSlider" parent="Pause"]
+[node name="Music" type="HSlider" parent="Pause"]
 process_mode = 3
 layout_mode = 0
 offset_left = 453.0
-offset_top = 451.0
+offset_top = 410.0
 offset_right = 699.0
-offset_bottom = 467.0
+offset_bottom = 426.0
 mouse_default_cursor_shape = 2
-value = 50.0
+min_value = -30.0
+max_value = 30.0
 
 [node name="Label" type="Label" parent="Pause"]
 layout_mode = 0
-offset_left = 547.0
-offset_top = 418.0
-offset_right = 607.0
-offset_bottom = 451.0
+offset_left = 516.0
+offset_top = 377.0
+offset_right = 636.0
+offset_bottom = 410.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_m78vo")
 theme_override_font_sizes/font_size = 25
-text = "Volume"
+text = "Music Volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SFX" type="HSlider" parent="Pause"]
+process_mode = 3
+layout_mode = 0
+offset_left = 453.0
+offset_top = 467.0
+offset_right = 699.0
+offset_bottom = 483.0
+mouse_default_cursor_shape = 2
+min_value = -30.0
+max_value = 30.0
+
+[node name="Label4" type="Label" parent="Pause"]
+layout_mode = 0
+offset_left = 526.0
+offset_top = 434.0
+offset_right = 626.0
+offset_bottom = 467.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("3_m78vo")
+theme_override_font_sizes/font_size = 25
+text = "SFX Volume"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -148,9 +176,9 @@ vertical_alignment = 1
 process_mode = 3
 layout_mode = 0
 offset_left = 453.0
-offset_top = 398.0
+offset_top = 357.0
 offset_right = 699.0
-offset_bottom = 414.0
+offset_bottom = 373.0
 mouse_default_cursor_shape = 2
 min_value = 0.5
 max_value = 6.0
@@ -160,9 +188,9 @@ value = 3.0
 [node name="Label2" type="Label" parent="Pause"]
 layout_mode = 0
 offset_left = 490.0
-offset_top = 365.0
+offset_top = 324.0
 offset_right = 660.0
-offset_bottom = 398.0
+offset_bottom = 357.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_m78vo")
@@ -188,9 +216,9 @@ color = Color(0, 0, 0, 0.5882353)
 [node name="Label3" type="Label" parent="Pause"]
 layout_mode = 0
 offset_left = 376.0
-offset_top = 102.0
+offset_top = 61.0
 offset_right = 816.0
-offset_bottom = 171.0
+offset_bottom = 130.0
 theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("4_smcll")
 theme_override_font_sizes/font_size = 50
