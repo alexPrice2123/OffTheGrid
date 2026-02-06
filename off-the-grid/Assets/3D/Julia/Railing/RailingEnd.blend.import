@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dje42vtma6xd2"
-path="res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"
+uid="uid://bxsf5ltowemi4"
+path="res://.godot/imported/RailingEnd.blend-219d29ae3747099fa461ff2038386231.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Julia/Table and Chairs/Table.blend"
-dest_files=["res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"]
+source_file="res://Assets/3D/Julia/Railing/RailingEnd.blend"
+dest_files=["res://.godot/imported/RailingEnd.blend-219d29ae3747099fa461ff2038386231.scn"]
 
 [params]
 
@@ -37,13 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:Table": {
-"mesh_instance/layers": 5
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
