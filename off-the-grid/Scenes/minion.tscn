@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://5a5d04h72pkh"]
+[gd_scene load_steps=16 format=3 uid="uid://5a5d04h72pkh"]
 
 [ext_resource type="Script" uid="uid://dwssnsxcjexlm" path="res://Scripts/Minion.cs" id="1_fb4sf"]
 
@@ -56,6 +56,14 @@ emission = Color(1, 0, 0, 1)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fb4sf"]
 data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fb4sf"]
+radial_velocity_min = 2.9999776
+radial_velocity_max = 2.9999776
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_s0atx")
+
 [node name="Minion" type="Node3D"]
 script = ExtResource("1_fb4sf")
 
@@ -68,7 +76,6 @@ draw_pass_1 = SubResource("BoxMesh_fb4sf")
 
 [node name="EyeOpen" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
-visible = false
 layers = 4
 material_override = SubResource("StandardMaterial3D_fb4sf")
 process_material = SubResource("ParticleProcessMaterial_f5x54")
@@ -87,7 +94,7 @@ skeleton = NodePath("../../..")
 [node name="Vision" type="Area3D" parent="EyeOpen/Sight"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EyeOpen/Sight/Vision"]
-transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 0.173, 0, -5, -7.56207e-09, 0, 1.0932516e-07, 2.501068)
+transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, 0, 1.0932516e-07, 2.501068)
 shape = SubResource("ConcavePolygonShape3D_fb4sf")
 
 [node name="EyeClosed" type="GPUParticles3D" parent="."]
@@ -97,8 +104,21 @@ material_override = SubResource("StandardMaterial3D_j0oln")
 process_material = SubResource("ParticleProcessMaterial_f5x54")
 draw_pass_1 = SubResource("SphereMesh_f5x54")
 
+[node name="Found" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
+layers = 4
+material_override = SubResource("StandardMaterial3D_fb4sf")
+emitting = false
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_fb4sf")
+draw_pass_1 = SubResource("SphereMesh_f5x54")
+
 [node name="EyeOff" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
 material_override = SubResource("StandardMaterial3D_j0oln")
 process_material = SubResource("ParticleProcessMaterial_f5x54")
 draw_pass_1 = SubResource("SphereMesh_f5x54")
+
+[connection signal="body_entered" from="EyeOpen/Sight/Vision" to="." method="_on_vision_body_entered"]

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ktfcqqoa2dkw"
-path="res://.godot/imported/Wall.blend-9193c53c0de11ba08727317fb8e4a625.scn"
+uid="uid://dn8d6kv82xx4h"
+path="res://.godot/imported/WideCardboardBoxClosed.blend-ec0029f7304cde37950c2326ffbb950b.scn"
 
 [deps]
 
-source_file="res://Assets/3d/House/Wall.blend"
-dest_files=["res://.godot/imported/Wall.blend-9193c53c0de11ba08727317fb8e4a625.scn"]
+source_file="res://Assets/3D/Julia/Cardboard Boxes/Closed/WideCardboardBoxClosed.blend"
+dest_files=["res://.godot/imported/WideCardboardBoxClosed.blend-ec0029f7304cde37950c2326ffbb950b.scn"]
 
 [params]
 
@@ -37,13 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"nodes": {
-"PATH:OuterWall": {
-"mesh_instance/layers": 3
-}
-}
-}
+_subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

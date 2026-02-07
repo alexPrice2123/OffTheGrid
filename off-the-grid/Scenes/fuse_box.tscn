@@ -82,13 +82,4 @@ shape = SubResource("BoxShape3D_u25f5")
 [node name="Fuse-box" parent="." instance=ExtResource("1_uwvrc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.1927883, 0, -0.023445444)
 
-[node name="Main Box" parent="Fuse-box" index="0"]
-layers = 3
-
-[node name="door" parent="Fuse-box" index="1"]
-layers = 3
-
-[node name="fuse holder" parent="Fuse-box" index="2"]
-layers = 3
-
 [editable path="Fuse-box"]
