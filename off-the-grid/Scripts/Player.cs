@@ -49,6 +49,8 @@ public partial class Player : CharacterBody3D
 	private Vector3 _initialCameraPosition;
 	private Monster _monster;
 	private AudioStreamPlayer _heartBeat;
+	private int _count = 0;
+	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -182,6 +184,8 @@ public partial class Player : CharacterBody3D
 			else{ increaseAmount = 0.2f; }
 			if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
 			else { _power -= (float)delta * 0.05f; }
+			if (Input.IsActionJustPressed("Crank")) { GetNode<AudioStreamPlayer>("Crank").Play(); }
+			if (Input.IsActionJustReleased("Crank")) { GetNode<AudioStreamPlayer>("Crank").Stop(); }
 			if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
 			if (Input.IsActionJustReleased("LookCamera")) { _currentScreenPos = _defScreenPos; }
 			if (Input.IsActionJustPressed("WallCam"))
@@ -240,9 +244,13 @@ public partial class Player : CharacterBody3D
 				if (_currentObj != null && _hasFuse && _currentObj.IsInGroup("FuseBox"))
 				{
 					Highlight(false, _currentObj.GetNode<MeshInstance3D>("FuseBox"));
-					_currentObj = null;
 					_hasFuse = false;
 					_collectedFuses++;
+					GD.Print("Fuse" + _collectedFuses);
+					_currentObj.GetNode<MeshInstance3D>("Fuse" + _collectedFuses).Visible = true;
+					GetNode<AudioStreamPlayer>("Fuse").Play();
+					if (_collectedFuses >= 5) { _currentObj.GetNode<GpuParticles3D>("Sparks").Emitting = false; }
+					_currentObj = null;
 				}
 			}
 
@@ -277,6 +285,17 @@ public partial class Player : CharacterBody3D
 		_screen.Position = _screen.Position.Lerp(_currentScreenPos.Position, (float)delta * 5);
 
 		Velocity = velocity;
+		if (velocity.Length() > 1)
+		{
+			_count++;
+			if (_count > 150/_currentSpeed)
+			{
+				GetNode<AudioStreamPlayer>("Footstep").PitchScale = _rng.RandfRange(0.9f, 1.1f);
+				GetNode<AudioStreamPlayer>("Footstep").Play();
+				_count = 0;
+			}
+		}
+		else{ _count = 0; }
 		MoveAndSlide();
 	}
 

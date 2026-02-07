@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cp688cg0r0lpk"]
+[gd_scene load_steps=42 format=3 uid="uid://cp688cg0r0lpk"]
 
 [ext_resource type="Script" uid="uid://cy8fnognme0j2" path="res://Scripts/Menu.cs" id="1_1rerr"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_wbdvm"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckiyhfk41vjjg" path="res://Assets/3D/Maddy/Fuse-box/Fuse-box.blend" id="7_q3rjx"]
 [ext_resource type="AudioStream" uid="uid://bf8x74vy3gdpo" path="res://Assets/Sound/mainmenu.mp3" id="7_wbdvm"]
 [ext_resource type="Texture2D" uid="uid://ddfh7fo2j8qvu" path="res://Assets/2D/Logo.png" id="9_6swd7"]
+[ext_resource type="AudioStream" uid="uid://cb51ltuw5lvye" path="res://Assets/Sound/Click.mp3" id="10_7qvly"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbdvm"]
 sky_top_color = Color(0, 0, 0, 1)
@@ -139,7 +140,7 @@ emission_energy_multiplier = 5.0
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.094890505, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_6swd7"]
+[sub_resource type="CurveTexture" id="CurveTexture_rfqti"]
 curve = SubResource("Curve_q3rjx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6swd7"]
@@ -156,7 +157,7 @@ tangential_accel_min = 0.99999774
 tangential_accel_max = 0.99999774
 scale_min = 0.5
 scale_max = 0.5
-scale_curve = SubResource("CurveTexture_6swd7")
+scale_curve = SubResource("CurveTexture_rfqti")
 
 [sub_resource type="SphereMesh" id="SphereMesh_q3rjx"]
 radius = 0.01
@@ -452,6 +453,10 @@ mesh = SubResource("PlaneMesh_wbdvm")
 skeleton = NodePath("../../..")
 
 [node name="Camera" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_7qvly")
+bus = &"SFX"
 
 [connection signal="button_up" from="MenuUI/Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="MenuUI/Quit" to="." method="_on_quit_button_up"]

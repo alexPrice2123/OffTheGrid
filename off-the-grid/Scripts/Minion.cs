@@ -56,7 +56,7 @@ public partial class Minion : Node3D
             Eyes(false);
             GetNode<GpuParticles3D>("Found").Emitting = true;
             GetParent().GetNode<Monster>("Monster")._goalPos = body.GlobalPosition;
+            GetNode<AudioStreamPlayer>("Scream").Play();
         }
-        
     }
 }

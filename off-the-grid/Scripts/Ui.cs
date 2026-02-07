@@ -55,6 +55,7 @@ public partial class Ui : Control
 		{
 			if (GetNode<Control>("Dialouge").Visible == true)
 			{
+				GetNode<AudioStreamPlayer>("Click").Play();
 				if (GetParent().GetParent<fusePathHandler>()._isLight && !GetParent<Player>()._inTutorial)
 				{
 					if (11 <= _currentLine && (_currentCount >= _lineTable[_currentLine].Length))
@@ -101,6 +102,7 @@ public partial class Ui : Control
 			}
 			else if (GetNode<Control>("Tutorial").Visible == true)
 			{
+				GetNode<AudioStreamPlayer>("Click").Play();
 				if (_tutPage > 4)
 				{
 					GetNode<Control>("Tutorial").Visible = false;
@@ -119,7 +121,7 @@ public partial class Ui : Control
 			_skipCount += 2;
 			if (GetNode<Control>("Dialouge").Visible == true)
 			{
-				if (_skipCount >= 10)
+				if (_skipCount >= 20)
 				{
 					GetNode<Label>("Dialouge/Warn").Visible = true;
 					GetNode<ProgressBar>("Dialouge/Bar").Visible = true;
@@ -135,7 +137,7 @@ public partial class Ui : Control
 			}
 			else if (GetNode<Control>("Tutorial").Visible == true)
 			{
-				if (_skipCount >= 10)
+				if (_skipCount >= 20)
 				{
 					GetNode<Label>("Tutorial/Warn").Visible = true;
 					GetNode<ProgressBar>("Tutorial/Bar").Visible = true;
@@ -159,6 +161,7 @@ public partial class Ui : Control
 
 	private void _on_return_button_up()
 	{
+		GetNode<AudioStreamPlayer>("Click").Play();
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 		GetTree().Paused = false;
 		GetNode<Control>("Pause").Visible = false;
@@ -168,6 +171,7 @@ public partial class Ui : Control
 	private void _on_quit_button_up()
 	{
 		GetTree().Paused = false;
+		_transitionMat.SetShaderParameter("fade", 1f);
 		GetTree().ChangeSceneToFile("res://Scenes/menu.tscn");
 	}
 
@@ -178,12 +182,14 @@ public partial class Ui : Control
 
 	private void _on_controls_button_up()
 	{
+		GetNode<AudioStreamPlayer>("Click").Play();
 		GetNode<Sprite2D>("ControlSprite").Visible = true;
 		GetNode<Control>("Pause").Visible = false;
 	}
 
 	private void _on_back_button_up()
 	{
+		GetNode<AudioStreamPlayer>("Click").Play();
 		GetNode<Sprite2D>("ControlSprite").Visible = false;
 		GetNode<Control>("Pause").Visible = true;
 	}
@@ -192,7 +198,9 @@ public partial class Ui : Control
 	{
 		for (_currentCount = 0; _currentCount <= _lineTable[_currentLine].Length; _currentCount++)
 		{
+
 			_text.VisibleCharacters = _currentCount;
+			if (GetNode<Control>("Dialouge").Visible){GetNode<AudioStreamPlayer>("Type").Play(0.1f); }
 			await ToSignal(GetTree().CreateTimer(_typingSpeed), SceneTreeTimer.SignalName.Timeout);
 		}
 		_text.VisibleCharacters = _currentCount;
@@ -201,7 +209,7 @@ public partial class Ui : Control
 	public async void Cutscene1()
 	{
 		MeshInstance3D dark = GetParent().GetNode<MeshInstance3D>("Head/Camera3D/Dark");
-		GD.Print(dark);
+		GetNode<AudioStreamPlayer>("Flicker").Play();
 		for (float i = 0; i < 2; i++)
 		{
 		  	dark.Visible = true;
@@ -210,6 +218,7 @@ public partial class Ui : Control
 			await ToSignal(GetTree().CreateTimer(0.05f), SceneTreeTimer.SignalName.Timeout);
 		}
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
+		GetNode<AudioStreamPlayer>("Down").Play();
 		GetParent().GetParent<fusePathHandler>()._lightsOff = true;
 		await ToSignal(GetTree().CreateTimer(0.5f), SceneTreeTimer.SignalName.Timeout);
 		_currentLine++;
@@ -221,7 +230,8 @@ public partial class Ui : Control
 
 	public async void Cutscene2()
 	{
-		await ToSignal(GetTree().CreateTimer(1f), SceneTreeTimer.SignalName.Timeout);
+		GetNode<AudioStreamPlayer>("Roar").Play();
+		await ToSignal(GetTree().CreateTimer(3.5f), SceneTreeTimer.SignalName.Timeout);
 		_currentLine++;
 		Type();
 		_text.Text = _lineTable[_currentLine];

@@ -34,7 +34,6 @@ FuseScene = ExtResource("3_6bwvt")
 DarkScene = ExtResource("4_q4yjo")
 LightScene = ExtResource("5_jdjsr")
 MeshSpacing = 5.0
-MaxFuses = 1
 
 [node name="Ceiling" parent="." instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
@@ -603,19 +602,41 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 2, -10)
 [node name="FuseHolder" type="Node3D" parent="."]
 
 [node name="FuseSpawns" type="Node3D" parent="."]
+visible = false
 
 [node name="Spawn2" type="MeshInstance3D" parent="FuseSpawns"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -6, 1, 19.259808)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -6, 1, -2.7367933)
+material_override = SubResource("StandardMaterial3D_bjq7f")
+mesh = SubResource("BoxMesh_b7adt")
+
+[node name="Spawn3" type="MeshInstance3D" parent="FuseSpawns"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -5.495277, 1, -2.7367933)
+material_override = SubResource("StandardMaterial3D_bjq7f")
+mesh = SubResource("BoxMesh_b7adt")
+
+[node name="Spawn4" type="MeshInstance3D" parent="FuseSpawns"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.9577227, 1, -2.7367933)
+material_override = SubResource("StandardMaterial3D_bjq7f")
+mesh = SubResource("BoxMesh_b7adt")
+
+[node name="Spawn5" type="MeshInstance3D" parent="FuseSpawns"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -4.470893, 1, -2.7367933)
+material_override = SubResource("StandardMaterial3D_bjq7f")
+mesh = SubResource("BoxMesh_b7adt")
+
+[node name="Spawn6" type="MeshInstance3D" parent="FuseSpawns"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -3.9510214, 1, -2.7367933)
 material_override = SubResource("StandardMaterial3D_bjq7f")
 mesh = SubResource("BoxMesh_b7adt")
 
 [node name="FuseBox" parent="." instance=ExtResource("5_ws1hi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3757045, 2.07383, -3.22979)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5103104, 1.3042896, -4.7209716)
 
 [node name="EnviormentHolder" type="Node3D" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xicox")
+volume_db = -5.0
 bus = &"Music"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]

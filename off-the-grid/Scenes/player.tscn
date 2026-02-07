@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://o7twalwr44xx"]
+[gd_scene load_steps=28 format=3 uid="uid://o7twalwr44xx"]
 
 [ext_resource type="Script" uid="uid://k7e81pvm0lqd" path="res://Scripts/Player.cs" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_6t5aa"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
 [ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3d/Maddy/Radar/Radar.blend" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://cfnmrdhinujs3" path="res://Assets/Sound/Heartbeat.mp3" id="7_3smsa"]
+[ext_resource type="AudioStream" uid="uid://cygkov7y16xof" path="res://Assets/Sound/sparks.mp3" id="8_8erm5"]
+[ext_resource type="AudioStream" uid="uid://cntepisgh7xqk" path="res://Assets/Sound/crank.mp3" id="9_f1ek2"]
+[ext_resource type="AudioStream" uid="uid://ofu7rpgm8trr" path="res://Assets/Sound/footstep.mp3" id="10_tx1dd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
@@ -246,6 +249,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 stream = ExtResource("7_3smsa")
 bus = &"SFX"
 parameters/looping = true
+
+[node name="Fuse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8erm5")
+bus = &"SFX"
+
+[node name="Crank" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_f1ek2")
+volume_db = 10.0
+pitch_scale = 1.5
+bus = &"SFX"
+parameters/looping = true
+
+[node name="Footstep" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_tx1dd")
+volume_db = -10.0
+bus = &"SFX"
 
 [editable path="Head/Screen/SubViewport"]
 [editable path="Head/Screen/Radar"]

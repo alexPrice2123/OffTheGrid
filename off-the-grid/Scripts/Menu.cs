@@ -26,6 +26,7 @@ public partial class Menu : Node3D
 	private async void _on_play_button_up()
 	{
 		_trans = 1;
+		GetNode<AudioStreamPlayer>("Click").Play();
 		await ToSignal(GetTree().CreateTimer(1.5), SceneTreeTimer.SignalName.Timeout);
         GetTree().ChangeSceneToFile("res://Scenes/Map.tscn");
     }
@@ -36,13 +37,15 @@ public partial class Menu : Node3D
     }
 
 	private void _on_controls_button_up()
-    {
+	{
+		GetNode<AudioStreamPlayer>("Click").Play();
         GetNode<Sprite2D>("ControlSprite").Visible = true;
 		GetNode<Control>("MenuUI").Visible = false;
     }
 
 	private void _on_back_button_up()
-    {
+	{
+		GetNode<AudioStreamPlayer>("Click").Play();
         GetNode<Sprite2D>("ControlSprite").Visible = false;
 		GetNode<Control>("MenuUI").Visible = true;
     }

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://chlmb4qhfdsq3"]
+[gd_scene load_steps=19 format=3 uid="uid://chlmb4qhfdsq3"]
 
 [ext_resource type="Script" uid="uid://dwax8nqrfr4s6" path="res://Scripts/Ui.cs" id="1_jxero"]
 [ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="2_q7pk6"]
@@ -8,6 +8,10 @@
 [ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="6_m78vo"]
 [ext_resource type="Shader" uid="uid://oefrcju166tv" path="res://Shaders/transition.gdshader" id="7_smcll"]
 [ext_resource type="AudioStream" uid="uid://dgut8814qj0r8" path="res://Assets/Sound/monsterroar.mp3" id="8_ryf15"]
+[ext_resource type="AudioStream" uid="uid://cygkov7y16xof" path="res://Assets/Sound/sparks.mp3" id="9_mmixe"]
+[ext_resource type="AudioStream" uid="uid://cbdwagbe43wxy" path="res://Assets/Sound/outtage.mp3" id="10_nt8jn"]
+[ext_resource type="AudioStream" uid="uid://ctps4erhknftw" path="res://Assets/Sound/type.mp3" id="11_g0wmg"]
+[ext_resource type="AudioStream" uid="uid://cb51ltuw5lvye" path="res://Assets/Sound/Click.mp3" id="12_4vbiv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m78vo"]
 border_width_left = 5
@@ -527,6 +531,30 @@ mouse_filter = 2
 
 [node name="End" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ryf15")
+volume_db = 10.0
+
+[node name="Roar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ryf15")
+volume_db = 15.0
+bus = &"SFX"
+
+[node name="Flicker" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_mmixe")
+bus = &"SFX"
+
+[node name="Down" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_nt8jn")
+pitch_scale = 0.75
+bus = &"SFX"
+
+[node name="Type" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_g0wmg")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_4vbiv")
+bus = &"SFX"
 
 [connection signal="button_up" from="Pause/Return" to="." method="_on_return_button_up"]
 [connection signal="button_up" from="Pause/Quit" to="." method="_on_quit_button_up"]

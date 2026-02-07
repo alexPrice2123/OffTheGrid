@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://5a5d04h72pkh"]
+[gd_scene load_steps=19 format=3 uid="uid://5a5d04h72pkh"]
 
 [ext_resource type="Script" uid="uid://dwssnsxcjexlm" path="res://Scripts/Minion.cs" id="1_fb4sf"]
+[ext_resource type="AudioStream" uid="uid://dyqesi65rfhe7" path="res://Assets/Sound/alarm.mp3" id="2_s0atx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0oln"]
 shading_mode = 0
@@ -128,5 +129,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
 material_override = SubResource("StandardMaterial3D_j0oln")
 process_material = SubResource("ParticleProcessMaterial_f5x54")
 draw_pass_1 = SubResource("SphereMesh_f5x54")
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_s0atx")
+volume_db = -10.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="EyeOpen/Sight/Vision" to="." method="_on_vision_body_entered"]
