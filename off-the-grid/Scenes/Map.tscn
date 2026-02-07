@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://de0qqdglm8ul0"]
+[gd_scene load_steps=19 format=3 uid="uid://de0qqdglm8ul0"]
 
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_7yn8b"]
 [ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_ngcqm"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://c454sekcc6m43" path="res://Assets/Sound/Ambience3.mp3" id="6_xicox"]
 [ext_resource type="PackedScene" uid="uid://bmr8yuloqunqr" path="res://Assets/3D/House/Door.blend" id="7_5t7yc"]
 [ext_resource type="PackedScene" uid="uid://5a5d04h72pkh" path="res://Scenes/minion.tscn" id="14_6bwvt"]
+[ext_resource type="PackedScene" uid="uid://3gshr0ttb3l2" path="res://Scenes/monster.tscn" id="15_q4yjo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjq7f"]
 emission_enabled = true
@@ -615,6 +616,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3757045, 2.07383, -3.22979
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_xicox")
+bus = &"Music"
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33492732, 1.8518834)
@@ -1745,7 +1747,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 55)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 40)
 
 [node name="Minion" parent="." instance=ExtResource("14_6bwvt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.471646, -0.15345892, -10.792968)
+transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, -13.46449, -0.15345892, -23.780697)
+
+[node name="Monster" parent="." instance=ExtResource("15_q4yjo")]
+transform = Transform3D(-0.6149736, 0, -0.7885477, 0, 1, 0, 0.7885477, 0, -0.6149736, 65.859024, 1, -19)
 
 [editable path="Ceiling/Floor238"]
 [editable path="NavigationRegion3D/1stFloor/Floor79"]

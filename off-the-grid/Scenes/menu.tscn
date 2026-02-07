@@ -1,23 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://cp688cg0r0lpk"]
+[gd_scene load_steps=41 format=3 uid="uid://cp688cg0r0lpk"]
 
 [ext_resource type="Script" uid="uid://cy8fnognme0j2" path="res://Scripts/Menu.cs" id="1_1rerr"]
+[ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_wbdvm"]
 [ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="2_wwsa2"]
 [ext_resource type="Texture2D" uid="uid://c6k00rggdvqs8" path="res://Assets/2D/Controls.png" id="2_xhh6f"]
 [ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="3_158mb"]
 [ext_resource type="Shader" uid="uid://oefrcju166tv" path="res://Shaders/transition.gdshader" id="5_wwsa2"]
-[ext_resource type="PackedScene" uid="uid://d3bh3hivw3xtd" path="res://Assets/3D/Julia/Sofa/Sofa.blend" id="6_jsrd8"]
+[ext_resource type="PackedScene" uid="uid://ckiyhfk41vjjg" path="res://Assets/3D/Maddy/Fuse-box/Fuse-box.blend" id="7_q3rjx"]
 [ext_resource type="AudioStream" uid="uid://bf8x74vy3gdpo" path="res://Assets/Sound/mainmenu.mp3" id="7_wbdvm"]
+[ext_resource type="Texture2D" uid="uid://ddfh7fo2j8qvu" path="res://Assets/2D/Logo.png" id="9_6swd7"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jsrd8"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wbdvm"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0.38083047, 0.38083053, 0.38083047, 1)
+ground_bottom_color = Color(0.35156274, 0.35156295, 0.35156283, 1)
+ground_horizon_color = Color(0.38083047, 0.38083053, 0.38083047, 1)
 
-[sub_resource type="Sky" id="Sky_wbdvm"]
-sky_material = SubResource("ProceduralSkyMaterial_jsrd8")
+[sub_resource type="Sky" id="Sky_q3rjx"]
+sky_material = SubResource("ProceduralSkyMaterial_wbdvm")
 
-[sub_resource type="Environment" id="Environment_q3rjx"]
+[sub_resource type="Environment" id="Environment_6swd7"]
 background_mode = 2
-sky = SubResource("Sky_wbdvm")
+sky = SubResource("Sky_q3rjx")
 tonemap_mode = 2
 glow_enabled = true
 
@@ -30,39 +34,186 @@ shader_parameter/direction_r = Vector2(1, 0)
 shader_parameter/direction_g = Vector2(0.4, 1)
 shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsrd8"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_wbdvm"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_s0atx"]
+curve = SubResource("Curve_wbdvm")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q3rjx"]
+radial_velocity_min = 0.09997764
+radial_velocity_max = 0.09997764
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_s0atx")
+
+[sub_resource type="SphereMesh" id="SphereMesh_6swd7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7qvly"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_rfqti"]
+_data = [Vector2(0, 0.0055971146), 0.0, 0.0, 0, 0, Vector2(0.25304136, 0.7635262), 0.0, 0.0, 0, 0, Vector2(0.459854, 0.7392725), 0.0, 0.0, 0, 0, Vector2(0.61800486, 0.47248137), 0.47020227, 0.47020227, 0, 0, Vector2(0.7639903, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_co1s6"]
+curve = SubResource("Curve_rfqti")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g8i7c"]
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, 1, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_co1s6")
+
+[sub_resource type="BoxMesh" id="BoxMesh_23t3j"]
+
+[sub_resource type="CurveTexture" id="CurveTexture_f5x54"]
+curve = SubResource("Curve_rfqti")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8ph6h"]
+flatness = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = -2.0
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_f5x54")
+
+[sub_resource type="Curve" id="Curve_5ti5v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.070559606, 1), 0.0, 0.0, 0, 0, Vector2(0.16301703, 0.50279856), 0.0, 0.0, 0, 0, Vector2(0.23357663, 1), 0.0, 0.0, 0, 0, Vector2(0.3163017, 0.22388065), 0.0, 0.0, 0, 0, Vector2(0.45742095, 0.78171647), 0.0, 0.0, 0, 0, Vector2(0.540146, 0.21781719), 0.0, 0.0, 0, 0, Vector2(0.6301703, 0.56949633), 0.0, 0.0, 0, 0, Vector2(0.7250608, 0.15111947), 0.0, 0.0, 0, 0, Vector2(0.7931873, 0.41791052), 0.0, 0.0, 0, 0, Vector2(0.8540146, 0.090485096), 0.0, 0.0, 0, 0, Vector2(0.91240877, 0.33908588), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 13
+
+[sub_resource type="CurveTexture" id="CurveTexture_fb4sf"]
+curve = SubResource("Curve_5ti5v")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1by5w"]
+spread = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -1, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -4.0000024
+tangential_accel_max = -4.0000024
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_fb4sf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kmwmt"]
+spread = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -1, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = 3.9999976
+tangential_accel_max = 3.9999976
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_fb4sf")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3rjx"]
+albedo_color = Color(0.6542321, 0.6542321, 0.654232, 1)
+metallic = 1.0
+roughness = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6swd7"]
+albedo_color = Color(1, 0.59607846, 0, 1)
+emission_enabled = true
+emission = Color(0.9999998, 0.61922175, 0.18046072, 1)
+emission_energy_multiplier = 5.0
+
+[sub_resource type="Curve" id="Curve_q3rjx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.094890505, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6swd7"]
+curve = SubResource("Curve_q3rjx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6swd7"]
+particle_flag_align_y = true
+emission_shape = 1
+emission_sphere_radius = 0.25
+flatness = 1.0
+initial_velocity_min = -2.0
+initial_velocity_max = -2.0
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, -9, 0)
+tangential_accel_min = 0.99999774
+tangential_accel_max = 0.99999774
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_6swd7")
+
+[sub_resource type="SphereMesh" id="SphereMesh_q3rjx"]
+radius = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rfqti"]
+albedo_color = Color(0.41598046, 0.41598043, 0.4159804, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g8i7c"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wbdvm"]
+viewport_path = NodePath("Screen")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3rjx"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("2_wbdvm")
+shader_parameter/base_texture = SubResource("ViewportTexture_wbdvm")
+shader_parameter/hue = Color(0.98039216, 0.7529412, 0.7529412, 1)
+shader_parameter/flip = false
+shader_parameter/run = true
+shader_parameter/uv_mult = 30.0
+shader_parameter/lines_speed = 1.99999995902132
+shader_parameter/line_alpha = 0.5
+shader_parameter/distortion = 0.49999996647200007
+shader_parameter/intensity = 1.999999955296
+shader_parameter/line_definition = 0.499999988824
+shader_parameter/min_thickness = 0.03
+shader_parameter/vignette = 0.999999977648
+shader_parameter/roll_speed = 0.749999938532
+shader_parameter/roll_height = 0.0499999988824
+shader_parameter/roll_offset = 0.0999999977648
+shader_parameter/roll_warp = 0.010000000475
+shader_parameter/screen_warp = 0.499999988824
+shader_parameter/screen_warp_power = 1.5000000074506
+shader_parameter/edge_fade = 0.499999988824
+shader_parameter/roll_interval = 8.000000111759
+shader_parameter/roll_duration = 1.2500000186265
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wbdvm"]
+
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_1rerr")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_q3rjx")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-z_as_relative = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -32.0
-offset_top = -14.0
-offset_right = 52.055176
-offset_bottom = 30.792603
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.5882353)
+environment = SubResource("Environment_6swd7")
 
 [node name="MenuUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_top = 121.0
+offset_right = 40.000008
+offset_bottom = 161.0
 
 [node name="Play" type="Button" parent="MenuUI"]
 process_mode = 3
 modulate = Color(1, 1, 0.78431374, 1)
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 12.425
@@ -138,6 +289,20 @@ text = "Back
 "
 autowrap_mode = 2
 
+[node name="ColorRect" type="ColorRect" parent="ControlSprite"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="Transition" type="ColorRect" parent="."]
 z_index = 100
 material = SubResource("ShaderMaterial_jsrd8")
@@ -148,17 +313,149 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Sofa" parent="." instance=ExtResource("6_jsrd8")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, -1, -2)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_wbdvm")
 autoplay = true
 parameters/looping = true
 
+[node name="Screen" type="SubViewport" parent="."]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Monster" type="Node3D" parent="Screen"]
+transform = Transform3D(0.67529285, -0.11762275, -0.7281103, 0.38604313, 0.89754236, 0.21304572, 0.62845075, -0.42495024, 0.6515114, -1.5391762, -12.321207, -2)
+
+[node name="Eye1" type="GPUParticles3D" parent="Screen/Monster"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3283291, 1.5066206, 0.2600155)
+layers = 8
+material_override = SubResource("StandardMaterial3D_jsrd8")
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_q3rjx")
+draw_pass_1 = SubResource("SphereMesh_6swd7")
+
+[node name="Eye2" type="GPUParticles3D" parent="Screen/Monster"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3283291, 1.5066206, -0.23557281)
+layers = 8
+material_override = SubResource("StandardMaterial3D_jsrd8")
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_q3rjx")
+draw_pass_1 = SubResource("SphereMesh_6swd7")
+
+[node name="Body" type="GPUParticles3D" parent="Screen/Monster"]
+layers = 8
+material_override = SubResource("StandardMaterial3D_7qvly")
+amount = 25
+lifetime = 2.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_g8i7c")
+draw_pass_1 = SubResource("BoxMesh_23t3j")
+
+[node name="Legs" type="GPUParticles3D" parent="Screen/Monster"]
+layers = 8
+material_override = SubResource("StandardMaterial3D_7qvly")
+amount = 25
+lifetime = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_8ph6h")
+draw_pass_1 = SubResource("BoxMesh_23t3j")
+
+[node name="LeftArm" type="GPUParticles3D" parent="Screen/Monster"]
+transform = Transform3D(-3.7855177e-08, 0.49999988, 0.8660254, 2.1855692e-08, 0.8660254, -0.49999988, -1, 0, -4.371139e-08, 0, 0.83827686, 0)
+layers = 8
+material_override = SubResource("StandardMaterial3D_7qvly")
+amount = 100
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_1by5w")
+draw_pass_1 = SubResource("BoxMesh_23t3j")
+
+[node name="RightArm" type="GPUParticles3D" parent="Screen/Monster"]
+transform = Transform3D(1.1356552e-07, 0.49999988, -0.8660254, -6.556706e-08, 0.8660254, 0.49999988, 1, 0, 1.3113416e-07, 0, 0.83827686, 0)
+layers = 8
+material_override = SubResource("StandardMaterial3D_7qvly")
+amount = 100
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_kmwmt")
+draw_pass_1 = SubResource("BoxMesh_23t3j")
+
+[node name="LeftHorn" type="GPUParticles3D" parent="Screen/Monster"]
+transform = Transform3D(1.0927838e-08, -0.43301272, 0.24999999, -1.892758e-08, 0.24999999, 0.43301272, -0.5, -1.8927576e-08, -1.0927846e-08, 0, 1.8382769, 0)
+layers = 8
+material_override = SubResource("StandardMaterial3D_7qvly")
+amount = 100
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_1by5w")
+draw_pass_1 = SubResource("BoxMesh_23t3j")
+
+[node name="RightHorn" type="GPUParticles3D" parent="Screen/Monster"]
+transform = Transform3D(5.8607647e-08, -0.43301272, -0.24999999, 5.6782735e-08, 0.24999999, -0.43301272, 0.5, 2.2364347e-08, 7.847911e-08, 0, 1.8382769, 0)
+layers = 8
+material_override = SubResource("StandardMaterial3D_7qvly")
+amount = 100
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_kmwmt")
+draw_pass_1 = SubResource("BoxMesh_23t3j")
+
+[node name="Camera3D" type="Camera3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.595194, 0)
+current = true
+
+[node name="Fuse-box" parent="Screen" instance=ExtResource("7_q3rjx")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.5142062, -10.687219, -0.100603834)
+
+[node name="Box" parent="Screen/Fuse-box" index="0"]
+transform = Transform3D(0.35582274, 0, -1.3273164, 0, 1.3741828, 0, 1.3273164, 0, 0.35582274, -1.3032254, -0.10533571, -0.4801025)
+material_override = SubResource("StandardMaterial3D_q3rjx")
+
+[node name="Sparks" type="GPUParticles3D" parent="Screen/Fuse-box"]
+transform = Transform3D(-0.8660253, 0, 0.5000001, 0, 1, 0, -0.5000001, 0, -0.8660253, -1.2805668, 0.069159746, -0.4807221)
+layers = 8
+material_override = SubResource("StandardMaterial3D_6swd7")
+amount = 25
+lifetime = 0.5
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_6swd7")
+draw_pass_1 = SubResource("SphereMesh_q3rjx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Screen"]
+transform = Transform3D(15.391832, 0, 0, 0, 10.847395, 0, 0, 0, 0.17549413, 0, -11.182545, -4.533777)
+material_override = SubResource("StandardMaterial3D_rfqti")
+mesh = SubResource("BoxMesh_g8i7c")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Screen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.894117, 1.982)
+light_energy = 2.0
+spot_range = 14.54852
+spot_attenuation = 0.59
+spot_angle = 27.31744
+spot_angle_attenuation = 7.2100043
+
+[node name="Sprite3D" type="Sprite3D" parent="Screen"]
+transform = Transform3D(0.13543433, 0, 0, 0, 0.07191475, 0, 0, 0, 0.3018155, 0, -10.414042, -0.9984286)
+texture = ExtResource("9_6swd7")
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+z_index = -1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/SubViewport"]
+transform = Transform3D(2.86, 0, 0, 0, -1.2501457e-07, -2.86, 0, 2.86, -1.2501457e-07, 0, 0, -2)
+material_override = SubResource("ShaderMaterial_q3rjx")
+mesh = SubResource("PlaneMesh_wbdvm")
+skeleton = NodePath("../../..")
+
+[node name="Camera" type="Camera3D" parent="SubViewportContainer/SubViewport"]
+
 [connection signal="button_up" from="MenuUI/Play" to="." method="_on_play_button_up"]
 [connection signal="button_up" from="MenuUI/Quit" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="MenuUI/Controls" to="." method="_on_controls_button_up"]
 [connection signal="button_up" from="ControlSprite/Back" to="." method="_on_back_button_up"]
+
+[editable path="Screen/Fuse-box"]

@@ -13,7 +13,7 @@ public partial class Ui : Control
 	private float _skipCount = 0;
 	private int _tutPage = 1;
 	private ShaderMaterial _transitionMat;
-	private float _transitionGoal = -0.1f;
+	public float _transitionGoal = -0.1f;
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 
 	// Called when the node enters the scene tree for the first time.
@@ -116,7 +116,7 @@ public partial class Ui : Control
 		GetNode<Label>("Dialouge/Warn").Visible = _currentCount >= _lineTable[_currentLine].Length;
 		if (Input.IsActionPressed("Skip") && !_inCutscene && !(GetParent().GetParent<fusePathHandler>()._isLight && !GetParent<Player>()._inTutorial))
 		{
-			_skipCount++;
+			_skipCount += 2;
 			if (GetNode<Control>("Dialouge").Visible == true)
 			{
 				if (_skipCount >= 10)
@@ -170,6 +170,11 @@ public partial class Ui : Control
 		GetTree().Paused = false;
 		GetTree().ChangeSceneToFile("res://Scenes/menu.tscn");
 	}
+
+	private void _on_again_button_up()
+    {
+		GetTree().ReloadCurrentScene();
+    }
 
 	private void _on_controls_button_up()
 	{

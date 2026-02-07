@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://5a5d04h72pkh"]
+[gd_scene load_steps=18 format=3 uid="uid://5a5d04h72pkh"]
 
 [ext_resource type="Script" uid="uid://dwssnsxcjexlm" path="res://Scripts/Minion.cs" id="1_fb4sf"]
 
@@ -6,12 +6,12 @@
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Curve" id="Curve_j0oln"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2485294, 1), 0.0, 0.0, 0, 0, Vector2(0.5147059, 0), 0.0, 0.0, 0, 0, Vector2(0.75735295, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+[sub_resource type="Curve" id="Curve_s0atx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2408759, 1), 0.0, 0.0, 0, 0, Vector2(0.50121653, 0), 0.0, 0.0, 0, 0, Vector2(0.7518248, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 5
 
-[sub_resource type="CurveTexture" id="CurveTexture_fb4sf"]
-curve = SubResource("Curve_j0oln")
+[sub_resource type="CurveTexture" id="CurveTexture_f5x54"]
+curve = SubResource("Curve_s0atx")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j0oln"]
 radial_velocity_min = 0.19997764
@@ -19,7 +19,7 @@ radial_velocity_max = 0.29997763
 gravity = Vector3(0, 1, 0)
 scale_min = 0.14999999
 scale_max = 0.14999999
-scale_curve = SubResource("CurveTexture_fb4sf")
+scale_curve = SubResource("CurveTexture_f5x54")
 
 [sub_resource type="BoxMesh" id="BoxMesh_fb4sf"]
 
@@ -32,7 +32,7 @@ emission = Color(1, 0, 0, 1)
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[sub_resource type="CurveTexture" id="CurveTexture_s0atx"]
+[sub_resource type="CurveTexture" id="CurveTexture_co1s6"]
 curve = SubResource("Curve_fb4sf")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f5x54"]
@@ -41,7 +41,7 @@ radial_velocity_max = 0.09997764
 gravity = Vector3(0, 0, 0)
 scale_min = 0.29999998
 scale_max = 0.29999998
-scale_curve = SubResource("CurveTexture_s0atx")
+scale_curve = SubResource("CurveTexture_co1s6")
 
 [sub_resource type="SphereMesh" id="SphereMesh_f5x54"]
 
@@ -55,6 +55,13 @@ emission = Color(1, 0, 0, 1)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fb4sf"]
 data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="Curve" id="Curve_i44lo"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_s0atx"]
+curve = SubResource("Curve_i44lo")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fb4sf"]
 radial_velocity_min = 2.9999776
@@ -76,6 +83,7 @@ draw_pass_1 = SubResource("BoxMesh_fb4sf")
 
 [node name="EyeOpen" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
+visible = false
 layers = 4
 material_override = SubResource("StandardMaterial3D_fb4sf")
 process_material = SubResource("ParticleProcessMaterial_f5x54")

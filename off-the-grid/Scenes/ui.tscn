@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://chlmb4qhfdsq3"]
+[gd_scene load_steps=15 format=3 uid="uid://chlmb4qhfdsq3"]
 
 [ext_resource type="Script" uid="uid://dwax8nqrfr4s6" path="res://Scripts/Ui.cs" id="1_jxero"]
 [ext_resource type="Theme" uid="uid://cnotya20g7gxl" path="res://Assets/Fonts/SmallButton.tres" id="2_q7pk6"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_smcll"]
 [ext_resource type="Theme" uid="uid://cyltsiox88bye" path="res://Assets/Fonts/MainButton.tres" id="6_m78vo"]
 [ext_resource type="Shader" uid="uid://oefrcju166tv" path="res://Shaders/transition.gdshader" id="7_smcll"]
+[ext_resource type="AudioStream" uid="uid://dgut8814qj0r8" path="res://Assets/Sound/monsterroar.mp3" id="8_ryf15"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m78vo"]
 border_width_left = 5
@@ -130,8 +131,8 @@ offset_top = 410.0
 offset_right = 699.0
 offset_bottom = 426.0
 mouse_default_cursor_shape = 2
-min_value = -30.0
-max_value = 30.0
+min_value = -10.0
+max_value = 10.0
 
 [node name="Label" type="Label" parent="Pause"]
 layout_mode = 0
@@ -155,8 +156,8 @@ offset_top = 467.0
 offset_right = 699.0
 offset_bottom = 483.0
 mouse_default_cursor_shape = 2
-min_value = -30.0
-max_value = 30.0
+min_value = -10.0
+max_value = 10.0
 
 [node name="Label4" type="Label" parent="Pause"]
 layout_mode = 0
@@ -223,6 +224,64 @@ theme_override_constants/outline_size = 25
 theme_override_fonts/font = ExtResource("4_smcll")
 theme_override_font_sizes/font_size = 50
 text = "Game Paused"
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+z_index = 101
+layout_mode = 1
+anchors_preset = 0
+offset_top = 1.0
+offset_right = 40.0
+offset_bottom = 41.0
+
+[node name="Again" type="Button" parent="GameOver"]
+process_mode = 3
+modulate = Color(1, 1, 0.78431374, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.425
+anchor_top = 3.7000003
+anchor_right = 16.275002
+anchor_bottom = 5.6000004
+offset_top = 144.99998
+offset_right = -6.1035156e-05
+offset_bottom = 144.99998
+pivot_offset = Vector2(77, 38)
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_q7pk6")
+text = "Try Again"
+autowrap_mode = 2
+
+[node name="Quit" type="Button" parent="GameOver"]
+process_mode = 3
+modulate = Color(1, 0.648568, 0.5942587, 1)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 12.425
+anchor_top = 10.250001
+anchor_right = 16.275002
+anchor_bottom = 12.150001
+offset_top = -17.00003
+offset_right = -6.1035156e-05
+offset_bottom = -17.00003
+pivot_offset = Vector2(77, 38)
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_q7pk6")
+text = "Return To Menu"
+autowrap_mode = 2
+
+[node name="Label3" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 198.0
+offset_right = 816.0
+offset_bottom = 267.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 25
+theme_override_fonts/font = ExtResource("4_smcll")
+theme_override_font_sizes/font_size = 50
+text = "GAME OVER"
+horizontal_alignment = 1
 
 [node name="Crosshair" type="Control" parent="."]
 anchors_preset = 0
@@ -466,7 +525,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="End" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_ryf15")
+
 [connection signal="button_up" from="Pause/Return" to="." method="_on_return_button_up"]
 [connection signal="button_up" from="Pause/Quit" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="Pause/Controls" to="." method="_on_controls_button_up"]
+[connection signal="button_up" from="GameOver/Again" to="." method="_on_again_button_up"]
+[connection signal="button_up" from="GameOver/Quit" to="." method="_on_quit_button_up"]
 [connection signal="button_up" from="ControlSprite/Back" to="." method="_on_back_button_up"]

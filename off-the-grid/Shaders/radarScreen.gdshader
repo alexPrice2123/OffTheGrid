@@ -21,7 +21,7 @@ uniform float roll_offset : hint_range(0.0, 0.5, 0.01) = 0.08;
 uniform float roll_warp : hint_range(0.0, 0.05, 0.001) = 0.02;
 uniform float screen_warp : hint_range(0.0, 2.5, 0.01) = 0.18;
 uniform float screen_warp_power : hint_range(1.0, 4.0, 0.1) = 2.0;
-uniform float edge_fade : hint_range(0.0, 0.2, 0.01) = 0.05;
+uniform float edge_fade : hint_range(0.0, 1.0, 0.01) = 0.05;
 uniform float roll_interval : hint_range(0.5, 10.0, 0.1) = 3.0;
 uniform float roll_duration : hint_range(0.1, 2.0, 0.05) = 0.6;
 

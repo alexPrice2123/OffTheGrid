@@ -51,10 +51,11 @@ public partial class Minion : Node3D
     
     private void _on_vision_body_entered(Node3D body)
     {
-        if (body is Player)
+        if (body is Player && _eyeOpen.Visible)
         {
             Eyes(false);
             GetNode<GpuParticles3D>("Found").Emitting = true;
+            GetParent().GetNode<Monster>("Monster")._goalPos = body.GlobalPosition;
         }
         
     }

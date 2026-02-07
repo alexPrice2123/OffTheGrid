@@ -47,6 +47,8 @@ public partial class Player : CharacterBody3D
 	public bool _inTutorial = true;
 	private float _bob = 0.0f;
 	private Vector3 _initialCameraPosition;
+	private Monster _monster;
+	private AudioStreamPlayer _heartBeat;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -80,6 +82,8 @@ public partial class Player : CharacterBody3D
 		_power3 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 3");
 		_power4 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 4");
 		_crank = GetNode<MeshInstance3D>("Head/Screen/Radar/crank");
+		_monster = GetParent().GetNode<Monster>("Monster");
+		_heartBeat = GetNode<AudioStreamPlayer>("Heartbeat");
 		Instance = this;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
     }
@@ -106,7 +110,26 @@ public partial class Player : CharacterBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
-
+		float _dist = (_monster.GlobalPosition - GlobalPosition).Length();
+		if (_dist < 2 || GetNode<Control>("UI/GameOver").Visible)
+		{
+			_inTutorial = true;
+			GetNode<Ui>("UI")._transitionGoal = 0.5f;
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("Music")) - 0.1f);
+			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("SFX"))-0.1f);
+			if (!GetNode<Control>("UI/GameOver").Visible)
+            {
+				GetNode<AudioStreamPlayer>("UI/End").Play();
+				Input.MouseMode = Input.MouseModeEnum.Visible;
+            }
+			GetNode<Control>("UI/GameOver").Visible = true;
+		}
+		if (_dist < 5) { _heartBeat.PitchScale = 1.5f; }
+		else if (_dist < 10) { _heartBeat.PitchScale = 1.5f; }
+		else if (_dist < 15) { _heartBeat.PitchScale = 1.25f; }
+		else if (_dist < 25 && !_heartBeat.Playing) { _heartBeat.Play(); }
+		else if (_dist >= 25 && _heartBeat.Playing) { _heartBeat.Stop(); }
+		
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
