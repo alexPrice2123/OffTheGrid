@@ -37,7 +37,37 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Cube": {
+"mesh_instance/layers": 5
+},
+"PATH:Cube_001": {
+"mesh_instance/layers": 5
+},
+"PATH:Cube_002": {
+"mesh_instance/layers": 5
+},
+"PATH:Cylinder": {
+"mesh_instance/layers": 5
+},
+"PATH:Cylinder_001": {
+"mesh_instance/layers": 5
+},
+"PATH:Cylinder_002": {
+"mesh_instance/layers": 5
+},
+"PATH:Cylinder_003": {
+"mesh_instance/layers": 5
+},
+"PATH:Cylinder_004": {
+"mesh_instance/layers": 5
+},
+"PATH:Cylinder_005": {
+"mesh_instance/layers": 5
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

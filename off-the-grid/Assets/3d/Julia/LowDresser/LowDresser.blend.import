@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://de2gj6gotevm1"
-path="res://.godot/imported/LowDresser.blend-7e674aa5023bca977cdcd977e7ce9063.scn"
+path="res://.godot/imported/LowDresser.blend-2bec3a85d42ebd5a12d8ecacd20857ee.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Julia/LowDresser/LowDresser.blend"
-dest_files=["res://.godot/imported/LowDresser.blend-7e674aa5023bca977cdcd977e7ce9063.scn"]
+source_file="res://Assets/3d/Julia/LowDresser/LowDresser.blend"
+dest_files=["res://.godot/imported/LowDresser.blend-2bec3a85d42ebd5a12d8ecacd20857ee.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "nodes": {
-"PATH:Cube_001": {
+"PATH:LowDresser": {
 "mesh_instance/layers": 5
 }
 }
