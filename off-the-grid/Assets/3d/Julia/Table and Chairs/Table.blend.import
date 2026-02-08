@@ -38,6 +38,18 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Table legs": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Table and Chairs/TableLeg.tres",
+"use_external/path": "uid://bxsuro4jxtinf"
+},
+"TableTop": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Table and Chairs/TableTop.tres",
+"use_external/path": "uid://dmea3xqn7b1b5"
+}
+},
 "nodes": {
 "PATH:Table": {
 "mesh_instance/layers": 5

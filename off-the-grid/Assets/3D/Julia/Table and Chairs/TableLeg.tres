@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bxsuro4jxtinf"]
+
+[ext_resource type="Texture2D" uid="uid://bv384ek50m7ht" path="res://Assets/3D/Julia/Table and Chairs/Table legs_Base_color.png" id="1_0ptax"]
+[ext_resource type="Texture2D" uid="uid://b381567cyuqtm" path="res://Assets/3D/Julia/Table and Chairs/Table legs_Normal_OpenGL.png" id="2_r1gdl"]
+
+[resource]
+albedo_texture = ExtResource("1_0ptax")
+normal_enabled = true
+normal_texture = ExtResource("2_r1gdl")
