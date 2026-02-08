@@ -1,3 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://cifs6udl16jse"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://cifs6udl16jse"]
+
+[ext_resource type="Texture2D" uid="uid://bn62o54fh1lws" path="res://Assets/3D/Textures/House-Textures/HalfFloor/Material_Base_color.png" id="1_susgr"]
+[ext_resource type="Texture2D" uid="uid://dt6qd47jbwl8s" path="res://Assets/3D/Textures/House-Textures/HalfFloor/Material_Normal_OpenGL.png" id="2_i1aoy"]
 
 [resource]
+albedo_texture = ExtResource("1_susgr")
+normal_enabled = true
+normal_texture = ExtResource("2_i1aoy")

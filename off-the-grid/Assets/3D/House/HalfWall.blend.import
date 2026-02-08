@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Textures/House-Textures/HalfWall/HalfWall.tres",
+"use_external/path": "uid://bpan56yxl670r"
+}
+},
 "nodes": {
 "PATH:OuterWall": {
 "mesh_instance/layers": 3
