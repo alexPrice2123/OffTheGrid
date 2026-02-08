@@ -117,7 +117,7 @@ public partial class Player : CharacterBody3D
 	{
 		Vector3 velocity = Velocity;
 		float _dist = (_monster.GlobalPosition - GlobalPosition).Length();
-		if (_dist < 2 || GetNode<Control>("UI/GameOver").Visible)
+		if (_dist < 1.5 || GetNode<Control>("UI/GameOver").Visible)
 		{
 			_inTutorial = true;
 			GetNode<Ui>("UI")._transitionGoal = 0.5f;
