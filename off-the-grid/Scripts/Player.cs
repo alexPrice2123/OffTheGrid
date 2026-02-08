@@ -134,7 +134,7 @@ public partial class Player : CharacterBody3D
 		else if (_dist < 10) { _heartBeat.PitchScale = 1.5f; }
 		else if (_dist < 15) { _heartBeat.PitchScale = 1.25f; }
 		else { _heartBeat.PitchScale = 1; }
-		if (_dist < 25 && !_heartBeat.Playing) { Beat(); }
+		if (_dist < 2500 && !_heartBeat.Playing) { Beat(); }
 		
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -385,7 +385,6 @@ public partial class Player : CharacterBody3D
 	private async void Beat()
 	{
 		_heartBeat.Play();
-		_heartMat.SetShaderParameter("beat",0);
 		for (float i = 0; i <= 20; i++)
 		{
 			_heartMat.SetShaderParameter("beat", i / 20f);

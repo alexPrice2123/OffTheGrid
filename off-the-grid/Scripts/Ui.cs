@@ -31,6 +31,7 @@ public partial class Ui : Control
 	public override void _Process(double delta)
 	{
 		_transitionMat.SetShaderParameter("fade", Mathf.Lerp((float)_transitionMat.GetShaderParameter("fade"), _transitionGoal, delta * 2));
+		GetNode<ColorRect>("Transition").Visible = (float)_transitionMat.GetShaderParameter("fade") > 0;
 		if ((float)_transitionMat.GetShaderParameter("fade") >= 1)
 		{
 			GetTree().ChangeSceneToFile("res://Scenes/credits.tscn");
