@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bobbopbbyg8og"]
+
+[ext_resource type="Texture2D" uid="uid://blqb3qe3474sa" path="res://Assets/3D/Julia/Cardboard Boxes/Closed/LargeCardboardBoxClosed_Base_color.png" id="1_nbeh1"]
+[ext_resource type="Texture2D" uid="uid://8wvmjdpovlhq" path="res://Assets/3D/Julia/Cardboard Boxes/Closed/LargeCardboardBoxClosed_Normal_OpenGL.png" id="2_6xntd"]
+
+[resource]
+albedo_texture = ExtResource("1_nbeh1")
+normal_enabled = true
+normal_texture = ExtResource("2_6xntd")

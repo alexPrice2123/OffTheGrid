@@ -7,7 +7,7 @@ public partial class Player : CharacterBody3D
 	private const float WalkSpeed = 5.0f;
 	private const float CrouchSpeed = 2.5f;
 	private const float BOB_FREQ = 4.0f;
-    private const float BOB_AMP = 0.02f;
+	private const float BOB_AMP = 0.02f;
 	private float _currentSpeed;
 	private Node3D _head;
 	private Camera3D _cam;
@@ -54,7 +54,7 @@ public partial class Player : CharacterBody3D
 	public bool _hidden = false;
 	private ShaderMaterial _heartMat;
 	public override void _Ready()
-    {
+	{
 		_head = GetNode<Node3D>("Head");
 		_cam = GetNode<Camera3D>("Head/Camera3D");
 		_initialCameraPosition = _cam.Position;
@@ -91,24 +91,24 @@ public partial class Player : CharacterBody3D
 		_heartMat = GetNode<ColorRect>("UI/Heart").Material as ShaderMaterial;
 		Instance = this;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
-    }
+	}
 	public override void _Input(InputEvent @event)
 	{
 		// --- Camera look ---
 		if (@event is InputEventMouseMotion motion && Input.MouseMode == Input.MouseModeEnum.Captured && !_inTutorial)
 		{
 			 // Rotate the character body on the Y-axis for horizontal look (yaw)
-            RotateY(-motion.Relative.X * _mouseSense);
+			RotateY(-motion.Relative.X * _mouseSense);
 
-            // Rotate the head/camera on the X-axis for vertical look (pitch)
-            // Need to use a temp variable to modify the struct value
-            Vector3 headRotation = _head.Rotation;
-            headRotation.X += -motion.Relative.Y * _mouseSense;
-            
-            // Clamp the vertical rotation
-            headRotation.X = Mathf.Clamp(headRotation.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
-            
-            _head.Rotation = headRotation;
+			// Rotate the head/camera on the X-axis for vertical look (pitch)
+			// Need to use a temp variable to modify the struct value
+			Vector3 headRotation = _head.Rotation;
+			headRotation.X += -motion.Relative.Y * _mouseSense;
+			
+			// Clamp the vertical rotation
+			headRotation.X = Mathf.Clamp(headRotation.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
+			
+			_head.Rotation = headRotation;
 		}
 	}
 
@@ -123,10 +123,10 @@ public partial class Player : CharacterBody3D
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("Music")) - 0.1f);
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), AudioServer.GetBusVolumeDb(AudioServer.GetBusIndex("SFX"))-0.1f);
 			if (!GetNode<Control>("UI/GameOver").Visible)
-            {
+			{
 				GetNode<AudioStreamPlayer>("UI/End").Play();
 				Input.MouseMode = Input.MouseModeEnum.Visible;
-            }
+			}
 			GetNode<Control>("UI/GameOver").Visible = true;
 		}
 		if (_dist < 5) { _heartBeat.PitchScale = 1.75f; }
@@ -181,8 +181,8 @@ public partial class Player : CharacterBody3D
 		CheckRaycast("Fuse");
 		CheckRaycast("FuseBox");
 		if (!_inTutorial)
-        {
-            float increaseAmount;
+		{
+			float increaseAmount;
 			if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
 			else{ increaseAmount = 0.2f; }
 			if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
@@ -282,7 +282,7 @@ public partial class Player : CharacterBody3D
 			}
 			Vector3 bobOffset = CalculateHeadBob(_bob);
 			_cam.Position = _cam.Position.Lerp(_initialCameraPosition + bobOffset, (float)delta*3);
-        }
+		}
 
 		_head.Position = _head.Position.Lerp(_currentHeadPos.Position, (float)delta * 5);
 		_screen.Position = _screen.Position.Lerp(_currentScreenPos.Position, (float)delta * 5);
@@ -379,12 +379,12 @@ public partial class Player : CharacterBody3D
 	}
 	
 	private async void Beat()
-    {
+	{
 		_heartBeat.Play();
 		for(float i = 0; i <= 20; i++)
-        {
+		{
 			_heartMat.SetShaderParameter("beat", i / 20f);
 			await ToSignal(GetTree().CreateTimer(0.005f), SceneTreeTimer.SignalName.Timeout);
-        }
-    }
+		}
+	}
 }

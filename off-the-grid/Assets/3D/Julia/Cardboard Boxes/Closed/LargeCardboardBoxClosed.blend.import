@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dje42vtma6xd2"
-path="res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"
+uid="uid://b24yylh0gqn4h"
+path="res://.godot/imported/LargeCardboardBoxClosed.blend-091b59a60e3f81b21f578fac89da6c1c.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Julia/Table and Chairs/Table.blend"
-dest_files=["res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"]
+source_file="res://Assets/3D/Julia/Cardboard Boxes/Closed/LargeCardboardBoxClosed.blend"
+dest_files=["res://.godot/imported/LargeCardboardBoxClosed.blend-091b59a60e3f81b21f578fac89da6c1c.scn"]
 
 [params]
 
@@ -38,9 +38,11 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Table": {
-"mesh_instance/layers": 5
+"materials": {
+"LargeCardboardBoxClosed": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Cardboard Boxes/Closed/LargeBox1.tres",
+"use_external/path": "uid://bobbopbbyg8og"
 }
 }
 }
