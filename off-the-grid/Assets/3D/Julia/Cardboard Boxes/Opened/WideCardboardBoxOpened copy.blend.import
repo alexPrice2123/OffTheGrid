@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"WideCardboardBoxOpened": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Cardboard Boxes/Opened/WideOpen.tres",
+"use_external/path": "uid://cm37w2nywyjx7"
+}
+},
 "nodes": {
 "PATH:WideCardboardBoxOpened": {
 "mesh_instance/layers": 5

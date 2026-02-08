@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxjmuqvgsp8df"
-path.s3tc="res://.godot/imported/DefaultMaterial_Base_color.png-b6f9fa8dbcfd06434347263f0e492309.s3tc.ctex"
-path.etc2="res://.godot/imported/DefaultMaterial_Base_color.png-b6f9fa8dbcfd06434347263f0e492309.etc2.ctex"
+uid="uid://bjxwjwmflbhh"
+path.s3tc="res://.godot/imported/SquareCardboardBoxOpened_Base_color.png-70b984f1fdb15b8ed8bdda0200e400cd.s3tc.ctex"
+path.etc2="res://.godot/imported/SquareCardboardBoxOpened_Base_color.png-70b984f1fdb15b8ed8bdda0200e400cd.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Assets/3D/Julia/Cardboard Boxes/Opened/DefaultMaterial_Base_color.png"
-dest_files=["res://.godot/imported/DefaultMaterial_Base_color.png-b6f9fa8dbcfd06434347263f0e492309.s3tc.ctex", "res://.godot/imported/DefaultMaterial_Base_color.png-b6f9fa8dbcfd06434347263f0e492309.etc2.ctex"]
+source_file="res://Assets/3D/Julia/Cardboard Boxes/Opened/SquareCardboardBoxOpened_Base_color.png"
+dest_files=["res://.godot/imported/SquareCardboardBoxOpened_Base_color.png-70b984f1fdb15b8ed8bdda0200e400cd.s3tc.ctex", "res://.godot/imported/SquareCardboardBoxOpened_Base_color.png-70b984f1fdb15b8ed8bdda0200e400cd.etc2.ctex"]
 
 [params]
 

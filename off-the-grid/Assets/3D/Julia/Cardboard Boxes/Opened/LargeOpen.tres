@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://bqu0sog8v4abo"]
+
+[ext_resource type="Texture2D" uid="uid://bxjmuqvgsp8df" path="res://Assets/3D/Julia/Cardboard Boxes/Opened/DefaultMaterial_Base_color.png" id="1_lt03e"]
+[ext_resource type="Texture2D" uid="uid://d7oxvmwfr2v3" path="res://Assets/3D/Julia/Cardboard Boxes/Opened/DefaultMaterial_Normal_OpenGL.png" id="2_excw0"]
+
+[resource]
+albedo_texture = ExtResource("1_lt03e")
+normal_enabled = true
+normal_texture = ExtResource("2_excw0")

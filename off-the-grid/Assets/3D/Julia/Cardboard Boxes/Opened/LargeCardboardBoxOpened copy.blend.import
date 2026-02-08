@@ -38,6 +38,12 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"@MATERIAL:0": {
+"use_external/enabled": true,
+"use_external/path": "uid://bqu0sog8v4abo"
+}
+},
 "nodes": {
 "PATH:LargeCardboardBoxOpened": {
 "mesh_instance/layers": 5
