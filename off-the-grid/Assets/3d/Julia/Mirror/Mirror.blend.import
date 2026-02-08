@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://3282cgitltgx"
-path="res://.godot/imported/Mirror.blend-05122778383041aef02d42a0fc068e61.scn"
+path="res://.godot/imported/Mirror.blend-4b06bb66e460d00c45866e92831c0182.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Julia/Mirror/Mirror.blend"
-dest_files=["res://.godot/imported/Mirror.blend-05122778383041aef02d42a0fc068e61.scn"]
+source_file="res://Assets/3D/Julia/Mirror/Mirror.blend"
+dest_files=["res://.godot/imported/Mirror.blend-4b06bb66e460d00c45866e92831c0182.scn"]
 
 [params]
 
