@@ -59,9 +59,9 @@ shader_parameter/direction_b = Vector2(-0.7, -0.3)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8fs27"]
 shader = ExtResource("8_3r70p")
-shader_parameter/beat_speed = 0.0
-shader_parameter/pulse_strength = 0.02000000095
+shader_parameter/beat = 0.0
 shader_parameter/pulse_mode = 1
+shader_parameter/pulse_strength = 0.02000000095
 shader_parameter/tint_color = Color(1, 0.15, 0.15, 1)
 shader_parameter/tint_strength = 0.10000000475
 
@@ -528,7 +528,6 @@ theme = SubResource("Theme_ryf15")
 show_percentage = false
 
 [node name="Transition" type="ColorRect" parent="."]
-visible = false
 z_index = 100
 material = SubResource("ShaderMaterial_ryf15")
 layout_mode = 1

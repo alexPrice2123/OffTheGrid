@@ -1,22 +1,24 @@
 shader_type canvas_item;
 render_mode unshaded;
 
-// Godot 4.x screen grab
 uniform sampler2D screen_tex : hint_screen_texture;
 
 // ==========================
-// Pulse Controls
+// MANUAL BEAT CONTROL
 // ==========================
-uniform float beat_speed : hint_range(0.0, 10.0) = 1.2;
-uniform float pulse_strength : hint_range(0.0, 0.08) = 0.03;
+// Set this yourself (0.0 → 1.0 → 0.0)
+uniform float beat : hint_range(0.0, 1.0) = 0.0;
 
-// 0 = Smooth sine
-// 1 = Single pulse
-// 2 = Double pulse (lub-dub)
+// 0 = Smooth
+// 1 = Single hit
+// 2 = Double hit (lub-dub)
 uniform int pulse_mode : hint_range(0, 2) = 2;
 
+// Strength
+uniform float pulse_strength : hint_range(0.0, 0.08) = 0.03;
+
 // ==========================
-// Tint Controls
+// Tint
 // ==========================
 uniform vec3 tint_color : source_color = vec3(1.0, 0.15, 0.15);
 uniform float tint_strength : hint_range(0.0, 0.4) = 0.15;
@@ -28,56 +30,41 @@ vec2 pulse_uv(vec2 uv, float scale) {
 	return (uv - vec2(0.5)) / scale + vec2(0.5);
 }
 
-float sine_pulse(float t) {
-	return sin(t * TAU) * 0.5 + 0.5;
+float smooth_pulse(float t) {
+	return sin(t * PI);
 }
 
 float single_pulse(float t) {
-	float c = fract(t);
-	if (c < 0.2)
-		return smoothstep(0.0, 0.2, c);
-	if (c < 0.4)
-		return (1.0 - (c - 0.2) / 0.2) * 0.6;
-	return 0.0;
+	return smoothstep(0.0, 0.3, t) *
+	       (1.0 - smoothstep(0.3, 0.6, t));
 }
 
 float double_pulse(float t) {
-	float c = fract(t);
-	float p = 0.0;
-
-	if (c < 0.2) {
-		p = smoothstep(0.0, 0.1, c)
-		  * (1.0 - smoothstep(0.1, 0.2, c));
-	}
-	else if (c < 0.4) {
-		p = smoothstep(0.2, 0.3, c)
-		  * (1.0 - smoothstep(0.3, 0.4, c)) * 0.6;
-	}
-
-	return p;
+	float p1 = smoothstep(0.0, 0.2, t) *
+	           (1.0 - smoothstep(0.2, 0.4, t));
+	float p2 = smoothstep(0.45, 0.6, t) *
+	           (1.0 - smoothstep(0.6, 0.8, t)) * 0.6;
+	return max(p1, p2);
 }
 
 // ==========================
 // Fragment
 // ==========================
 void fragment() {
-	float t = TIME * beat_speed;
 	float pulse = 0.0;
 
 	if (pulse_mode == 0)
-		pulse = sine_pulse(t);
+		pulse = smooth_pulse(beat);
 	else if (pulse_mode == 1)
-		pulse = single_pulse(t);
+		pulse = single_pulse(beat);
 	else
-		pulse = double_pulse(t);
+		pulse = double_pulse(beat);
 
-	// Screen zoom
 	float scale = 1.0 + pulse * pulse_strength;
 	vec2 uv = pulse_uv(SCREEN_UV, scale);
 
 	vec4 screen_color = texture(screen_tex, uv);
 
-	// Red tint scales with pulse
 	vec3 final_color = mix(
 		screen_color.rgb,
 		screen_color.rgb + tint_color,

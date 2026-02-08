@@ -52,6 +52,7 @@ public partial class Player : CharacterBody3D
 	private int _count = 0;
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 	public bool _hidden = false;
+	private ShaderMaterial _heartMat;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -87,6 +88,7 @@ public partial class Player : CharacterBody3D
 		_crank = GetNode<MeshInstance3D>("Head/Screen/Radar/crank");
 		_monster = GetParent().GetNode<Monster>("Monster");
 		_heartBeat = GetNode<AudioStreamPlayer>("Heartbeat");
+		_heartMat = GetNode<ColorRect>("UI/Heart").Material as ShaderMaterial;
 		Instance = this;
 		Input.MouseMode = Input.MouseModeEnum.Captured;
     }
@@ -127,11 +129,11 @@ public partial class Player : CharacterBody3D
             }
 			GetNode<Control>("UI/GameOver").Visible = true;
 		}
-		if (_dist < 5) { _heartBeat.PitchScale = 1.5f; }
+		if (_dist < 5) { _heartBeat.PitchScale = 1.75f; }
 		else if (_dist < 10) { _heartBeat.PitchScale = 1.5f; }
 		else if (_dist < 15) { _heartBeat.PitchScale = 1.25f; }
 		else { _heartBeat.PitchScale = 1; }
-		if (_dist < 25 && !_heartBeat.Playing) { _heartBeat.Play(); }
+		if (_dist < 25 && !_heartBeat.Playing) { Beat(); }
 		
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -367,12 +369,22 @@ public partial class Player : CharacterBody3D
 			material.EmissionEnergyMultiplier = Convert.ToInt32(toggle) * 5;
 		}
 	}
-	
+
 	private Vector3 CalculateHeadBob(float time)
+	{
+		Vector3 pos = Vector3.Zero;
+		pos.Y = Mathf.Sin(time * BOB_FREQ) * BOB_AMP;
+		pos.X = Mathf.Cos(time * BOB_FREQ / 2.0f) * BOB_AMP;
+		return pos;
+	}
+	
+	private async void Beat()
     {
-        Vector3 pos = Vector3.Zero;
-        pos.Y = Mathf.Sin(time * BOB_FREQ) * BOB_AMP;
-        pos.X = Mathf.Cos(time * BOB_FREQ / 2.0f) * BOB_AMP;
-        return pos;
+		_heartBeat.Play();
+		for(float i = 0; i <= 20; i++)
+        {
+			_heartMat.SetShaderParameter("beat", i / 20f);
+			await ToSignal(GetTree().CreateTimer(0.005f), SceneTreeTimer.SignalName.Timeout);
+        }
     }
 }

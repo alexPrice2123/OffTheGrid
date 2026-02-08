@@ -35,6 +35,7 @@ public partial class Monster : CharacterBody3D
 		if (area is Player)
 		{
 			_playerSeen = true; // set _playerSeen to true until the player leaves the new extended radius
+			_goalPos = new Vector3(0,0,676767);
 			if (_detArea.Shape is SphereShape3D sphere)
 			{
 				sphere.Radius = 16; // extend the radius so that the monster remains in persuit for longer
