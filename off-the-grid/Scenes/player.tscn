@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
 [ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3d/Maddy/Radar/Radar.blend" id="6_x3wgy"]
-[ext_resource type="AudioStream" uid="uid://cfnmrdhinujs3" path="res://Assets/Sound/Heartbeat.mp3" id="7_3smsa"]
+[ext_resource type="AudioStream" uid="uid://rhh4qmincxdx" path="res://Assets/Sound/heartBeat.mp3" id="7_tx1dd"]
 [ext_resource type="AudioStream" uid="uid://cygkov7y16xof" path="res://Assets/Sound/sparks.mp3" id="8_8erm5"]
 [ext_resource type="AudioStream" uid="uid://cntepisgh7xqk" path="res://Assets/Sound/crank.mp3" id="9_f1ek2"]
 [ext_resource type="AudioStream" uid="uid://ofu7rpgm8trr" path="res://Assets/Sound/footstep.mp3" id="10_tx1dd"]
@@ -246,9 +246,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 [node name="UI" parent="." instance=ExtResource("5_fkybt")]
 
 [node name="Heartbeat" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_3smsa")
+stream = ExtResource("7_tx1dd")
 bus = &"SFX"
-parameters/looping = true
 
 [node name="Fuse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_8erm5")

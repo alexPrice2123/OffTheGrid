@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "materials": {
 "Material": {
-"use_external/enabled": true,
+"use_external/enabled": false,
 "use_external/fallback_path": "res://Assets/3D/Textures/House-Textures/Door/Door.tres",
 "use_external/path": "uid://dhmvw1ggiyl4l"
 }

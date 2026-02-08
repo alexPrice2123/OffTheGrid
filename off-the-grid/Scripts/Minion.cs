@@ -11,7 +11,8 @@ public partial class Minion : Node3D
     private GpuParticles3D _eyeClosed;
     private Node3D _vision;
     private bool _direction = false;
-	private int _count = 1;
+    private int _count = 1;
+    private RandomNumberGenerator _rng = new RandomNumberGenerator();
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
     {
@@ -31,7 +32,7 @@ public partial class Minion : Node3D
         if (_count == 1000)
         {
             Eyes(false);
-            _count = 0;
+            _count = _rng.RandiRange(-50,50);
         }
         if (_eyeOpen.Visible)
         {

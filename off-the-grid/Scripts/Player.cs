@@ -51,6 +51,7 @@ public partial class Player : CharacterBody3D
 	private AudioStreamPlayer _heartBeat;
 	private int _count = 0;
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
+	public bool _hidden = false;
 	public override void _Ready()
     {
 		_head = GetNode<Node3D>("Head");
@@ -129,8 +130,8 @@ public partial class Player : CharacterBody3D
 		if (_dist < 5) { _heartBeat.PitchScale = 1.5f; }
 		else if (_dist < 10) { _heartBeat.PitchScale = 1.5f; }
 		else if (_dist < 15) { _heartBeat.PitchScale = 1.25f; }
-		else if (_dist < 25 && !_heartBeat.Playing) { _heartBeat.Play(); }
-		else if (_dist >= 25 && _heartBeat.Playing) { _heartBeat.Stop(); }
+		else { _heartBeat.PitchScale = 1; }
+		if (_dist < 25 && !_heartBeat.Playing) { _heartBeat.Play(); }
 		
 		// Add the gravity.
 		if (!IsOnFloor())

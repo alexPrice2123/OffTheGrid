@@ -56,7 +56,7 @@ public partial class Monster : CharacterBody3D
 		if (_count == 250){ _count = 0; }
 		if (Player.Instance._currentCam.Equals(Player.Instance._otherCam)) { _playerKnown = true; } else if (Input.IsActionPressed("Crank")) { _playerHeard = true; }
 		else { _playerKnown = false; _playerHeard = false; } // if the redcam is on or the player is crankng it set their respective variables to true
-
+		if (_world.GetNode<Player>("Player")._hidden){_playerKnown = false; _playerHeard = false; _playerSeen = false; }
 		_navAgent.TargetPosition = Player.Instance.GlobalPosition;
 		if (!_playerHeard && !_playerKnown && !_playerSeen)
 		{
