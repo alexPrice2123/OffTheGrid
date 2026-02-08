@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b7fn32tpguw3o"
-path="res://.godot/imported/Floor.blend-91fd16b1e3556af7684a66e0d3a81897.scn"
+path="res://.godot/imported/Floor.blend-7c8154fa407d502a79e9eb8e0b40c4e3.scn"
 
 [deps]
 
-source_file="res://Assets/3D/House/Floor.blend"
-dest_files=["res://.godot/imported/Floor.blend-91fd16b1e3556af7684a66e0d3a81897.scn"]
+source_file="res://Assets/3d/House/Floor.blend"
+dest_files=["res://.godot/imported/Floor.blend-7c8154fa407d502a79e9eb8e0b40c4e3.scn"]
 
 [params]
 

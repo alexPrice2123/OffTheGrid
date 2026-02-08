@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://o7twalwr44xx"]
+[gd_scene load_steps=29 format=3 uid="uid://o7twalwr44xx"]
 
 [ext_resource type="Script" uid="uid://k7e81pvm0lqd" path="res://Scripts/Player.cs" id="1_v0iea"]
 [ext_resource type="Shader" uid="uid://glgrq3gcf5wc" path="res://Shaders/radarScreen.gdshader" id="2_6t5aa"]
@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
 [ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3d/Maddy/Radar/Radar.blend" id="6_x3wgy"]
-[ext_resource type="AudioStream" uid="uid://rhh4qmincxdx" path="res://Assets/Sound/heartBeat.mp3" id="7_tx1dd"]
+[ext_resource type="AudioStream" uid="uid://d1u2n5bdve8de" path="res://Assets/Sound/heartBeat.mp3" id="7_tx1dd"]
 [ext_resource type="AudioStream" uid="uid://cygkov7y16xof" path="res://Assets/Sound/sparks.mp3" id="8_8erm5"]
 [ext_resource type="AudioStream" uid="uid://cntepisgh7xqk" path="res://Assets/Sound/crank.mp3" id="9_f1ek2"]
 [ext_resource type="AudioStream" uid="uid://ofu7rpgm8trr" path="res://Assets/Sound/footstep.mp3" id="10_tx1dd"]
@@ -14,7 +14,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f60y1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v0iea"]
-height = 1.3986816
+height = 1.0283813
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fd4e3"]
 shading_mode = 0
@@ -107,6 +107,10 @@ emission_enabled = true
 emission = Color(0, 1, 0, 1)
 emission_energy_multiplier = 5.0
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tx1dd"]
+radius = 0.4345703
+height = 1.6618652
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_v0iea")
 
@@ -114,7 +118,7 @@ script = ExtResource("1_v0iea")
 shape = SubResource("CapsuleShape3D_f60y1")
 
 [node name="CrouchShape" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.30065918, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.48580933, 0)
 shape = SubResource("CapsuleShape3D_v0iea")
 disabled = true
 
@@ -242,6 +246,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.067711666, 0.0018967986, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5624489, 0)
 
 [node name="CrouchHead" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24271125, 0)
 
 [node name="UI" parent="." instance=ExtResource("5_fkybt")]
 
@@ -264,6 +269,12 @@ parameters/looping = true
 stream = ExtResource("10_tx1dd")
 volume_db = -10.0
 bus = &"SFX"
+
+[node name="Hide" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hide"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.032226563, 0.0848999, 0)
+shape = SubResource("CapsuleShape3D_tx1dd")
 
 [editable path="Head/Screen/SubViewport"]
 [editable path="Head/Screen/Radar"]

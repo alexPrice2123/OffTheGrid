@@ -44,6 +44,11 @@ _subresources={
 "use_external/fallback_path": "res://Assets/3D/Julia/Cardboard Boxes/Closed/LargeBox1.tres",
 "use_external/path": "uid://bobbopbbyg8og"
 }
+},
+"nodes": {
+"PATH:Cube": {
+"mesh_instance/layers": 5
+}
 }
 }
 blender/nodes/visible=0

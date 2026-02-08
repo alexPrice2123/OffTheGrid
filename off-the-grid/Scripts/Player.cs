@@ -53,6 +53,7 @@ public partial class Player : CharacterBody3D
 	private RandomNumberGenerator _rng = new RandomNumberGenerator();
 	public bool _hidden = false;
 	private ShaderMaterial _heartMat;
+	private StaticBody3D _currentHide;
 	public override void _Ready()
 	{
 		_head = GetNode<Node3D>("Head");
@@ -291,19 +292,22 @@ public partial class Player : CharacterBody3D
 		if (velocity.Length() > 1)
 		{
 			_count++;
-			if (_count > 150/_currentSpeed)
+			if (_count > 150 / _currentSpeed)
 			{
 				GetNode<AudioStreamPlayer>("Footstep").PitchScale = _rng.RandfRange(0.9f, 1.1f);
 				GetNode<AudioStreamPlayer>("Footstep").Play();
 				_count = 0;
 			}
 		}
-		else{ _count = 0; }
+		else { _count = 0; }
+		_hidden = GetNode<Area3D>("Hide").GetOverlappingBodies().Count > 1;
+		GD.Print(GetNode<Area3D>("Hide").GetOverlappingBodies().Count);
 		MoveAndSlide();
 	}
 
 	private void Crouch(bool toggle)
 	{
+		if (_hidden){ return; }
 		if (toggle)
 		{
 			_currentHeadPos = _crouchPos;
@@ -377,14 +381,16 @@ public partial class Player : CharacterBody3D
 		pos.X = Mathf.Cos(time * BOB_FREQ / 2.0f) * BOB_AMP;
 		return pos;
 	}
-	
+
 	private async void Beat()
 	{
 		_heartBeat.Play();
-		for(float i = 0; i <= 20; i++)
+		_heartMat.SetShaderParameter("beat",0);
+		for (float i = 0; i <= 20; i++)
 		{
 			_heartMat.SetShaderParameter("beat", i / 20f);
-			await ToSignal(GetTree().CreateTimer(0.005f), SceneTreeTimer.SignalName.Timeout);
+			GD.Print(_heartMat.GetShaderParameter("beat"));
+			await ToSignal(GetTree().CreateTimer(0.01f), SceneTreeTimer.SignalName.Timeout);
 		}
 	}
 }
