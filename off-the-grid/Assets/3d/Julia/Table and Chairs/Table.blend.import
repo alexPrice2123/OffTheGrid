@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dje42vtma6xd2"
-path="res://.godot/imported/Table.blend-e892a750fe7b83ff7513e5ab9dabe801.scn"
+path="res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Julia/Table and Chairs/Table.blend"
-dest_files=["res://.godot/imported/Table.blend-e892a750fe7b83ff7513e5ab9dabe801.scn"]
+source_file="res://Assets/3D/Julia/Table and Chairs/Table.blend"
+dest_files=["res://.godot/imported/Table.blend-cde25f6f0221cef34b62f25c913a32c8.scn"]
 
 [params]
 

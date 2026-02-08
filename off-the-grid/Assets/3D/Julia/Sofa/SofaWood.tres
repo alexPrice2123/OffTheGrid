@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b5b50bgqejfhf"]
+
+[ext_resource type="Texture2D" uid="uid://dvr3sqbrkno65" path="res://Assets/3D/Julia/Sofa/SofaLegs_Base_color.png" id="1_tw23w"]
+[ext_resource type="Texture2D" uid="uid://17nw1fstwn1s" path="res://Assets/3D/Julia/Sofa/SofaLegs_Normal_OpenGL.png" id="2_8nbom"]
+
+[resource]
+albedo_texture = ExtResource("1_tw23w")
+normal_enabled = true
+normal_texture = ExtResource("2_8nbom")

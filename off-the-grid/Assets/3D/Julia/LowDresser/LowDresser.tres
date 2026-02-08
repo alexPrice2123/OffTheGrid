@@ -1,3 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://i05yjh2yrup3"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://i05yjh2yrup3"]
+
+[ext_resource type="Texture2D" uid="uid://dsdl0o7uykfwt" path="res://Assets/3D/Julia/LowDresser/LowDresserTop_Base_color.png" id="1_58rgx"]
+[ext_resource type="Texture2D" uid="uid://crekktd38jso6" path="res://Assets/3D/Julia/LowDresser/LowDresserTop_Normal_OpenGL.png" id="2_in5j8"]
 
 [resource]
+albedo_texture = ExtResource("1_58rgx")
+normal_enabled = true
+normal_texture = ExtResource("2_in5j8")

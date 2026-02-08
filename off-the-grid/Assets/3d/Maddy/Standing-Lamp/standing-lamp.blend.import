@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dg14dgv8qg0u8"
-path="res://.godot/imported/standing-lamp.blend-141b101698a1970027bd30ee8f02585d.scn"
+path="res://.godot/imported/standing-lamp.blend-e79a8dd9bb2ac1d0c633c6a0f5e0a9dd.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Maddy/Standing-Lamp/standing-lamp.blend"
-dest_files=["res://.godot/imported/standing-lamp.blend-141b101698a1970027bd30ee8f02585d.scn"]
+source_file="res://Assets/3D/Maddy/Standing-Lamp/standing-lamp.blend"
+dest_files=["res://.godot/imported/standing-lamp.blend-e79a8dd9bb2ac1d0c633c6a0f5e0a9dd.scn"]
 
 [params]
 
@@ -38,6 +38,18 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Base": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Maddy/Standing-Lamp/Base.tres",
+"use_external/path": "uid://btxycir71p2kx"
+},
+"Lamp": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Maddy/Standing-Lamp/StandingLamp.tres",
+"use_external/path": "uid://baa3ecf0rfgku"
+}
+},
 "nodes": {
 "PATH:lamp": {
 "mesh_instance/layers": 5

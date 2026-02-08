@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d3bh3hivw3xtd"
-path="res://.godot/imported/Sofa.blend-c53677a760865048b5addce5fcb0ea80.scn"
+path="res://.godot/imported/Sofa.blend-e255ff68ffeae93751a94472224ccbdd.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Julia/Sofa/Sofa.blend"
-dest_files=["res://.godot/imported/Sofa.blend-c53677a760865048b5addce5fcb0ea80.scn"]
+source_file="res://Assets/3D/Julia/Sofa/Sofa.blend"
+dest_files=["res://.godot/imported/Sofa.blend-e255ff68ffeae93751a94472224ccbdd.scn"]
 
 [params]
 
@@ -38,6 +38,18 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Sofa": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Sofa/Sofa.tres",
+"use_external/path": "uid://bpfcutgveob3f"
+},
+"SofaLegs": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Sofa/SofaWood.tres",
+"use_external/path": "uid://b5b50bgqejfhf"
+}
+},
 "nodes": {
 "PATH:Cube": {
 "mesh_instance/layers": 5
