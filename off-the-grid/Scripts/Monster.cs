@@ -88,7 +88,7 @@ public partial class Monster : CharacterBody3D
 	private void GetNewWanderPos()
 	{
 		float angle = (float)GD.RandRange(0, Mathf.Tau);
-        float radius = (float)GD.RandRange(0, 15);
+        float radius = (float)GD.RandRange(10, 15);
 		Vector3 randomPoint = GlobalPosition + new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius);
 		Rid mapRid = GetParent().GetNode<NavigationRegion3D>("NavigationRegion3D").GetNavigationMap();
 		_wanderPos = NavigationServer3D.MapGetClosestPoint(mapRid, randomPoint);

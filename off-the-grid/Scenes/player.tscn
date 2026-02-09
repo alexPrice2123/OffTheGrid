@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brswe2rgiop22" path="res://Scenes/radarScreen.tscn" id="2_cvnsp"]
 [ext_resource type="FontFile" uid="uid://boysgnmyv7glp" path="res://Assets/Fonts/Digital.ttf" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://chlmb4qhfdsq3" path="res://Scenes/ui.tscn" id="5_fkybt"]
-[ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3d/Maddy/Radar/Radar.blend" id="6_x3wgy"]
+[ext_resource type="PackedScene" uid="uid://cgvjxtgqyqln0" path="res://Assets/3D/Maddy/Radar/Radar.blend" id="6_x3wgy"]
 [ext_resource type="AudioStream" uid="uid://d1u2n5bdve8de" path="res://Assets/Sound/heartBeat.mp3" id="7_tx1dd"]
 [ext_resource type="AudioStream" uid="uid://cygkov7y16xof" path="res://Assets/Sound/sparks.mp3" id="8_8erm5"]
 [ext_resource type="AudioStream" uid="uid://cntepisgh7xqk" path="res://Assets/Sound/crank.mp3" id="9_f1ek2"]
@@ -31,8 +31,9 @@ render_priority = 0
 shader = ExtResource("2_6t5aa")
 shader_parameter/base_texture = SubResource("ViewportTexture_6t5aa")
 shader_parameter/hue = Color(0, 1, 0, 1)
-shader_parameter/flip = false
 shader_parameter/run = true
+shader_parameter/disturbed = 0.0
+shader_parameter/saturation = 0.999999977648
 shader_parameter/uv_mult = 30.0
 shader_parameter/lines_speed = 1.99999995902132
 shader_parameter/line_alpha = 0.5
@@ -176,11 +177,10 @@ cull_mask = 524274
 
 [node name="FunitureCamera" parent="Head/Screen/SubViewport" index="1"]
 cull_mask = 524276
-far = 10.0
+far = 25.0
 
 [node name="OtherCamera" parent="Head/Screen/SubViewport" index="2"]
 cull_mask = 524280
-far = 25.0
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Head/Screen"]
 transform = Transform3D(10.000004, -1.6890397e-08, 2.3841858e-07, -2.3841858e-07, -4.3711395e-07, 10.000004, 3.5527137e-15, -10.000003, -2.4223374e-07, -0.11242616, -1.0148993, 0.040862083)

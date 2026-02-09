@@ -54,6 +54,7 @@ public partial class Player : CharacterBody3D
 	public bool _hidden = false;
 	private ShaderMaterial _heartMat;
 	private StaticBody3D _currentHide;
+	private float _disturbGoal = 0;
 	public override void _Ready()
 	{
 		_head = GetNode<Node3D>("Head");
@@ -187,7 +188,7 @@ public partial class Player : CharacterBody3D
 			if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
 			else{ increaseAmount = 0.2f; }
 			if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
-			else { _power -= (float)delta * 0.05f; }
+			_power -= (float)delta * 0.05f*(_disturbGoal+1.5f);
 			if (Input.IsActionJustPressed("Crank")) { GetNode<AudioStreamPlayer>("Crank").Play(); }
 			if (Input.IsActionJustReleased("Crank")) { GetNode<AudioStreamPlayer>("Crank").Stop(); }
 			if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
@@ -209,7 +210,7 @@ public partial class Player : CharacterBody3D
 				LightHandler(false, _mode3);
 				_currentCam.Current = false;
 				_currentCam = _furnCam;
-				_screenColor = new Color(180f / 255f, 188f / 255f, 237f / 255f, 1);
+				_screenColor = new Color(120f / 255f, 120f / 255f, 237f / 255f, 1);
 				_currentCam.Current = true;
 			}
 			if (Input.IsActionJustPressed("OtherCam"))
@@ -301,7 +302,17 @@ public partial class Player : CharacterBody3D
 		}
 		else { _count = 0; }
 		_hidden = GetNode<Area3D>("Hide").GetOverlappingBodies().Count > 1;
-		GD.Print(GetNode<Area3D>("Hide").GetOverlappingBodies().Count);
+
+		bool _distortCheck = false;
+		foreach (Area3D area in GetNode<Area3D>("Hide").GetOverlappingAreas())
+        {
+            if(area.IsInGroup("Distort")){_distortCheck = true;}
+        }
+		if (!_hidden){_distortCheck = false;}
+		if (_distortCheck){_disturbGoal = 1f;}
+		else{_disturbGoal = 0f;}
+		_screenMat.SetShaderParameter("disturbed", Mathf.Lerp((float)_screenMat.GetShaderParameter("disturbed"), _disturbGoal, (float)delta/((26f*_disturbGoal)+4f)));
+
 		MoveAndSlide();
 	}
 

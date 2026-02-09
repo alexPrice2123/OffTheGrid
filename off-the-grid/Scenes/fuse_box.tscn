@@ -159,7 +159,6 @@ radius = 0.01
 
 [node name="Warn" type="GPUParticles3D" parent="."]
 transform = Transform3D(0.5845649, 0, 0, 0, 1, 0, 0, 0, 0.19569346, 0, 0, 0)
-visible = false
 layers = 8
 material_override = SubResource("StandardMaterial3D_gojlo")
 amount = 25

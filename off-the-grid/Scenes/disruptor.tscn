@@ -1,6 +1,5 @@
-[gd_scene load_steps=19 format=3 uid="uid://lsgx01fn1f3l"]
+[gd_scene load_steps=16 format=3 uid="uid://lsgx01fn1f3l"]
 
-[ext_resource type="Script" uid="uid://dwssnsxcjexlm" path="res://Scripts/Minion.cs" id="1_y8bs1"]
 [ext_resource type="AudioStream" uid="uid://dyqesi65rfhe7" path="res://Assets/Sound/alarm.mp3" id="2_efku8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0oln"]
@@ -24,6 +23,27 @@ scale_curve = SubResource("CurveTexture_f5x54")
 
 [sub_resource type="BoxMesh" id="BoxMesh_fb4sf"]
 
+[sub_resource type="Curve" id="Curve_y8bs1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_efku8"]
+curve = SubResource("Curve_y8bs1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4y11t"]
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.14999999
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_efku8")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fb4sf"]
 albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
@@ -46,87 +66,30 @@ scale_curve = SubResource("CurveTexture_co1s6")
 
 [sub_resource type="SphereMesh" id="SphereMesh_f5x54"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s0atx"]
-transparency = 1
-albedo_color = Color(1, 0, 0, 0.39215687)
-emission_enabled = true
-emission = Color(1, 0, 0, 1)
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8bs1"]
+radius = 2.5
+height = 10.0
 
-[sub_resource type="PrismMesh" id="PrismMesh_f5x54"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_fb4sf"]
-data = PackedVector3Array(0, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0, 0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0, 0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, -0.5, 0, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="Curve" id="Curve_i44lo"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_s0atx"]
-curve = SubResource("Curve_i44lo")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fb4sf"]
-radial_velocity_min = 2.9999776
-radial_velocity_max = 2.9999776
-gravity = Vector3(0, 0, 0)
-scale_min = 0.29999998
-scale_max = 0.29999998
-scale_curve = SubResource("CurveTexture_s0atx")
-
-[node name="Minion" type="Node3D"]
-script = ExtResource("1_y8bs1")
+[node name="Distorter" type="Node3D"]
 
 [node name="Body" type="GPUParticles3D" parent="."]
-layers = 5
+layers = 4
 material_override = SubResource("StandardMaterial3D_j0oln")
 amount = 25
 process_material = SubResource("ParticleProcessMaterial_j0oln")
 draw_pass_1 = SubResource("BoxMesh_fb4sf")
 
+[node name="Body2" type="GPUParticles3D" parent="."]
+layers = 4
+material_override = SubResource("StandardMaterial3D_j0oln")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_4y11t")
+draw_pass_1 = SubResource("BoxMesh_fb4sf")
+
 [node name="EyeOpen" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
-visible = false
 layers = 4
 material_override = SubResource("StandardMaterial3D_fb4sf")
-process_material = SubResource("ParticleProcessMaterial_f5x54")
-draw_pass_1 = SubResource("SphereMesh_f5x54")
-
-[node name="Sight" type="Node3D" parent="EyeOpen"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2485927, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="EyeOpen/Sight"]
-transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 0.173, 0, -5, -7.56207e-09, 0, 1.0932516e-07, 2.501068)
-layers = 4
-material_override = SubResource("StandardMaterial3D_s0atx")
-mesh = SubResource("PrismMesh_f5x54")
-skeleton = NodePath("../../..")
-
-[node name="Vision" type="Area3D" parent="EyeOpen/Sight"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="EyeOpen/Sight/Vision"]
-transform = Transform3D(5, 0, 0, 0, -2.1855695e-07, 5, 0, -5, -2.1855695e-07, 0, 1.0932516e-07, 2.501068)
-shape = SubResource("ConcavePolygonShape3D_fb4sf")
-
-[node name="EyeClosed" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
-layers = 4
-material_override = SubResource("StandardMaterial3D_j0oln")
-process_material = SubResource("ParticleProcessMaterial_f5x54")
-draw_pass_1 = SubResource("SphereMesh_f5x54")
-
-[node name="Found" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
-layers = 4
-material_override = SubResource("StandardMaterial3D_fb4sf")
-emitting = false
-lifetime = 0.3
-one_shot = true
-explosiveness = 1.0
-process_material = SubResource("ParticleProcessMaterial_fb4sf")
-draw_pass_1 = SubResource("SphereMesh_f5x54")
-
-[node name="EyeOff" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
-material_override = SubResource("StandardMaterial3D_j0oln")
 process_material = SubResource("ParticleProcessMaterial_f5x54")
 draw_pass_1 = SubResource("SphereMesh_f5x54")
 
@@ -135,4 +98,8 @@ stream = ExtResource("2_efku8")
 volume_db = -10.0
 bus = &"SFX"
 
-[connection signal="body_entered" from="EyeOpen/Sight/Vision" to="." method="_on_vision_body_entered"]
+[node name="Range" type="Area3D" parent="." groups=["Distort"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Range"]
+shape = SubResource("CapsuleShape3D_y8bs1")
+debug_color = Color(0, 1, 0, 1)
