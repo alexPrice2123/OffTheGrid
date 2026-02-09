@@ -177,9 +177,9 @@ public partial class Ui : Control
 	}
 
 	private void _on_again_button_up()
-    {
+	{
 		GetTree().ReloadCurrentScene();
-    }
+	}
 
 	private void _on_controls_button_up()
 	{
