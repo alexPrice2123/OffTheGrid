@@ -71,7 +71,7 @@ public partial class fusePathHandler : Node3D
 			AudioServer.SetBusMute(AudioServer.GetBusIndex("SFX"), (float)GetNode<HSlider>("Player/UI/Pause/SFX").Value < -9); 
         }
 		_count += 2;
-		if (_player._collectedFuses >= _maxFuseOG && !_isLight)
+		if (_player._collectedFuses >= _maxFuseOG+1 && !_isLight)
 		{
 			Lighting(LightScene, "Light");
 			_sound.Stop();
@@ -81,7 +81,7 @@ public partial class fusePathHandler : Node3D
 			_player.GetNode<Ui>("UI")._text.Text = _player.GetNode<Ui>("UI")._lineTable[_player.GetNode<Ui>("UI")._currentLine];
 			_player.GetNode<Control>("UI/Dialouge").Visible = true;
 		}
-		else if (_player._collectedFuses < _maxFuseOG && _isLight && _lightsOff)
+		else if (_player._collectedFuses < _maxFuseOG+1 && _isLight && _lightsOff)
 		{
 			Lighting(DarkScene, "Dark");
 			_sound.Play();
