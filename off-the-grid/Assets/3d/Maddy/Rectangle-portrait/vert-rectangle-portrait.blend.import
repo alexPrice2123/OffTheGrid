@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://d2ih4isot0oj8"
-path="res://.godot/imported/vert-rectangle-portrait.blend-49e5a93865ff0337162bf5f09709dca7.scn"
+path="res://.godot/imported/vert-rectangle-portrait.blend-c8be356ac10f13fb1eb025f595396147.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Maddy/Rectangle-portrait/vert-rectangle-portrait.blend"
-dest_files=["res://.godot/imported/vert-rectangle-portrait.blend-49e5a93865ff0337162bf5f09709dca7.scn"]
+source_file="res://Assets/3D/Maddy/Rectangle-portrait/vert-rectangle-portrait.blend"
+dest_files=["res://.godot/imported/vert-rectangle-portrait.blend-c8be356ac10f13fb1eb025f595396147.scn"]
 
 [params]
 
@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:Cube": {
-"mesh_instance/layers": 5
+"mesh_instance/layers": 3
 }
 }
 }
