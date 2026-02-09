@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://cgvjxtgqyqln0"
-path="res://.godot/imported/Radar.blend-2cbea55c7bdb80381c94d15a617133eb.scn"
+path="res://.godot/imported/Radar.blend-741d9e6fc9da8002987cca031feee94f.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Maddy/Radar/Radar.blend"
-dest_files=["res://.godot/imported/Radar.blend-2cbea55c7bdb80381c94d15a617133eb.scn"]
+source_file="res://Assets/3d/Maddy/Radar/Radar.blend"
+dest_files=["res://.godot/imported/Radar.blend-741d9e6fc9da8002987cca031feee94f.scn"]
 
 [params]
 
