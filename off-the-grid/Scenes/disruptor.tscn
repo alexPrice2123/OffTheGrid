@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://lsgx01fn1f3l"]
+[gd_scene load_steps=17 format=3 uid="uid://lsgx01fn1f3l"]
 
+[ext_resource type="Script" uid="uid://bgy7uxjn2qlbq" path="res://Scripts/Disturber.cs" id="1_y8bs1"]
 [ext_resource type="AudioStream" uid="uid://dyqesi65rfhe7" path="res://Assets/Sound/alarm.mp3" id="2_efku8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0oln"]
@@ -71,6 +72,7 @@ radius = 2.5
 height = 10.0
 
 [node name="Distorter" type="Node3D"]
+script = ExtResource("1_y8bs1")
 
 [node name="Body" type="GPUParticles3D" parent="."]
 layers = 4

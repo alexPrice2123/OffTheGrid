@@ -3,6 +3,8 @@ using System;
 
 public partial class Player : CharacterBody3D
 {
+	[Export]
+	public PackedScene GlowstickScene { get; set; }
 	public static Player Instance { get; private set; }
 	private const float WalkSpeed = 5.0f;
 	private const float CrouchSpeed = 2.5f;
@@ -43,6 +45,7 @@ public partial class Player : CharacterBody3D
 	private MeshInstance3D _power2;
 	private MeshInstance3D _power3;
 	private MeshInstance3D _power4;
+	private MeshInstance3D _light;
 	private MeshInstance3D _crank;
 	public bool _inTutorial = true;
 	private float _bob = 0.0f;
@@ -79,19 +82,22 @@ public partial class Player : CharacterBody3D
 		_rayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast");
 		_pauseMenu = GetNode<Control>("UI/Pause");
 		_crosshair = GetNode<Control>("UI/Crosshair");
-		_mode1 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode2");
-		_mode2 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode1");
-		_mode3 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode3");
-		_fuseLight = GetNode<MeshInstance3D>("Head/Screen/Radar/Fuse Light");
-		_power1 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light");
-		_power2 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 2");
-		_power3 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 3");
-		_power4 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 4");
+		_mode1 = GetNode<MeshInstance3D>("Head/Screen/Radar/M1");
+		_mode2 = GetNode<MeshInstance3D>("Head/Screen/Radar/M2");
+		_mode3 = GetNode<MeshInstance3D>("Head/Screen/Radar/M3");
+		_fuseLight = GetNode<MeshInstance3D>("Head/Screen/Radar/Fuse");
+		_power1 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL1");
+		_power2 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL2");
+		_power3 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL3");
+		_power4 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL4");
+		_light = GetNode<MeshInstance3D>("Head/Screen/Radar/Light");
 		_crank = GetNode<MeshInstance3D>("Head/Screen/Radar/crank");
 		_monster = GetParent().GetNode<Monster>("Monster");
 		_heartBeat = GetNode<AudioStreamPlayer>("Heartbeat");
 		_heartMat = GetNode<ColorRect>("UI/Heart").Material as ShaderMaterial;
 		Instance = this;
+		LightHandler(true, _mode1);
+		_screenColor = new Color(0, 1.25f, 0, 1);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 	public override void _Input(InputEvent @event)
@@ -185,8 +191,8 @@ public partial class Player : CharacterBody3D
 		if (!_inTutorial)
 		{
 			float increaseAmount;
-			if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
-			else{ increaseAmount = 0.2f; }
+			if (velocity.Length() > 0.1f) { increaseAmount = 0.2f; }
+			else{ increaseAmount = 0.3f; }
 			if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
 			_power -= (float)delta * 0.05f*(_disturbGoal+1.5f);
 			if (Input.IsActionJustPressed("Crank")) { GetNode<AudioStreamPlayer>("Crank").Play(); }
@@ -214,17 +220,24 @@ public partial class Player : CharacterBody3D
 				_currentCam.Current = true;
 			}
 			if (Input.IsActionJustPressed("OtherCam"))
-			{
+			{	
 				LightHandler(false, _mode1);
 				LightHandler(false, _mode2);
 				LightHandler(true, _mode3);
 				_currentCam.Current = false;
 				_currentCam = _otherCam;
-				_screenColor = new Color(250f / 255f, 192f / 255f, 192f / 255f, 1);
+				_screenColor = new Color(255f / 255f, 150f / 255f, 150f / 255f, 1);
 				_currentCam.Current = true;
 			}
 
 			if (Input.IsActionJustPressed("CrouchToggle") && IsOnFloor()) { Crouch(_currentHeadPos == _walkPos); }
+			if (Input.IsActionJustPressed("Throw") && IsOnFloor()) 
+			{ 
+				Glowstick instance = (Glowstick)GlowstickScene.Instantiate();
+				instance._direction = -_cam.GlobalTransform.Basis.Z.Normalized();
+				GetParent().AddChild(instance);
+				instance.GlobalPosition = GetNode<Node3D>("Head/Camera3D/Throw").GlobalPosition;
+			}
 
 			if (Input.IsActionJustPressed("CrouchHold") && IsOnFloor()) { Crouch(true); }
 			if (Input.IsActionJustReleased("CrouchHold") && IsOnFloor()) { Crouch(false); }

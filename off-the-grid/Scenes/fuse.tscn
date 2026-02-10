@@ -108,6 +108,7 @@ shape = SubResource("BoxShape3D_trj8p")
 
 [node name="Fuse" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.145, 0, 0, 0, -1.4927438e-07, 3.145, 0, -3.415, -1.3747231e-07, 0, 0, 0)
+layers = 3
 material_override = SubResource("StandardMaterial3D_mg4mk")
 material_overlay = SubResource("StandardMaterial3D_73onb")
 mesh = SubResource("ArrayMesh_73onb")

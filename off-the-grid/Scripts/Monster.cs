@@ -4,6 +4,8 @@ using System.Net;
 
 public partial class Monster : CharacterBody3D
 {
+	[Export]
+	public bool Active = true;
 	protected bool _playerSeen = false;
 	protected bool _playerHeard = false;
 	private bool _playerKnown = false;
@@ -47,6 +49,7 @@ public partial class Monster : CharacterBody3D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!Active){return;}
 		if (_world.GetNode<Player>("Player")._inTutorial || _world._isLight){ return; }
 		_count += 1;
 		if ((_goalPos - GlobalPosition).Length() <= 1)

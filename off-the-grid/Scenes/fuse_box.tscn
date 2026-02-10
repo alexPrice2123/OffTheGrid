@@ -1,9 +1,13 @@
-[gd_scene load_steps=22 format=4 uid="uid://cnwh5wg8gvb7f"]
+[gd_scene load_steps=24 format=4 uid="uid://cnwh5wg8gvb7f"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gojlo"]
+transparency = 1
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
+distance_fade_mode = 1
+distance_fade_min_distance = 50.0
+distance_fade_max_distance = 45.0
 
 [sub_resource type="Curve" id="Curve_7sfy2"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -21,6 +25,23 @@ scale_max = 0.099999994
 scale_curve = SubResource("CurveTexture_trj8p")
 
 [sub_resource type="SphereMesh" id="SphereMesh_rq28i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rq28i"]
+transparency = 1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+distance_fade_mode = 1
+distance_fade_min_distance = 45.0
+distance_fade_max_distance = 50.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_fcbgt"]
+radial_velocity_min = 2.9999776
+radial_velocity_max = 2.9999776
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_trj8p")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_u25f5"]
 size = Vector3(0.8536072, 0.72935486, 0.86950684)
@@ -164,6 +185,15 @@ material_override = SubResource("StandardMaterial3D_gojlo")
 amount = 25
 lifetime = 0.5
 process_material = SubResource("ParticleProcessMaterial_gw7o6")
+draw_pass_1 = SubResource("SphereMesh_rq28i")
+
+[node name="Warn2" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.5845649, 0, 0, 0, 1, 0, 0, 0, 0.19569346, 0, 0, 0)
+layers = 8
+material_override = SubResource("StandardMaterial3D_rq28i")
+amount = 25
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_fcbgt")
 draw_pass_1 = SubResource("SphereMesh_rq28i")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]

@@ -47,7 +47,7 @@ _subresources={
 },
 "nodes": {
 "PATH:CrouchHole": {
-"mesh_instance/layers": 7
+"mesh_instance/layers": 3
 }
 }
 }
