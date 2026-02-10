@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://de0qqdglm8ul0"]
+[gd_scene load_steps=34 format=3 uid="uid://de0qqdglm8ul0"]
 
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_7yn8b"]
 [ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_ngcqm"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://5a5d04h72pkh" path="res://Scenes/minion.tscn" id="14_6bwvt"]
 [ext_resource type="PackedScene" uid="uid://3282cgitltgx" path="res://Assets/3D/Julia/Mirror/Mirror.blend" id="15_cs4iy"]
 [ext_resource type="PackedScene" uid="uid://3gshr0ttb3l2" path="res://Scenes/monster.tscn" id="15_q4yjo"]
+[ext_resource type="PackedScene" uid="uid://d2ih4isot0oj8" path="res://Assets/3D/Maddy/Rectangle-portrait/vert-rectangle-portrait.blend" id="16_8cvfu"]
 [ext_resource type="PackedScene" uid="uid://dje42vtma6xd2" path="res://Assets/3D/Julia/Table and Chairs/Table.blend" id="16_jdjsr"]
+[ext_resource type="PackedScene" uid="uid://80tr064255bc" path="res://Assets/3D/Maddy/Square-portrait/square-portrait.blend" id="17_5aq6m"]
 [ext_resource type="PackedScene" uid="uid://de2gj6gotevm1" path="res://Assets/3D/Julia/LowDresser/LowDresser.blend" id="19_pfmft"]
 [ext_resource type="PackedScene" uid="uid://d3bh3hivw3xtd" path="res://Assets/3D/Julia/Sofa/Sofa.blend" id="20_cs4iy"]
 [ext_resource type="PackedScene" uid="uid://dpje5uwkmmgot" path="res://Assets/3D/Julia/Table and Chairs/Chair.blend" id="21_xiqu0"]
@@ -1814,8 +1816,680 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 80, 
 [node name="CrouchHole3" parent="NavigationRegion3D/1stFloor" instance=ExtResource("27_8cvfu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0, -50)
 
-[node name="Mirror" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.5, 2.5, -23)
+[node name="WallDecor1" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.75, 2.5, -23)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor1" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor3" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.75, 2.5, -10.5)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor3" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor4" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34.75, 2.5, -1)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor4" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor5" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 84.75, 2.5, -1)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor5" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor6" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 114.75, 2.5, -1)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor6" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor7" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 129.75, 2.5, -8.5)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor7" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor8" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 129.75, 2.5, 16)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor8" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor9" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 129.75, 2.5, 30.5)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor9" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor10" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 115.25, 2.5, 34)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor10" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor11" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 75.25, 2.5, 30.5)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor11" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor12" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.25, 2.5, 30.5)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor12" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor15" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.75, 2.5, 36.5)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor15" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor16" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.75, 2.5, 54)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor16" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor13" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 64.75, 2.5, 28)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor13" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
+
+[node name="WallDecor14" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 64.75, 2.5, 41)
+
+[node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("15_cs4iy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
+
+[node name="vert-rectangle-portrait" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1, 1, 0)
+
+[node name="vert-rectangle-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1.5, 1, 0)
+
+[node name="vert-rectangle-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, -1, -1, 0)
+
+[node name="vert-rectangle-portrait5" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2.25, -1.5, 0)
+
+[node name="vert-rectangle-portrait8" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0.75, -1, 0)
+
+[node name="vert-rectangle-portrait9" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 3.25, 1, 0)
+
+[node name="vert-rectangle-portrait6" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 4, -1, 0)
+
+[node name="vert-rectangle-portrait7" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 2, 1, 0)
+
+[node name="vert-rectangle-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("16_8cvfu")]
+transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.5, -0.5, 0)
+
+[node name="square-portrait" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.5, 0.5, 0)
+
+[node name="square-portrait2" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 1, 0)
+
+[node name="square-portrait3" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 0, 0)
+
+[node name="square-portrait4" parent="NavigationRegion3D/1stFloor/WallDecor14" instance=ExtResource("17_5aq6m")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
 
 [node name="FuzeFloor" parent="NavigationRegion3D" instance=ExtResource("1_s486e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70, -0.33492732, -21.851883)
