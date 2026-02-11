@@ -27,10 +27,13 @@ public partial class Glowstick : RigidBody3D
             GravityScale = 0f;
         }
 		GetNode<OmniLight3D>("Light").LightEnergy -= (float)delta*5;
-		if (GetNode<MeshInstance3D>("Stick").MaterialOverlay is StandardMaterial3D mat)
+		if (GetNode<MeshInstance3D>("Stick").MaterialOverride is StandardMaterial3D mat)
         {
-            // disntacne fade stuff mat.DistanceFadeMaxDistance 
+            mat.EmissionEnergyMultiplier = GetNode<OmniLight3D>("Light").LightEnergy/10;
         }
-		GD.Print((GetParent().GetNode<Player>("Player").GlobalPosition - GlobalPosition).Length());
+        if (GetNode<OmniLight3D>("Light").LightEnergy <= -1)
+        {
+            QueueFree();
+        }
     }
 }
