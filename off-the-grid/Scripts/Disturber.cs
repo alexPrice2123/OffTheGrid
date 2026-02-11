@@ -9,18 +9,18 @@ private float _count = 0;
 	public override void _Ready()
     {
         _open = _rng.RandiRange(1,2);
-        if (_open == 2){Visible = false; GetNode<Area3D>("Range").Monitoring = false;}
+        if (_open == 2){Visible = false; GetNode<CollisionShape3D>("Range/CollisionShape3D").Disabled = true;}
     }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
     {
        _count += (float)delta;
-       if (_count >= 5f)
+       if (_count >= 30f)
         {
             _count = 0f;
-            if (Visible){Visible = false; GetNode<Area3D>("Range").Monitoring = false;}
-            else {Visible = true; GetNode<Area3D>("Range").Monitoring = true;}
+            if (Visible){Visible = false; GetNode<CollisionShape3D>("Range/CollisionShape3D").Disabled = true;}
+            else {Visible = true; GetNode<CollisionShape3D>("Range/CollisionShape3D").Disabled = false;}
         }
     }
 }

@@ -58,6 +58,7 @@ public partial class Player : CharacterBody3D
 	private ShaderMaterial _heartMat;
 	private StaticBody3D _currentHide;
 	private float _disturbGoal = 0;
+	private float _glowCD = 0;
 	public override void _Ready()
 	{
 		_head = GetNode<Node3D>("Head");
@@ -184,10 +185,21 @@ public partial class Player : CharacterBody3D
 			LightHandler(false, _power1);
 		}
 		LightHandler(_hasFuse, _fuseLight);
+		LightHandler(GetNode<Node3D>("Head/Camera3D/Glowstick").Visible, _light);
 		_screenMat.SetShaderParameter("intensity", _power);
 		_screenMat.SetShaderParameter("hue", _screenColor);
 		CheckRaycast("Fuse");
 		CheckRaycast("FuseBox");
+		if (!GetNode<Node3D>("Head/Camera3D/Glowstick").Visible)
+        {
+            _glowCD += (float)delta;
+			if (_glowCD > 45f)
+            {
+                _glowCD = 0f;
+				GetNode<Node3D>("Head/Camera3D/Glowstick").Visible = true;
+
+            }
+        }
 		if (!_inTutorial)
 		{
 			float increaseAmount;
@@ -232,11 +244,13 @@ public partial class Player : CharacterBody3D
 
 			if (Input.IsActionJustPressed("CrouchToggle") && IsOnFloor()) { Crouch(_currentHeadPos == _walkPos); }
 			if (Input.IsActionJustPressed("Throw") && IsOnFloor()) 
-			{ 
+			{
+				if (!GetNode<Node3D>("Head/Camera3D/Glowstick").Visible){return;}
 				Glowstick instance = (Glowstick)GlowstickScene.Instantiate();
 				instance._direction = -_cam.GlobalTransform.Basis.Z.Normalized();
 				GetParent().AddChild(instance);
 				instance.GlobalPosition = GetNode<Node3D>("Head/Camera3D/Throw").GlobalPosition;
+				GetNode<Node3D>("Head/Camera3D/Glowstick").Visible = false;
 			}
 
 			if (Input.IsActionJustPressed("CrouchHold") && IsOnFloor()) { Crouch(true); }
@@ -322,8 +336,25 @@ public partial class Player : CharacterBody3D
             if(area.IsInGroup("Distort")){_distortCheck = true;}
         }
 		if (!_hidden){_distortCheck = false;}
-		if (_distortCheck){_disturbGoal = 1f;}
-		else{_disturbGoal = 0f;}
+		if (_distortCheck){_disturbGoal = 1f; if (!GetNode<AudioStreamPlayer>("Whisper").Playing){GetNode<AudioStreamPlayer>("Whisper").Play();}}
+		else{_disturbGoal = 0f; GetNode<AudioStreamPlayer>("Whisper").Stop();}
+		if ((float)_screenMat.GetShaderParameter("disturbed") > 0)
+        {
+            AudioServer.SetBusEffectEnabled(AudioServer.GetBusIndex("Master"),0, true);
+        }
+        else
+        {
+            AudioServer.SetBusEffectEnabled(AudioServer.GetBusIndex("Master"),0, false);
+        }
+		if (AudioServer.GetBusEffect(AudioServer.GetBusIndex("Master"),0) is AudioEffectPhaser affectM)
+        {
+            affectM.Depth = (float)_screenMat.GetShaderParameter("disturbed")*4;
+        }
+		if (AudioServer.GetBusEffect(AudioServer.GetBusIndex("Master"),0) is AudioEffectPhaser affectS)
+        {
+            affectS.Depth = (float)_screenMat.GetShaderParameter("disturbed")*4;
+        }
+
 		_screenMat.SetShaderParameter("disturbed", Mathf.Lerp((float)_screenMat.GetShaderParameter("disturbed"), _disturbGoal, (float)delta/((26f*_disturbGoal)+4f)));
 
 		MoveAndSlide();
