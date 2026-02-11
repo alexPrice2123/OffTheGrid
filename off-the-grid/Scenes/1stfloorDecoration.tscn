@@ -1,22 +1,23 @@
-[gd_scene load_steps=21 format=3 uid="uid://dm1hqs5mtw7c3"]
+[gd_scene load_steps=22 format=3 uid="uid://dm1hqs5mtw7c3"]
 
 [ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_5dxuo"]
-[ext_resource type="PackedScene" uid="uid://b7fn32tpguw3o" path="res://Assets/3d/House/Floor.blend" id="1_tomhr"]
-[ext_resource type="PackedScene" uid="uid://ktfcqqoa2dkw" path="res://Assets/3d/House/Wall.blend" id="2_eaq8x"]
+[ext_resource type="PackedScene" uid="uid://b7fn32tpguw3o" path="res://Assets/3D/House/Floor.blend" id="1_tomhr"]
+[ext_resource type="PackedScene" uid="uid://ktfcqqoa2dkw" path="res://Assets/3D/House/Wall.blend" id="2_eaq8x"]
 [ext_resource type="PackedScene" uid="uid://ccjqptpjj4lnc" path="res://Assets/3D/House/HalfFloor.blend" id="3_5dxuo"]
 [ext_resource type="PackedScene" uid="uid://8ehqc8ktikn4" path="res://Assets/3D/House/HalfWall.blend" id="4_7rhe3"]
 [ext_resource type="PackedScene" uid="uid://bmr8yuloqunqr" path="res://Assets/3D/House/Door.blend" id="5_82foo"]
-[ext_resource type="PackedScene" uid="uid://80tr064255bc" path="res://Assets/3d/Maddy/Square-portrait/square-portrait.blend" id="6_fq6p7"]
-[ext_resource type="PackedScene" uid="uid://dg14dgv8qg0u8" path="res://Assets/3d/Maddy/Standing-Lamp/standing-lamp.blend" id="7_cx576"]
-[ext_resource type="PackedScene" uid="uid://d2ih4isot0oj8" path="res://Assets/3d/Maddy/Rectangle-portrait/vert-rectangle-portrait.blend" id="8_x4wt8"]
-[ext_resource type="PackedScene" uid="uid://dv3gb33b68rgl" path="res://Assets/3d/Maddy/Oval-portrait/Oval-portrait.blend" id="9_82foo"]
+[ext_resource type="PackedScene" uid="uid://80tr064255bc" path="res://Assets/3D/Maddy/Square-portrait/square-portrait.blend" id="6_fq6p7"]
+[ext_resource type="PackedScene" uid="uid://dg14dgv8qg0u8" path="res://Assets/3D/Maddy/Standing-Lamp/standing-lamp.blend" id="7_cx576"]
+[ext_resource type="PackedScene" uid="uid://d2ih4isot0oj8" path="res://Assets/3D/Maddy/Rectangle-portrait/vert-rectangle-portrait.blend" id="8_x4wt8"]
+[ext_resource type="PackedScene" uid="uid://dv3gb33b68rgl" path="res://Assets/3D/Maddy/Oval-portrait/Oval-portrait.blend" id="9_82foo"]
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="10_7rhe3"]
 [ext_resource type="PackedScene" uid="uid://c03hjgusjq1g1" path="res://Assets/3D/Julia/Cardboard Boxes/Opened/LargeCardboardBoxOpened copy.blend" id="10_fq6p7"]
 [ext_resource type="PackedScene" uid="uid://8h8cajbnv1tn" path="res://Assets/3D/Julia/Cardboard Boxes/Opened/WideCardboardBoxOpened copy.blend" id="11_wnpcq"]
-[ext_resource type="PackedScene" uid="uid://de2gj6gotevm1" path="res://Assets/3d/Julia/LowDresser/LowDresser.blend" id="13_suag4"]
-[ext_resource type="PackedScene" uid="uid://3282cgitltgx" path="res://Assets/3d/Julia/Mirror/Mirror.blend" id="14_deipt"]
-[ext_resource type="PackedScene" uid="uid://d3bh3hivw3xtd" path="res://Assets/3d/Julia/Sofa/Sofa.blend" id="15_eis1a"]
-[ext_resource type="PackedScene" uid="uid://dje42vtma6xd2" path="res://Assets/3d/Julia/Table and Chairs/Table.blend" id="16_suag4"]
+[ext_resource type="PackedScene" uid="uid://de2gj6gotevm1" path="res://Assets/3D/Julia/LowDresser/LowDresser.blend" id="13_suag4"]
+[ext_resource type="PackedScene" uid="uid://3282cgitltgx" path="res://Assets/3D/Julia/Mirror/Mirror.blend" id="14_deipt"]
+[ext_resource type="PackedScene" uid="uid://d3bh3hivw3xtd" path="res://Assets/3D/Julia/Sofa/Sofa.blend" id="15_eis1a"]
+[ext_resource type="PackedScene" uid="uid://dje42vtma6xd2" path="res://Assets/3D/Julia/Table and Chairs/Table.blend" id="16_suag4"]
+[ext_resource type="PackedScene" uid="uid://lsgx01fn1f3l" path="res://Scenes/disruptor.tscn" id="18_deipt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5dxuo"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -1593,6 +1594,36 @@ transform = Transform3D(-0.69737786, 0, -0.7167038, 0, 1, 0, 0.7167038, 0, -0.69
 
 [node name="Player" parent="." instance=ExtResource("10_7rhe3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2886295, 2.041707, 3.359726)
+GlowstickScene = null
+
+[node name="Distruptors" type="Node3D" parent="."]
+
+[node name="Distorter" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.8767104, 0, 11.099519)
+
+[node name="Distorter2" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6865444, 0, 56.005962)
+
+[node name="Distorter3" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.66161, 0, 36.894478)
+
+[node name="Distorter4" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4941, 0, -20.900879)
+
+[node name="Distorter5" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 52.047634, 0, -51.143543)
+
+[node name="Distorter6" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.376686, 0, -29.342926)
+
+[node name="Distorter7" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.11591, 0, -64.922455)
+
+[node name="Distorter8" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.22237, 0, 18.485823)
+
+[node name="Distorter9" parent="Distruptors" instance=ExtResource("18_deipt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.584785, 0, 48.502083)
 
 [editable path="1stFloor/Floor79"]
 [editable path="1stFloorDecorations/Portraits/square-portrait1"]
