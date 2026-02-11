@@ -20,6 +20,7 @@ public partial class Monster : CharacterBody3D
 	private RandomNumberGenerator _rng = new();
 	private fusePathHandler _world;
 	public Vector3 _goalPos = new Vector3(0,0,676767);
+	private Node3D _glowStick = null;
 	private int _count = 0;
 
 	// Called when the node enters the scene tree for the first time.
@@ -43,6 +44,11 @@ public partial class Monster : CharacterBody3D
 				sphere.Radius = 16; // extend the radius so that the monster remains in persuit for longer
 			}
 		}
+		else if (area is Glowstick)
+        {
+			_goalPos = area.GlobalPosition;
+			_glowStick = area;
+        }
 	}
 	private void _on_detection_body_exited(Node3D area) { if (area is Player) { _playerSeen = false; if (_detArea.Shape is SphereShape3D sphere) { sphere.Radius = 4.5f; } } }
 
@@ -52,7 +58,8 @@ public partial class Monster : CharacterBody3D
 		if (!Active){return;}
 		if (_world.GetNode<Player>("Player")._inTutorial || _world._isLight){ return; }
 		_count += 1;
-		if ((_goalPos - GlobalPosition).Length() <= 1)
+		if (_glowStick != null){if (_glowStick.GetNode<OmniLight3D>("Light").LightEnergy <= 10f){_glowStick = null;}}
+		if ((_goalPos - GlobalPosition).Length() <= 1 && _glowStick == null)
         {
             _goalPos = new Vector3(0,0,676767);
         }
