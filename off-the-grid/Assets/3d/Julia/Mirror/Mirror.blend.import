@@ -38,9 +38,16 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
-"nodes": {
-"PATH:Cylinder": {
-"mesh_instance/layers": 3
+"materials": {
+"MirrorGlass": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Mirror/MirrorGlass.tres",
+"use_external/path": "uid://bcnx2twsssjuk"
+},
+"MirrorWood": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Mirror/MirrorWood.tres",
+"use_external/path": "uid://b3lgrpqdw3nqr"
 }
 }
 }

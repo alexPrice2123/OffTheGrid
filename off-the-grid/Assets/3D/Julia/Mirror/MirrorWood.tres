@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b3lgrpqdw3nqr"]
+
+[ext_resource type="Texture2D" uid="uid://b7nkv8hham12h" path="res://Assets/3D/Julia/Mirror/Mirror_MirrorWood_BaseColor.png" id="1_l7mj7"]
+[ext_resource type="Texture2D" uid="uid://coiqoxg7nrnwn" path="res://Assets/3D/Julia/Mirror/Mirror_MirrorWood_Normal.png" id="2_ukcnp"]
+
+[resource]
+albedo_texture = ExtResource("1_l7mj7")
+normal_enabled = true
+normal_texture = ExtResource("2_ukcnp")
