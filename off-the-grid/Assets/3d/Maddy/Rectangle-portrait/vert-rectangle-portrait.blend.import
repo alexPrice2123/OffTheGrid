@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Maddy/Rectangle-portrait/Rectangle-Portrait.tres",
+"use_external/path": "uid://b00d3ienv5mo"
+}
+},
 "nodes": {
 "PATH:Cube": {
 "mesh_instance/layers": 3

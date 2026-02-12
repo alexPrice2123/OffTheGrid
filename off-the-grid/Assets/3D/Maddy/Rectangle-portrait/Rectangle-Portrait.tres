@@ -1,3 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://b00d3ienv5mo"]
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://b00d3ienv5mo"]
+
+[ext_resource type="Texture2D" uid="uid://o82xmrj1064m" path="res://Assets/3D/Maddy/Rectangle-portrait/Material_Base_color.png" id="1_y5h40"]
+[ext_resource type="Texture2D" uid="uid://dmmf0ugj0w7yp" path="res://Assets/3D/Maddy/Rectangle-portrait/Material_Normal_OpenGL.png" id="2_rbtod"]
 
 [resource]
+albedo_texture = ExtResource("1_y5h40")
+normal_enabled = true
+normal_texture = ExtResource("2_rbtod")
