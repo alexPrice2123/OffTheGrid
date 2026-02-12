@@ -3874,172 +3874,172 @@ transform = Transform3D(1, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, 1, 52, 
 [node name="Decorations" type="Node3D" parent="NavigationRegion3D"]
 
 [node name="LowDresser2" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.2588192, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.2588192, 13.5, -0.5, -47.351883)
+transform = Transform3D(-0.2588192, 0, 0.9659258, 0, 1, 0, -0.9659258, 0, -0.2588192, 13.5, -0.5802572, -47.351883)
 
 [node name="LowDresser3" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 17.732233, -0.5, -50.61965)
+transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 17.732233, -0.5802572, -50.61965)
 
 [node name="LowDresser5" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.7071069, 21.732233, -0.5, -43.11965)
+transform = Transform3D(-0.7071069, 0, 0.70710665, 0, 1, 0, -0.70710665, 0, -0.7071069, 21.732233, -0.5802572, -43.11965)
 
 [node name="LowDresser6" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-1.4901161e-07, 0, 1, 0, 1, 0, -1, 0, -1.4901161e-07, 20.232233, -0.5, -25.119652)
+transform = Transform3D(-1.4901161e-07, 0, 1, 0, 1, 0, -1, 0, -1.4901161e-07, 20.232233, -0.5802572, -25.119652)
 
 [node name="LowDresser7" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.9659259, 0, 0.25881892, 0, 1, 0, -0.25881892, 0, -0.9659259, 21.232233, -0.5, -14.619652)
+transform = Transform3D(-0.9659259, 0, 0.25881892, 0, 1, 0, -0.25881892, 0, -0.9659259, 21.232233, -0.5802572, -14.619652)
 
 [node name="LowDresser11" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.9659259, 0, 0.25881892, 0, 1, 0, -0.25881892, 0, -0.9659259, -2.767767, -0.5, 3.8803477)
+transform = Transform3D(-0.9659259, 0, 0.25881892, 0, 1, 0, -0.25881892, 0, -0.9659259, -2.767767, -0.5802572, 3.8803477)
 
 [node name="LowDresser12" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.9659259, 0, 0.25881892, 0, 1, 0, -0.25881892, 0, -0.9659259, 1.232233, -0.5, 14.380348)
+transform = Transform3D(-0.9659259, 0, 0.25881892, 0, 1, 0, -0.25881892, 0, -0.9659259, 1.232233, -0.5802572, 14.380348)
 
 [node name="LowDresser13" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -9.267767, -0.5, 11.380348)
+transform = Transform3D(-0.9659258, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.9659258, -9.267767, -0.5802572, 11.380348)
 
 [node name="LowDresser8" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, -1, 30.232233, -0.5, -14.619652)
+transform = Transform3D(-1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, -1, 30.232233, -0.5802572, -14.619652)
 
 [node name="LowDresser14" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.86602545, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602545, 50.73223, -0.5, 3.8803477)
+transform = Transform3D(-0.86602545, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602545, 50.73223, -0.5802572, 3.8803477)
 
 [node name="LowDresser15" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.86602545, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602545, 72.73223, -0.5, 4.3803477)
+transform = Transform3D(-0.86602545, 0, 0.4999999, 0, 1, 0, -0.4999999, 0, -0.86602545, 72.73223, -0.5802572, 4.3803477)
 
 [node name="LowDresser16" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.49999988, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999988, 61.73223, -0.5, 10.380348)
+transform = Transform3D(-0.49999988, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999988, 61.73223, -0.5802572, 10.380348)
 
 [node name="LowDresser17" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.49999988, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999988, 63.23223, -0.5, -14.119652)
+transform = Transform3D(-0.49999988, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999988, 63.23223, -0.5802572, -14.119652)
 
 [node name="LowDresser18" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.49999988, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999988, 79.73223, -0.5, -28.119652)
+transform = Transform3D(-0.49999988, 0, -0.86602545, 0, 1, 0, 0.86602545, 0, -0.49999988, 79.73223, -0.5802572, -28.119652)
 
 [node name="LowDresser19" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.2588192, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588192, 28.732231, -0.5, 9.880348)
+transform = Transform3D(0.2588192, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588192, 28.732231, -0.5802572, 9.880348)
 
 [node name="LowDresser20" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.2588192, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588192, 6.732231, -0.5, 32.38035)
+transform = Transform3D(0.2588192, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.2588192, 6.732231, -0.5802572, 32.38035)
 
 [node name="LowDresser21" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 29.232231, -0.5, 56.38035)
+transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 29.232231, -0.5802572, 56.38035)
 
 [node name="LowDresser22" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 6.732231, -0.5, 58.38035)
+transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 6.732231, -0.5802572, 58.38035)
 
 [node name="LowDresser23" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 99.73223, -0.5, 44.38035)
+transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 99.73223, -0.5802572, 44.38035)
 
 [node name="LowDresser24" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.2588189, 0, -0.9659259, 0, 1, 0, 0.9659259, 0, -0.2588189, 104.23223, -0.5, 31.380348)
+transform = Transform3D(-0.2588189, 0, -0.9659259, 0, 1, 0, 0.9659259, 0, -0.2588189, 104.23223, -0.5802572, 31.380348)
 
 [node name="LowDresser25" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.86602545, 0, 0.49999985, 0, 1, 0, -0.49999985, 0, -0.86602545, 107.23223, -0.5, 37.88035)
+transform = Transform3D(-0.86602545, 0, 0.49999985, 0, 1, 0, -0.49999985, 0, -0.86602545, 107.23223, -0.5802572, 37.88035)
 
 [node name="LowDresser26" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.86602545, 0, 0.49999985, 0, 1, 0, -0.49999985, 0, -0.86602545, 123.23223, -0.5, 9.380348)
+transform = Transform3D(-0.86602545, 0, 0.49999985, 0, 1, 0, -0.49999985, 0, -0.86602545, 123.23223, -0.5802572, 9.380348)
 
 [node name="LowDresser27" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.86602545, 0, 0.49999985, 0, 1, 0, -0.49999985, 0, -0.86602545, 122.23223, -0.5, -8.619652)
+transform = Transform3D(-0.86602545, 0, 0.49999985, 0, 1, 0, -0.49999985, 0, -0.86602545, 122.23223, -0.5802572, -8.619652)
 
 [node name="LowDresser28" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.8660253, 0, -0.5000001, 0, 1, 0, 0.5000001, 0, -0.8660253, 103.23223, -0.5, 4.380348)
+transform = Transform3D(-0.8660253, 0, -0.5000001, 0, 1, 0, 0.5000001, 0, -0.8660253, 103.23223, -0.5802572, 4.380348)
 
 [node name="LowDresser29" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 93.23223, -0.5, 4.3803477)
+transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 93.23223, -0.5802572, 4.3803477)
 
 [node name="LowDresser30" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 96.23223, -0.5, 18.380348)
+transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 96.23223, -0.5802572, 18.380348)
 
 [node name="LowDresser31" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 98.73223, -0.5, -32.11965)
+transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 98.73223, -0.5802572, -32.11965)
 
 [node name="LowDresser32" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 117.23223, -0.5, -40.61965)
+transform = Transform3D(0.5000002, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.5000002, 117.23223, -0.5802572, -40.61965)
 
 [node name="LowDresser33" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.8660255, 0, -0.49999985, 0, 1, 0, 0.49999985, 0, 0.8660255, 126.73223, -0.5, -30.619652)
+transform = Transform3D(0.8660255, 0, -0.49999985, 0, 1, 0, 0.49999985, 0, 0.8660255, 126.73223, -0.5802572, -30.619652)
 
 [node name="LowDresser34" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.9659258, 0, 0.25881925, 0, 1, 0, -0.25881925, 0, 0.9659258, 113.23223, -0.5, -27.119652)
+transform = Transform3D(0.9659258, 0, 0.25881925, 0, 1, 0, -0.25881925, 0, 0.9659258, 113.23223, -0.5802572, -27.119652)
 
 [node name="LowDresser35" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.9659258, 0, 0.25881925, 0, 1, 0, -0.25881925, 0, 0.9659258, 82.23223, -0.5, -49.61965)
+transform = Transform3D(0.9659258, 0, 0.25881925, 0, 1, 0, -0.25881925, 0, 0.9659258, 82.23223, -0.5802572, -49.61965)
 
 [node name="LowDresser36" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 82.23223, -0.5, -42.61965)
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 82.23223, -0.5802572, -42.61965)
 
 [node name="LowDresser37" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 67.23223, -0.5, -57.61965)
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 67.23223, -0.5802572, -57.61965)
 
 [node name="LowDresser38" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 39.23223, -0.5, -61.61965)
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 39.23223, -0.5802572, -61.61965)
 
 [node name="LowDresser39" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 39.23223, -0.5, -83.11965)
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 39.23223, -0.5802572, -83.11965)
 
 [node name="LowDresser40" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 62.73223, -0.5, -69.61965)
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 62.73223, -0.5802572, -69.61965)
 
 [node name="LowDresser41" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 85.23223, -0.5, -73.11965)
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 85.23223, -0.5802572, -73.11965)
 
 [node name="LowDresser42" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 83.73223, -0.5, -84.11965)
+transform = Transform3D(0.7071069, 0, -0.70710665, 0, 1, 0, 0.70710665, 0, 0.7071069, 83.73223, -0.5802572, -84.11965)
 
 [node name="LowDresser43" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 103.23223, -0.5, -69.61965)
+transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 103.23223, -0.5802572, -69.61965)
 
 [node name="LowDresser44" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 118.73223, -0.5, -58.61965)
+transform = Transform3D(1.4901161e-07, 0, -1, 0, 1, 0, 1, 0, 1.4901161e-07, 118.73223, -0.5802572, -58.61965)
 
 [node name="LowDresser10" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, -1, 33.73223, -0.5, -0.11965227)
+transform = Transform3D(-1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, -1, 33.73223, -0.5802572, -0.11965227)
 
 [node name="LowDresser9" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(-0.96592575, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.96592575, 32.23223, -0.5, -26.619652)
+transform = Transform3D(-0.96592575, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.96592575, 32.23223, -0.5802572, -26.619652)
 
 [node name="LowDresser4" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
-transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 12.267767, -0.5, -42.084114)
+transform = Transform3D(0.7071067, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.7071067, 12.267767, -0.5802572, -42.084114)
 
 [node name="Sofa" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 9, -0.33492732, -50.851883)
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 9, -0.5, -50.851883)
 
 [node name="Sofa2" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 31.5, -0.33492732, -38.851883)
+transform = Transform3D(0, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, 0, 31.5, -0.5, -38.851883)
 
 [node name="Sofa4" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(-0.9999999, 0, -4.371138e-08, 0, 1, 0, 4.371138e-08, 0, -0.9999999, 29, -0.33492732, -22.351883)
+transform = Transform3D(-0.9999999, 0, -4.371138e-08, 0, 1, 0, 4.371138e-08, 0, -0.9999999, 29, -0.5, -22.351883)
 
 [node name="Sofa5" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(-0.9999999, 0, -4.371138e-08, 0, 1, 0, 4.371138e-08, 0, -0.9999999, 47, -0.33492732, -23.351883)
+transform = Transform3D(-0.9999999, 0, -4.371138e-08, 0, 1, 0, 4.371138e-08, 0, -0.9999999, 47, -0.5, -23.351883)
 
 [node name="Sofa6" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(-0.9999999, 0, -4.371138e-08, 0, 1, 0, 4.371138e-08, 0, -0.9999999, 71, -0.33492732, -22.851883)
+transform = Transform3D(-0.9999999, 0, -4.371138e-08, 0, 1, 0, 4.371138e-08, 0, -0.9999999, 71, -0.5, -22.851883)
 
 [node name="Sofa7" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
 transform = Transform3D(8.742276e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 8.742276e-08, 90, -0.8349273, -33.851883)
 
 [node name="Sofa8" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(8.742276e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 8.742276e-08, 120, -0.33492732, -26.851883)
+transform = Transform3D(8.742276e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 8.742276e-08, 120, -0.5, -26.851883)
 
 [node name="Sofa9" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(-0.70710665, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710665, 124.5, -0.33492732, -51.351883)
+transform = Transform3D(-0.70710665, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710665, 124.5, -0.5, -51.351883)
 
 [node name="Sofa10" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
 transform = Transform3D(-0.70710665, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, -0.70710665, 130, -0.8349273, -70.85188)
 
 [node name="Sofa11" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(-0.9999999, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -0.9999999, 99.5, -0.33492732, -78.85188)
+transform = Transform3D(-0.9999999, 0, -5.9604645e-08, 0, 1, 0, 5.9604645e-08, 0, -0.9999999, 99.5, -0.5, -78.85188)
 
 [node name="Sofa12" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(1.03316026e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.03316026e-07, 67, -0.33492732, -79.35188)
+transform = Transform3D(1.03316026e-07, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 1.03316026e-07, 67, -0.5, -79.35188)
 
 [node name="Sofa13" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(-1.5893264e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.5893264e-08, 44.5, -0.33492732, -44.351883)
+transform = Transform3D(-1.5893264e-08, 0, 0.9999999, 0, 1, 0, -0.9999999, 0, -1.5893264e-08, 44.5, -0.5, -44.351883)
 
 [node name="Sofa14" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 59.5, -0.33492732, -40.851883)
+transform = Transform3D(0.7071067, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, 0.7071067, 59.5, -0.5, -40.851883)
 
 [node name="Sofa15" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
 transform = Transform3D(0.9999999, 4.3711385e-08, -4.3711385e-08, 4.3711385e-08, 1.9106855e-15, 0.9999999, 4.371138e-08, -1, 0, 59.5, 1.1650727, -47.851883)
@@ -4057,7 +4057,7 @@ transform = Transform3D(-1.1381829e-07, 4.247123e-08, -0.9999999, 0.8660253, 0.5
 transform = Transform3D(-1.1381829e-07, 4.247123e-08, -0.9999999, 0.8660253, 0.5000001, -9.520434e-08, 0.5, -0.86602545, -7.338305e-08, 80, 0.16507268, 46.148117)
 
 [node name="Sofa23" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(1, 1.1920929e-07, -9.7285216e-08, -8.940697e-08, 1.0000001, -2.1905752e-08, 9.1962605e-08, -4.616041e-09, 0.9999999, 67, -0.33492732, 44.148117)
+transform = Transform3D(1, 1.1920929e-07, -9.7285216e-08, -8.940697e-08, 1.0000001, -2.1905752e-08, 9.1962605e-08, -4.616041e-09, 0.9999999, 67, -0.5, 44.148117)
 
 [node name="Sofa20" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
 transform = Transform3D(-0.43301278, 0.75000006, -0.49999985, 0.8660253, 0.5000001, -9.520434e-08, 0.24999988, -0.43301266, -0.8660254, 51.5, 0.16507268, 42.148117)
@@ -4066,7 +4066,7 @@ transform = Transform3D(-0.43301278, 0.75000006, -0.49999985, 0.8660253, 0.50000
 transform = Transform3D(-0.43301278, 0.75000006, -0.49999985, 0.8660253, 0.5000001, -9.520434e-08, 0.24999988, -0.43301266, -0.8660254, 34, 0.16507268, 25.148117)
 
 [node name="Sofa22" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
-transform = Transform3D(-8.9406974e-08, 2.9802319e-08, -0.9999999, -7.4505806e-08, 1, -1.132323e-08, 0.99999976, 1.1920929e-07, -1.3882172e-07, -1, -0.33492732, 34.148117)
+transform = Transform3D(-8.9406974e-08, 2.9802319e-08, -0.9999999, -7.4505806e-08, 1, -1.132323e-08, 0.99999976, 1.1920929e-07, -1.3882172e-07, -1, -0.5, 34.148117)
 
 [node name="Sofa3" parent="NavigationRegion3D/Decorations" instance=ExtResource("20_cs4iy")]
 transform = Transform3D(8.742276e-08, 0, -0.9999999, 0, 1, 0, 0.9999999, 0, 8.742276e-08, 27, -0.8349273, -35.351883)
@@ -4689,7 +4689,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.72271, 0, 28.154081)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.0014, 0, 43.031185)
 
 [node name="Distorter4" parent="Distruptors" instance=ExtResource("28_4a88i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.175129, 0, -19.830492)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.175129, -0.5, -19.830492)
 
 [node name="Distorter5" parent="Distruptors" instance=ExtResource("28_4a88i")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.105255, 0, -61.874615)
