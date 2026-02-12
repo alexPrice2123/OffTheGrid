@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://de0qqdglm8ul0"]
+[gd_scene load_steps=35 format=3 uid="uid://de0qqdglm8ul0"]
 
 [ext_resource type="PackedScene" uid="uid://o7twalwr44xx" path="res://Scenes/player.tscn" id="1_7yn8b"]
 [ext_resource type="Script" uid="uid://hublowq3jovu" path="res://Scripts/fusePathHandler.cs" id="1_ngcqm"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://dn8d6kv82xx4h" path="res://Assets/3D/Julia/Cardboard Boxes/Closed/WideCardboardBoxClosed.blend" id="23_5aq6m"]
 [ext_resource type="PackedScene" uid="uid://c03hjgusjq1g1" path="res://Assets/3D/Julia/Cardboard Boxes/Opened/LargeCardboardBoxOpened copy.blend" id="24_4a88i"]
 [ext_resource type="PackedScene" uid="uid://cuoen7m1mes25" path="res://Assets/3D/House/CrouchHole.blend" id="27_8cvfu"]
+[ext_resource type="PackedScene" uid="uid://lsgx01fn1f3l" path="res://Scenes/disruptor.tscn" id="28_4a88i"]
 [ext_resource type="PackedScene" uid="uid://b24yylh0gqn4h" path="res://Assets/3D/Julia/Cardboard Boxes/Closed/LargeCardboardBoxClosed.blend" id="28_5aq6m"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bjq7f"]
@@ -49,7 +50,7 @@ size = Vector3(2.2473145, 0.93188477, 2.0248413)
 [sub_resource type="BoxShape3D" id="BoxShape3D_5aq6m"]
 size = Vector3(2.0738525, 1.5305786, 2.2441406)
 
-[node name="World" type="Node3D"]
+[node name="World2" type="Node3D"]
 script = ExtResource("1_ngcqm")
 PathMeshScene = ExtResource("2_46meq")
 FuseScene = ExtResource("3_6bwvt")
@@ -4661,23 +4662,93 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="LargeCardboardBoxOpened copy3" parent="NavigationRegion3D/Decorations" instance=ExtResource("24_4a88i")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 30.696, -0.6, -53.61888)
 
-[node name="Minion" parent="." instance=ExtResource("14_6bwvt")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 18, -0.153, -34)
-
-[node name="Minion2" parent="." instance=ExtResource("14_6bwvt")]
-transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, 37, -0.153, -24)
-
-[node name="Minion3" parent="." instance=ExtResource("14_6bwvt")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 100, -0.153, -53)
-
-[node name="Minion4" parent="." instance=ExtResource("14_6bwvt")]
-transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 105, -0.153, 23)
-
-[node name="Minion5" parent="." instance=ExtResource("14_6bwvt")]
-transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 45, -0.153, 48)
-
 [node name="Monster" parent="." instance=ExtResource("15_q4yjo")]
 transform = Transform3D(-0.6149736, 0, -0.7885477, 0, 1, 0, 0.7885477, 0, -0.6149736, 99.859024, 1, 3)
+
+[node name="Distruptors" type="Node3D" parent="."]
+
+[node name="Distorter" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.103101, 0, 23.594946)
+
+[node name="Distorter2" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.703489, 0, 53.38047)
+
+[node name="Distorter3" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.20933, 0, 32.50465)
+
+[node name="Distorter10" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.910007, 0, 48.158348)
+
+[node name="Distorter11" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.73968, 0, 28.391758)
+
+[node name="Distorter12" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.72271, 0, 28.154081)
+
+[node name="Distorter13" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 113.0014, 0, 43.031185)
+
+[node name="Distorter4" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.175129, 0, -19.830492)
+
+[node name="Distorter5" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.105255, 0, -61.874615)
+
+[node name="Distorter6" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 89.376686, 0, -29.512402)
+
+[node name="Distorter18" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 82.13699, 0, -7.3559155)
+
+[node name="Distorter15" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.15923, 0, -55.541607)
+
+[node name="Distorter16" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.09203, 0, -74.63387)
+
+[node name="Distorter17" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.03316, 0, -77.3762)
+
+[node name="Distorter7" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 122.63485, 0, -65.39276)
+
+[node name="Distorter8" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 102.35919, 0, 13.80364)
+
+[node name="Distorter14" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 128.13701, 0, 23.28014)
+
+[node name="Distorter9" parent="Distruptors" instance=ExtResource("28_4a88i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 111.74671, 0, 52.049488)
+
+[node name="Minions" type="Node3D" parent="."]
+
+[node name="Minion" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 18, -0.153, -34)
+
+[node name="Minion2" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(-0.7071068, 0, 0.7071067, 0, 1, 0, -0.7071067, 0, -0.7071068, 37, -0.153, -24)
+
+[node name="Minion3" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 100, -0.153, -53)
+
+[node name="Minion4" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 105, -0.153, 23)
+
+[node name="Minion5" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 45, -0.153, 48)
+
+[node name="Minion6" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(-0.52732664, 0, 0.84966266, 0, 1, 0, -0.84966266, 0, -0.52732664, 6.358534, -0.153, 12.891607)
+
+[node name="Minion7" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(0.69473374, 0, -0.71926713, 0, 1, 0, 0.71926713, 0, 0.69473374, 72.32149, -0.153, -0.31856155)
+
+[node name="Minion8" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(0.69473374, 0, -0.71926713, 0, 1, 0, 0.71926713, 0, 0.69473374, 122.03503, -0.153, -52.29184)
+
+[node name="Minion9" parent="Minions" instance=ExtResource("14_6bwvt")]
+transform = Transform3D(-0.49186152, 0, -0.8706737, 0, 1, 0, 0.8706737, 0, -0.49186152, 43.355247, -0.153, -59.093094)
 
 [editable path="Ceiling/Floor238"]
 [editable path="NavigationRegion3D/1stFloor/Floor3"]

@@ -49,6 +49,11 @@ _subresources={
 "use_external/fallback_path": "res://Assets/3D/Maddy/Wardrobe/WardrobeMain.tres",
 "use_external/path": "uid://c1ojgnsw74ubs"
 }
+},
+"nodes": {
+"PATH:Wardrobe": {
+"mesh_instance/layers": 3
+}
 }
 }
 blender/nodes/visible=0

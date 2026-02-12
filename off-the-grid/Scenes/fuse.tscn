@@ -1,32 +1,5 @@
 [gd_scene load_steps=13 format=4 uid="uid://jcd2agr1jvei"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trj8p"]
-transparency = 1
-emission_enabled = true
-emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 16.0
-proximity_fade_distance = 0.01
-distance_fade_mode = 1
-distance_fade_min_distance = 20.0
-distance_fade_max_distance = 0.0
-
-[sub_resource type="Curve" id="Curve_trj8p"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_trj8p"]
-curve = SubResource("Curve_trj8p")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_trj8p"]
-radial_velocity_min = 0.99997765
-radial_velocity_max = 0.99997765
-gravity = Vector3(0, 0, 0)
-scale_min = 0.099999994
-scale_max = 0.099999994
-scale_curve = SubResource("CurveTexture_trj8p")
-
-[sub_resource type="SphereMesh" id="SphereMesh_mg4mk"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_trj8p"]
 size = Vector3(0.18652344, 0.19000244, 0.50224304)
 
@@ -90,15 +63,33 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_lgo7h")
 
-[node name="Fuse" type="Node3D" groups=["Fuse"]]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_trj8p"]
+transparency = 1
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 16.0
+distance_fade_mode = 1
+distance_fade_min_distance = 25.0
+distance_fade_max_distance = 20.0
 
-[node name="Warn" type="GPUParticles3D" parent="."]
-layers = 8
-material_override = SubResource("StandardMaterial3D_trj8p")
-amount = 25
-lifetime = 0.5
-process_material = SubResource("ParticleProcessMaterial_trj8p")
-draw_pass_1 = SubResource("SphereMesh_mg4mk")
+[sub_resource type="Curve" id="Curve_mg4mk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_73onb"]
+curve = SubResource("Curve_mg4mk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_amq8q"]
+radial_velocity_min = 0.99997765
+radial_velocity_max = 0.99997765
+gravity = Vector3(0, 0, 0)
+scale_min = 0.099999994
+scale_max = 0.099999994
+scale_curve = SubResource("CurveTexture_73onb")
+
+[sub_resource type="SphereMesh" id="SphereMesh_edh08"]
+
+[node name="Fuse" type="Node3D" groups=["Fuse"]]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." groups=["Fuse"]]
 
@@ -113,3 +104,12 @@ material_override = SubResource("StandardMaterial3D_mg4mk")
 material_overlay = SubResource("StandardMaterial3D_73onb")
 mesh = SubResource("ArrayMesh_73onb")
 skeleton = NodePath("")
+
+[node name="Warn" type="GPUParticles3D" parent="."]
+transform = Transform3D(0.5845649, 0, 0, 0, 1, 0, 0, 0, 0.19569346, 0, 0, 0)
+layers = 8
+material_override = SubResource("StandardMaterial3D_trj8p")
+amount = 25
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_amq8q")
+draw_pass_1 = SubResource("SphereMesh_edh08")

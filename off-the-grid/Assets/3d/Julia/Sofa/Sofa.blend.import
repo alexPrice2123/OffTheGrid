@@ -52,7 +52,7 @@ _subresources={
 },
 "nodes": {
 "PATH:Cube": {
-"mesh_instance/layers": 5
+"mesh_instance/layers": 3
 }
 }
 }
