@@ -38,6 +38,13 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Chair": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Julia/Table and Chairs/Chair.tres",
+"use_external/path": "uid://cxk4s4fw348tl"
+}
+},
 "nodes": {
 "PATH:Chair": {
 "mesh_instance/layers": 3

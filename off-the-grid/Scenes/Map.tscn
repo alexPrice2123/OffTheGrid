@@ -619,7 +619,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 110, 0, -50)
 
 [node name="Player" parent="." instance=ExtResource("1_7yn8b")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -12, 2, -15)
-GlowstickScene = null
 
 [node name="FuseHolder" type="Node3D" parent="."]
 
@@ -1863,7 +1862,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -1, 
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.75, 1, 0)
 
 [node name="WallDecor2" parent="NavigationRegion3D/1stFloor" instance=ExtResource("15_cs4iy")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4.75, 2.5, -21)
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -4.75, 2.5, -35)
 
 [node name="WallDecor2" parent="NavigationRegion3D/1stFloor/WallDecor2" instance=ExtResource("15_cs4iy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
@@ -3898,6 +3897,9 @@ transform = Transform3D(-0.9659259, 0, 0.25881892, 0, 1, 0, -0.25881892, 0, -0.9
 [node name="LowDresser8" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
 transform = Transform3D(-1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, -1, 30.232233, -0.8349273, -14.619652)
 
+[node name="LowDresser10" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
+transform = Transform3D(-1, 0, -1.1920929e-07, 0, 1, 0, 1.1920929e-07, 0, -1, 33.73223, -0.8349273, -0.11965227)
+
 [node name="LowDresser9" parent="NavigationRegion3D/Decorations" instance=ExtResource("19_pfmft")]
 transform = Transform3D(-0.96592575, 0, -0.25881916, 0, 1, 0, 0.25881916, 0, -0.96592575, 32.23223, -0.8349273, -26.619652)
 
@@ -3936,6 +3938,18 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12.8
 
 [node name="wardrobe3" parent="NavigationRegion3D/Decorations" instance=ExtResource("22_8cvfu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.858999, -0.8349273, -20.955883)
+
+[node name="wardrobe4" parent="NavigationRegion3D/Decorations" instance=ExtResource("22_8cvfu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.858999, -0.8349273, -1.9558835)
+
+[node name="wardrobe5" parent="NavigationRegion3D/Decorations" instance=ExtResource("22_8cvfu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.858999, -0.8349273, 4.0441165)
+
+[node name="wardrobe6" parent="NavigationRegion3D/Decorations" instance=ExtResource("22_8cvfu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 45.359, -0.8349273, -0.9558835)
+
+[node name="wardrobe7" parent="NavigationRegion3D/Decorations" instance=ExtResource("22_8cvfu")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 53.359, -0.8349273, -0.9558835)
 
 [node name="wardrobe2" parent="NavigationRegion3D/Decorations" instance=ExtResource("22_8cvfu")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 33.859, -0.8349273, -44.455883)
