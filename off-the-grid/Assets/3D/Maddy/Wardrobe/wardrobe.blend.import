@@ -37,7 +37,20 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"WardrobeDoors": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Maddy/Wardrobe/WarSub.tres",
+"use_external/path": "uid://ckys2pxtce8mm"
+},
+"WardrobeMain": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Maddy/Wardrobe/WardrobeMain.tres",
+"use_external/path": "uid://c1ojgnsw74ubs"
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true
