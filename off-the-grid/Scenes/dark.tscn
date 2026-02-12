@@ -10,11 +10,16 @@ sky_material = SubResource("ProceduralSkyMaterial_0x6rl")
 [sub_resource type="Environment" id="Environment_ked6b"]
 background_mode = 2
 sky = SubResource("Sky_go701")
+ambient_light_energy = 0.0
 tonemap_mode = 2
+tonemap_exposure = 0.2
 glow_enabled = true
-fog_enabled = true
 fog_light_color = Color(0, 0, 0, 1)
 fog_density = 0.8
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.3
+volumetric_fog_albedo = Color(0, 0, 0, 1)
+volumetric_fog_emission_energy = 1000.0
 
 [node name="Dark" type="Node3D"]
 

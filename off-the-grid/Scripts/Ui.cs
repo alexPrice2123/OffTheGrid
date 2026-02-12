@@ -104,7 +104,7 @@ public partial class Ui : Control
 			else if (GetNode<Control>("Tutorial").Visible == true)
 			{
 				GetNode<AudioStreamPlayer>("Click").Play();
-				if (_tutPage > 4)
+				if (_tutPage > 5)
 				{
 					GetNode<Control>("Tutorial").Visible = false;
 					GetParent<Player>()._inTutorial = false;
