@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://80tr064255bc"
-path="res://.godot/imported/square-portrait.blend-07560d71907c05b7b02cef8e720d1021.scn"
+path="res://.godot/imported/square-portrait.blend-77a1f6fe46c1956c726d0ed0b0f0b88b.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Maddy/Square-portrait/square-portrait.blend"
-dest_files=["res://.godot/imported/square-portrait.blend-07560d71907c05b7b02cef8e720d1021.scn"]
+source_file="res://Assets/3D/Maddy/Square-portrait/square-portrait.blend"
+dest_files=["res://.godot/imported/square-portrait.blend-77a1f6fe46c1956c726d0ed0b0f0b88b.scn"]
 
 [params]
 
@@ -38,9 +38,16 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={
+"materials": {
+"Material": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Assets/3D/Maddy/Rectangle-portrait/Rectangle-Portrait.tres",
+"use_external/path": "uid://b00d3ienv5mo"
+}
+},
 "nodes": {
 "PATH:Cube": {
-"mesh_instance/layers": 5
+"mesh_instance/layers": 3
 }
 }
 }

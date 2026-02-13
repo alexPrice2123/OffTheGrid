@@ -3,6 +3,8 @@ using System;
 
 public partial class Player : CharacterBody3D
 {
+	[Export]
+	public PackedScene GlowstickScene { get; set; }
 	public static Player Instance { get; private set; }
 	private const float WalkSpeed = 5.0f;
 	private const float CrouchSpeed = 2.5f;
@@ -43,6 +45,7 @@ public partial class Player : CharacterBody3D
 	private MeshInstance3D _power2;
 	private MeshInstance3D _power3;
 	private MeshInstance3D _power4;
+	private MeshInstance3D _light;
 	private MeshInstance3D _crank;
 	public bool _inTutorial = true;
 	private float _bob = 0.0f;
@@ -54,6 +57,8 @@ public partial class Player : CharacterBody3D
 	public bool _hidden = false;
 	private ShaderMaterial _heartMat;
 	private StaticBody3D _currentHide;
+	private float _disturbGoal = 0;
+	private float _glowCD = 0;
 	public override void _Ready()
 	{
 		_head = GetNode<Node3D>("Head");
@@ -78,19 +83,22 @@ public partial class Player : CharacterBody3D
 		_rayCast = GetNode<RayCast3D>("Head/Camera3D/RayCast");
 		_pauseMenu = GetNode<Control>("UI/Pause");
 		_crosshair = GetNode<Control>("UI/Crosshair");
-		_mode1 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode2");
-		_mode2 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode1");
-		_mode3 = GetNode<MeshInstance3D>("Head/Screen/Radar/Mode3");
-		_fuseLight = GetNode<MeshInstance3D>("Head/Screen/Radar/Fuse Light");
-		_power1 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light");
-		_power2 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 2");
-		_power3 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 3");
-		_power4 = GetNode<MeshInstance3D>("Head/Screen/Radar/Power light 4");
+		_mode1 = GetNode<MeshInstance3D>("Head/Screen/Radar/M1");
+		_mode2 = GetNode<MeshInstance3D>("Head/Screen/Radar/M2");
+		_mode3 = GetNode<MeshInstance3D>("Head/Screen/Radar/M3");
+		_fuseLight = GetNode<MeshInstance3D>("Head/Screen/Radar/Fuse");
+		_power1 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL1");
+		_power2 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL2");
+		_power3 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL3");
+		_power4 = GetNode<MeshInstance3D>("Head/Screen/Radar/PL4");
+		_light = GetNode<MeshInstance3D>("Head/Screen/Radar/Light");
 		_crank = GetNode<MeshInstance3D>("Head/Screen/Radar/crank");
 		_monster = GetParent().GetNode<Monster>("Monster");
 		_heartBeat = GetNode<AudioStreamPlayer>("Heartbeat");
 		_heartMat = GetNode<ColorRect>("UI/Heart").Material as ShaderMaterial;
 		Instance = this;
+		LightHandler(true, _mode1);
+		_screenColor = new Color(0, 1.25f, 0, 1);
 		Input.MouseMode = Input.MouseModeEnum.Captured;
 	}
 	public override void _Input(InputEvent @event)
@@ -177,17 +185,28 @@ public partial class Player : CharacterBody3D
 			LightHandler(false, _power1);
 		}
 		LightHandler(_hasFuse, _fuseLight);
+		LightHandler(GetNode<Node3D>("Head/Camera3D/Glowstick").Visible, _light);
 		_screenMat.SetShaderParameter("intensity", _power);
 		_screenMat.SetShaderParameter("hue", _screenColor);
 		CheckRaycast("Fuse");
 		CheckRaycast("FuseBox");
+		if (!GetNode<Node3D>("Head/Camera3D/Glowstick").Visible)
+        {
+            _glowCD += (float)delta;
+			if (_glowCD > 45f)
+            {
+                _glowCD = 0f;
+				GetNode<Node3D>("Head/Camera3D/Glowstick").Visible = true;
+
+            }
+        }
 		if (!_inTutorial)
 		{
 			float increaseAmount;
-			if (velocity.Length() > 0.1f) { increaseAmount = 0.15f; }
-			else{ increaseAmount = 0.2f; }
+			if (velocity.Length() > 0.1f) { increaseAmount = 0.2f; }
+			else{ increaseAmount = 0.3f; }
 			if (Input.IsActionPressed("Crank")) { _power += (float)delta * increaseAmount; _crank.RotateZ(-0.1f); }
-			else { _power -= (float)delta * 0.05f; }
+			_power -= (float)delta * 0.05f*(_disturbGoal+1.5f);
 			if (Input.IsActionJustPressed("Crank")) { GetNode<AudioStreamPlayer>("Crank").Play(); }
 			if (Input.IsActionJustReleased("Crank")) { GetNode<AudioStreamPlayer>("Crank").Stop(); }
 			if (Input.IsActionJustPressed("LookCamera")) { _currentScreenPos = _lookScreenPos; }
@@ -209,21 +228,30 @@ public partial class Player : CharacterBody3D
 				LightHandler(false, _mode3);
 				_currentCam.Current = false;
 				_currentCam = _furnCam;
-				_screenColor = new Color(180f / 255f, 188f / 255f, 237f / 255f, 1);
+				_screenColor = new Color(120f / 255f, 120f / 255f, 237f / 255f, 1);
 				_currentCam.Current = true;
 			}
 			if (Input.IsActionJustPressed("OtherCam"))
-			{
+			{	
 				LightHandler(false, _mode1);
 				LightHandler(false, _mode2);
 				LightHandler(true, _mode3);
 				_currentCam.Current = false;
 				_currentCam = _otherCam;
-				_screenColor = new Color(250f / 255f, 192f / 255f, 192f / 255f, 1);
+				_screenColor = new Color(255f / 255f, 150f / 255f, 150f / 255f, 1);
 				_currentCam.Current = true;
 			}
 
 			if (Input.IsActionJustPressed("CrouchToggle") && IsOnFloor()) { Crouch(_currentHeadPos == _walkPos); }
+			if (Input.IsActionJustPressed("Throw") && IsOnFloor()) 
+			{
+				if (!GetNode<Node3D>("Head/Camera3D/Glowstick").Visible){return;}
+				Glowstick instance = (Glowstick)GlowstickScene.Instantiate();
+				instance._direction = -_cam.GlobalTransform.Basis.Z.Normalized();
+				GetParent().AddChild(instance);
+				instance.GlobalPosition = GetNode<Node3D>("Head/Camera3D/Throw").GlobalPosition;
+				GetNode<Node3D>("Head/Camera3D/Glowstick").Visible = false;
+			}
 
 			if (Input.IsActionJustPressed("CrouchHold") && IsOnFloor()) { Crouch(true); }
 			if (Input.IsActionJustReleased("CrouchHold") && IsOnFloor()) { Crouch(false); }
@@ -301,7 +329,34 @@ public partial class Player : CharacterBody3D
 		}
 		else { _count = 0; }
 		_hidden = GetNode<Area3D>("Hide").GetOverlappingBodies().Count > 1;
-		GD.Print(GetNode<Area3D>("Hide").GetOverlappingBodies().Count);
+
+		bool _distortCheck = false;
+		foreach (Area3D area in GetNode<Area3D>("Hide").GetOverlappingAreas())
+        {
+            if(area.IsInGroup("Distort")){_distortCheck = true;}
+        }
+		if (!_hidden){_distortCheck = false;}
+		if (_distortCheck){_disturbGoal = 1f; if (!GetNode<AudioStreamPlayer>("Whisper").Playing){GetNode<AudioStreamPlayer>("Whisper").Play();}}
+		else{_disturbGoal = 0f; GetNode<AudioStreamPlayer>("Whisper").Stop();}
+		if ((float)_screenMat.GetShaderParameter("disturbed") > 0)
+        {
+            AudioServer.SetBusEffectEnabled(AudioServer.GetBusIndex("Master"),0, true);
+        }
+        else
+        {
+            AudioServer.SetBusEffectEnabled(AudioServer.GetBusIndex("Master"),0, false);
+        }
+		if (AudioServer.GetBusEffect(AudioServer.GetBusIndex("Master"),0) is AudioEffectPhaser affectM)
+        {
+            affectM.Depth = (float)_screenMat.GetShaderParameter("disturbed")*4;
+        }
+		if (AudioServer.GetBusEffect(AudioServer.GetBusIndex("Master"),0) is AudioEffectPhaser affectS)
+        {
+            affectS.Depth = (float)_screenMat.GetShaderParameter("disturbed")*4;
+        }
+
+		_screenMat.SetShaderParameter("disturbed", Mathf.Lerp((float)_screenMat.GetShaderParameter("disturbed"), _disturbGoal, (float)delta/((26f*_disturbGoal)+4f)));
+
 		MoveAndSlide();
 	}
 

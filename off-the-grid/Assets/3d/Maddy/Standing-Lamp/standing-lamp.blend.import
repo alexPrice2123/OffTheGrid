@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dg14dgv8qg0u8"
-path="res://.godot/imported/standing-lamp.blend-141b101698a1970027bd30ee8f02585d.scn"
+path="res://.godot/imported/standing-lamp.blend-e79a8dd9bb2ac1d0c633c6a0f5e0a9dd.scn"
 
 [deps]
 
-source_file="res://Assets/3d/Maddy/Standing-Lamp/standing-lamp.blend"
-dest_files=["res://.godot/imported/standing-lamp.blend-141b101698a1970027bd30ee8f02585d.scn"]
+source_file="res://Assets/3D/Maddy/Standing-Lamp/standing-lamp.blend"
+dest_files=["res://.godot/imported/standing-lamp.blend-e79a8dd9bb2ac1d0c633c6a0f5e0a9dd.scn"]
 
 [params]
 
@@ -52,7 +52,7 @@ _subresources={
 },
 "nodes": {
 "PATH:lamp": {
-"mesh_instance/layers": 5
+"mesh_instance/layers": 3
 }
 }
 }

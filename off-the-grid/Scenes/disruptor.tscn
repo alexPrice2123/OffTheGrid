@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://lsgx01fn1f3l"]
+
+[ext_resource type="Script" uid="uid://bgy7uxjn2qlbq" path="res://Scripts/Disturber.cs" id="1_y8bs1"]
+[ext_resource type="AudioStream" uid="uid://dyqesi65rfhe7" path="res://Assets/Sound/alarm.mp3" id="2_efku8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0oln"]
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_s0atx"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2408759, 1), 0.0, 0.0, 0, 0, Vector2(0.50121653, 0), 0.0, 0.0, 0, 0, Vector2(0.7518248, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="CurveTexture" id="CurveTexture_f5x54"]
+curve = SubResource("Curve_s0atx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_j0oln"]
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, 1, 0)
+scale_min = 0.14999999
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_f5x54")
+
+[sub_resource type="BoxMesh" id="BoxMesh_fb4sf"]
+
+[sub_resource type="Curve" id="Curve_y8bs1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_efku8"]
+curve = SubResource("Curve_y8bs1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4y11t"]
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+radial_velocity_min = 0.19997764
+radial_velocity_max = 0.29997763
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.14999999
+scale_max = 0.14999999
+scale_curve = SubResource("CurveTexture_efku8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fb4sf"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+
+[sub_resource type="Curve" id="Curve_fb4sf"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_co1s6"]
+curve = SubResource("Curve_fb4sf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f5x54"]
+radial_velocity_min = 0.09997764
+radial_velocity_max = 0.09997764
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_co1s6")
+
+[sub_resource type="SphereMesh" id="SphereMesh_f5x54"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_y8bs1"]
+radius = 2.5
+height = 10.0
+
+[node name="Distorter" type="Node3D"]
+script = ExtResource("1_y8bs1")
+
+[node name="Body" type="GPUParticles3D" parent="."]
+layers = 4
+material_override = SubResource("StandardMaterial3D_j0oln")
+amount = 25
+process_material = SubResource("ParticleProcessMaterial_j0oln")
+draw_pass_1 = SubResource("BoxMesh_fb4sf")
+
+[node name="Body2" type="GPUParticles3D" parent="."]
+layers = 4
+material_override = SubResource("StandardMaterial3D_j0oln")
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_4y11t")
+draw_pass_1 = SubResource("BoxMesh_fb4sf")
+
+[node name="EyeOpen" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2485927, 0)
+layers = 4
+material_override = SubResource("StandardMaterial3D_fb4sf")
+process_material = SubResource("ParticleProcessMaterial_f5x54")
+draw_pass_1 = SubResource("SphereMesh_f5x54")
+
+[node name="Scream" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_efku8")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="Range" type="Area3D" parent="." groups=["Distort"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Range"]
+shape = SubResource("CapsuleShape3D_y8bs1")
+debug_color = Color(0, 1, 0, 1)

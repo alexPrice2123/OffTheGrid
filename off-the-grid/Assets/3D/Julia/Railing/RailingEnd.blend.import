@@ -40,7 +40,7 @@ materials/extract_path=""
 _subresources={
 "nodes": {
 "PATH:Cube_002": {
-"mesh_instance/layers": 5
+"mesh_instance/layers": 3
 }
 }
 }

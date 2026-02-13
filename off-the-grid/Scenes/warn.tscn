@@ -4,6 +4,9 @@
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 16.0
+distance_fade_mode = 1
+distance_fade_min_distance = 10.0
+distance_fade_max_distance = 0.0
 
 [sub_resource type="Curve" id="Curve_bjnv8"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2485294, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]

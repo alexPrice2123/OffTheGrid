@@ -47,7 +47,7 @@ _subresources={
 },
 "nodes": {
 "PATH:WideCardboardBoxOpened": {
-"mesh_instance/layers": 5
+"mesh_instance/layers": 3
 }
 }
 }

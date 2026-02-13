@@ -4,6 +4,8 @@ using System.Net;
 
 public partial class Monster : CharacterBody3D
 {
+	[Export]
+	public bool Active = true;
 	protected bool _playerSeen = false;
 	protected bool _playerHeard = false;
 	private bool _playerKnown = false;
@@ -18,6 +20,7 @@ public partial class Monster : CharacterBody3D
 	private RandomNumberGenerator _rng = new();
 	private fusePathHandler _world;
 	public Vector3 _goalPos = new Vector3(0,0,676767);
+	private Node3D _glowStick = null;
 	private int _count = 0;
 
 	// Called when the node enters the scene tree for the first time.
@@ -41,15 +44,22 @@ public partial class Monster : CharacterBody3D
 				sphere.Radius = 16; // extend the radius so that the monster remains in persuit for longer
 			}
 		}
+		else if (area is Glowstick)
+        {
+			_goalPos = area.GlobalPosition;
+			_glowStick = area;
+        }
 	}
 	private void _on_detection_body_exited(Node3D area) { if (area is Player) { _playerSeen = false; if (_detArea.Shape is SphereShape3D sphere) { sphere.Radius = 4.5f; } } }
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!Active){return;}
 		if (_world.GetNode<Player>("Player")._inTutorial || _world._isLight){ return; }
 		_count += 1;
-		if ((_goalPos - GlobalPosition).Length() <= 1)
+		if (_glowStick != null){if (_glowStick.GetNode<OmniLight3D>("Light").LightEnergy <= 10f){_glowStick = null;}}
+		if ((_goalPos - GlobalPosition).Length() <= 1 && _glowStick == null)
         {
             _goalPos = new Vector3(0,0,676767);
         }
@@ -88,7 +98,7 @@ public partial class Monster : CharacterBody3D
 	private void GetNewWanderPos()
 	{
 		float angle = (float)GD.RandRange(0, Mathf.Tau);
-        float radius = (float)GD.RandRange(0, 15);
+        float radius = (float)GD.RandRange(10, 15);
 		Vector3 randomPoint = GlobalPosition + new Vector3(Mathf.Cos(angle) * radius, 0, Mathf.Sin(angle) * radius);
 		Rid mapRid = GetParent().GetNode<NavigationRegion3D>("NavigationRegion3D").GetNavigationMap();
 		_wanderPos = NavigationServer3D.MapGetClosestPoint(mapRid, randomPoint);

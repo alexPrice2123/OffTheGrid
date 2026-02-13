@@ -64,12 +64,12 @@ public partial class fusePathHandler : Node3D
 	public override void _PhysicsProcess(double delta)
 	{
 		if (!_player._inTutorial)
-        {
-           	AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), (float)GetNode<HSlider>("Player/UI/Pause/Music").Value);
+		{
+		   	AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), (float)GetNode<HSlider>("Player/UI/Pause/Music").Value);
 			AudioServer.SetBusMute(AudioServer.GetBusIndex("Music"), (float)GetNode<HSlider>("Player/UI/Pause/Music").Value < -9);
 			AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), (float)GetNode<HSlider>("Player/UI/Pause/SFX").Value);
 			AudioServer.SetBusMute(AudioServer.GetBusIndex("SFX"), (float)GetNode<HSlider>("Player/UI/Pause/SFX").Value < -9); 
-        }
+		}
 		_count += 2;
 		if (_player._collectedFuses >= _maxFuseOG+1 && !_isLight)
 		{

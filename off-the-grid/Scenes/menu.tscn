@@ -176,8 +176,9 @@ render_priority = 0
 shader = ExtResource("2_wbdvm")
 shader_parameter/base_texture = SubResource("ViewportTexture_wbdvm")
 shader_parameter/hue = Color(0.98039216, 0.7529412, 0.7529412, 1)
-shader_parameter/flip = false
 shader_parameter/run = true
+shader_parameter/disturbed = 0.0
+shader_parameter/saturation = 1.0
 shader_parameter/uv_mult = 30.0
 shader_parameter/lines_speed = 1.99999995902132
 shader_parameter/line_alpha = 0.5
@@ -316,6 +317,7 @@ mouse_filter = 2
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_wbdvm")
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 

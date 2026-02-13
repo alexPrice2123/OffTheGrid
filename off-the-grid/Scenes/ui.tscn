@@ -417,6 +417,19 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Text1" type="Label" parent="Tutorial"]
+z_index = 7
+layout_mode = 0
+offset_left = 271.0
+offset_top = 42.0
+offset_right = 880.0
+offset_bottom = 611.0
+theme = SubResource("Theme_smcll")
+theme_override_font_sizes/font_size = 40
+text = "Welcome to Display In The Dark. Your job is to restore power to your home by locating the 5 fuses around the house and placing them in the fuse box on the first floor. You can move with [WASD], toggle crouch with [C], or hold [CTRL] to crouch. Pick up and place fuses with [E]."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Text2" type="Label" parent="Tutorial"]
 z_index = 6
 layout_mode = 0
 offset_left = 271.0
@@ -425,12 +438,11 @@ offset_right = 880.0
 offset_bottom = 611.0
 theme = SubResource("Theme_smcll")
 theme_override_font_sizes/font_size = 40
-text = "Welcome to Display In The Dark. 
-Your job is to restore power to your home by locating the 5 fuses around the house and placing them in the fuse box on the first floor. You can move with [WASD], toggle crouch with [C], or hold [CTRL] to crouch. Pick up and place fuses with [E]."
+text = "You've been given a radar device that lets you see through the dark easier, but only for a little bit of time. Hold R to charge the device. Charging the device will make noise. You can change through the different cameras using [1, 2, 3]. Each camera allows you to see different things. "
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Text2" type="Label" parent="Tutorial"]
+[node name="Text3" type="Label" parent="Tutorial"]
 z_index = 5
 layout_mode = 0
 offset_left = 271.0
@@ -439,11 +451,11 @@ offset_right = 880.0
 offset_bottom = 611.0
 theme = SubResource("Theme_smcll")
 theme_override_font_sizes/font_size = 40
-text = "You've been given a radar device that lets you see through the dark easier, but only for a little bit of time. Hold [R] to charge the device. Charging the device will make noise. You can change through the different cameras using [1, 2, and 3]. Each camera allows you to see different things. "
+text = "The Green Camera shows you entire room layouts with furniture. The Blue Camera shows you nearby hiding places, and disruptive creatures. The Red Camera shows paths to nearby fuses, the fusebox location when carrying a fuse, and something sinister... It can sense you on the Red Camera. "
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Text3" type="Label" parent="Tutorial"]
+[node name="Text4" type="Label" parent="Tutorial"]
 z_index = 4
 layout_mode = 0
 offset_left = 271.0
@@ -452,11 +464,11 @@ offset_right = 880.0
 offset_bottom = 611.0
 theme = SubResource("Theme_smcll")
 theme_override_font_sizes/font_size = 40
-text = "The Green Camera shows you entire room layouts. The Blue Camera shows you nearby furniture, hiding places, and hidden detectors. The Red Camera shows the path to nearby fuses and the location of something sinister. Be aware that [it] can sense you on the Red Camera while it has power..."
+text = "While looking for the fuses, you'll feel something following you, but you won't be able to see it. Use the radar's Red Camera to your advantage. There'll also be other hidden creatures that have disruptive abilities. Use the radar's Blue Camera to clearly see them and learn what they do."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Text4" type="Label" parent="Tutorial"]
+[node name="Text5" type="Label" parent="Tutorial"]
 z_index = 3
 layout_mode = 0
 offset_left = 271.0
@@ -465,11 +477,11 @@ offset_right = 880.0
 offset_bottom = 611.0
 theme = SubResource("Theme_smcll")
 theme_override_font_sizes/font_size = 40
-text = "While looking for the fuses, you'll feel something following you, but won't be able to see it. Use the radar's Red Camera to your advantage. There'll also be other hidden creatures that alert others when it sees you. Use the radar's Blue Camera to learn what they do. "
+text = "You've also been given a re-usable glow stick that allows you to light up a small part of a room, or could also be used to distract unwanted attention. It takes some time to charge, so check if it's fully ready on the radar. Throw it in a direction by pressing [Q]. "
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="Text5" type="Label" parent="Tutorial"]
+[node name="Text6" type="Label" parent="Tutorial"]
 z_index = 2
 layout_mode = 0
 offset_left = 271.0

@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://c1ojgnsw74ubs"]
+
+[ext_resource type="Texture2D" uid="uid://t4bqg8si587o" path="res://Assets/3D/Maddy/Wardrobe/wardrobe_WardrobeMain_BaseColor.png" id="1_bnvvr"]
+[ext_resource type="Texture2D" uid="uid://bsc0iaa5hhwuw" path="res://Assets/3D/Maddy/Wardrobe/wardrobe_WardrobeMain_Normal.png" id="2_8ql6a"]
+
+[resource]
+albedo_texture = ExtResource("1_bnvvr")
+normal_enabled = true
+normal_texture = ExtResource("2_8ql6a")

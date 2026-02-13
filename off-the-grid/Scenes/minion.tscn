@@ -4,8 +4,12 @@
 [ext_resource type="AudioStream" uid="uid://dyqesi65rfhe7" path="res://Assets/Sound/alarm.mp3" id="2_s0atx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0oln"]
+transparency = 1
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
 
 [sub_resource type="Curve" id="Curve_s0atx"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2408759, 1), 0.0, 0.0, 0, 0, Vector2(0.50121653, 0), 0.0, 0.0, 0, 0, Vector2(0.7518248, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -25,9 +29,13 @@ scale_curve = SubResource("CurveTexture_f5x54")
 [sub_resource type="BoxMesh" id="BoxMesh_fb4sf"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fb4sf"]
+transparency = 1
 albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
 
 [sub_resource type="Curve" id="Curve_fb4sf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -51,6 +59,9 @@ transparency = 1
 albedo_color = Color(1, 0, 0, 0.39215687)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
 
 [sub_resource type="PrismMesh" id="PrismMesh_f5x54"]
 

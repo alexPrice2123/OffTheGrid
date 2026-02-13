@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://3gshr0ttb3l2"]
+[gd_scene load_steps=23 format=3 uid="uid://3gshr0ttb3l2"]
 
 [ext_resource type="Script" uid="uid://bl5pvyuct4o04" path="res://Scripts/Monster.cs" id="1_xhoai"]
 
@@ -8,10 +8,14 @@ radius = 0.75
 [sub_resource type="SphereShape3D" id="SphereShape3D_xhoai"]
 radius = 7.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhoai"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fb4sf"]
+transparency = 1
 albedo_color = Color(1, 0, 0, 1)
 emission_enabled = true
 emission = Color(1, 0, 0, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
 
 [sub_resource type="Curve" id="Curve_i44lo"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.4970588, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -20,7 +24,7 @@ point_count = 3
 [sub_resource type="CurveTexture" id="CurveTexture_xhoai"]
 curve = SubResource("Curve_i44lo")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hyvb2"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xhoai"]
 radial_velocity_min = 0.09997764
 radial_velocity_max = 0.09997764
 gravity = Vector3(0, 0, 0)
@@ -30,9 +34,21 @@ scale_curve = SubResource("CurveTexture_xhoai")
 
 [sub_resource type="SphereMesh" id="SphereMesh_ujuxu"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cyu0s"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i44lo"]
+radial_velocity_min = 0.09997764
+radial_velocity_max = 0.09997764
+gravity = Vector3(0, 0, 0)
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_xhoai")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j0oln"]
+transparency = 1
 shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
+distance_fade_mode = 1
+distance_fade_min_distance = 30.0
+distance_fade_max_distance = 0.0
 
 [sub_resource type="Curve" id="Curve_6ks7b"]
 _data = [Vector2(0, 0.0055971146), 0.0, 0.0, 0, 0, Vector2(0.25304136, 0.7635262), 0.0, 0.0, 0, 0, Vector2(0.459854, 0.7392725), 0.0, 0.0, 0, 0, Vector2(0.61800486, 0.47248137), 0.47020227, 0.47020227, 0, 0, Vector2(0.7639903, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -41,7 +57,7 @@ point_count = 6
 [sub_resource type="CurveTexture" id="CurveTexture_i44lo"]
 curve = SubResource("Curve_6ks7b")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bua6k"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hyvb2"]
 radial_velocity_min = 0.19997764
 radial_velocity_max = 0.29997763
 gravity = Vector3(0, 1, 0)
@@ -54,7 +70,7 @@ scale_curve = SubResource("CurveTexture_i44lo")
 [sub_resource type="CurveTexture" id="CurveTexture_hyvb2"]
 curve = SubResource("Curve_6ks7b")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ko0n3"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ujuxu"]
 flatness = 1.0
 initial_velocity_min = -2.0
 initial_velocity_max = -2.0
@@ -72,7 +88,7 @@ point_count = 13
 [sub_resource type="CurveTexture" id="CurveTexture_ujuxu"]
 curve = SubResource("Curve_yc8mp")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1mxyj"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cyu0s"]
 spread = 10.0
 initial_velocity_min = 2.0
 initial_velocity_max = 2.0
@@ -85,7 +101,33 @@ scale_min = 0.29999998
 scale_max = 0.29999998
 scale_curve = SubResource("CurveTexture_ujuxu")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_dfc53"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6ks7b"]
+spread = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -1, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = 3.9999976
+tangential_accel_max = 3.9999976
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_ujuxu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bua6k"]
+spread = 10.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+gravity = Vector3(0, -1, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+tangential_accel_min = -4.0000024
+tangential_accel_max = -4.0000024
+scale_min = 0.29999998
+scale_max = 0.29999998
+scale_curve = SubResource("CurveTexture_ujuxu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_auidl"]
 spread = 10.0
 initial_velocity_min = 2.0
 initial_velocity_max = 2.0
@@ -117,71 +159,71 @@ transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 0, -
 [node name="Eye1" type="GPUParticles3D" parent="Monster"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3283291, 1.5066206, 0.2600155)
 layers = 8
-material_override = SubResource("StandardMaterial3D_xhoai")
+material_override = SubResource("StandardMaterial3D_fb4sf")
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_hyvb2")
+process_material = SubResource("ParticleProcessMaterial_xhoai")
 draw_pass_1 = SubResource("SphereMesh_ujuxu")
 
 [node name="Eye2" type="GPUParticles3D" parent="Monster"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3283291, 1.5066206, -0.23557281)
 layers = 8
-material_override = SubResource("StandardMaterial3D_xhoai")
+material_override = SubResource("StandardMaterial3D_fb4sf")
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_hyvb2")
+process_material = SubResource("ParticleProcessMaterial_i44lo")
 draw_pass_1 = SubResource("SphereMesh_ujuxu")
 
 [node name="Body" type="GPUParticles3D" parent="Monster"]
 layers = 8
-material_override = SubResource("StandardMaterial3D_cyu0s")
+material_override = SubResource("StandardMaterial3D_j0oln")
 amount = 25
 lifetime = 2.0
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_bua6k")
+process_material = SubResource("ParticleProcessMaterial_hyvb2")
 draw_pass_1 = SubResource("BoxMesh_auidl")
 
 [node name="Legs" type="GPUParticles3D" parent="Monster"]
 layers = 8
-material_override = SubResource("StandardMaterial3D_cyu0s")
+material_override = SubResource("StandardMaterial3D_j0oln")
 amount = 25
 lifetime = 0.5
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_ko0n3")
+process_material = SubResource("ParticleProcessMaterial_ujuxu")
 draw_pass_1 = SubResource("BoxMesh_auidl")
 
 [node name="LeftArm" type="GPUParticles3D" parent="Monster"]
 transform = Transform3D(-3.7855177e-08, 0.49999988, 0.8660254, 2.1855692e-08, 0.8660254, -0.49999988, -1, 0, -4.371139e-08, 0, 0.83827686, 0)
 layers = 8
-material_override = SubResource("StandardMaterial3D_cyu0s")
+material_override = SubResource("StandardMaterial3D_j0oln")
 amount = 100
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_1mxyj")
+process_material = SubResource("ParticleProcessMaterial_cyu0s")
 draw_pass_1 = SubResource("BoxMesh_auidl")
 
 [node name="RightArm" type="GPUParticles3D" parent="Monster"]
 transform = Transform3D(1.1356552e-07, 0.49999988, -0.8660254, -6.556706e-08, 0.8660254, 0.49999988, 1, 0, 1.3113416e-07, 0, 0.83827686, 0)
 layers = 8
-material_override = SubResource("StandardMaterial3D_cyu0s")
+material_override = SubResource("StandardMaterial3D_j0oln")
 amount = 100
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_dfc53")
+process_material = SubResource("ParticleProcessMaterial_6ks7b")
 draw_pass_1 = SubResource("BoxMesh_auidl")
 
 [node name="LeftHorn" type="GPUParticles3D" parent="Monster"]
 transform = Transform3D(1.0927838e-08, -0.43301272, 0.24999999, -1.892758e-08, 0.24999999, 0.43301272, -0.5, -1.8927576e-08, -1.0927846e-08, 0, 1.8382769, 0)
 layers = 8
-material_override = SubResource("StandardMaterial3D_cyu0s")
+material_override = SubResource("StandardMaterial3D_j0oln")
 amount = 100
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_1mxyj")
+process_material = SubResource("ParticleProcessMaterial_bua6k")
 draw_pass_1 = SubResource("BoxMesh_auidl")
 
 [node name="RightHorn" type="GPUParticles3D" parent="Monster"]
 transform = Transform3D(5.8607647e-08, -0.43301272, -0.24999999, 5.6782735e-08, 0.24999999, -0.43301272, 0.5, 2.2364347e-08, 7.847911e-08, 0, 1.8382769, 0)
 layers = 8
-material_override = SubResource("StandardMaterial3D_cyu0s")
+material_override = SubResource("StandardMaterial3D_j0oln")
 amount = 100
 local_coords = true
-process_material = SubResource("ParticleProcessMaterial_dfc53")
+process_material = SubResource("ParticleProcessMaterial_auidl")
 draw_pass_1 = SubResource("BoxMesh_auidl")
 
 [connection signal="body_entered" from="IDetection" to="." method="_on_detection_body_entered"]
